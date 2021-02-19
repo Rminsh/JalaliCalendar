@@ -1,0 +1,396 @@
+{
+
+  "persianCalendar": [
+
+    { "holiday": true, "month": 1, "day": 1, "title": "آغاز نوروز" },
+
+    { "holiday": true, "month": 1, "day": 2, "title": "عید نوروز" },
+
+    { "holiday": true, "month": 1, "day": 3, "title": "عید نوروز" },
+
+    { "holiday": true, "month": 1, "day": 4, "title": "عید نوروز" },
+
+    { "holiday": false, "month": 1, "day": 6, "title": "ولادت زرتشت" },
+
+    { "holiday": false, "month": 1, "day": 7, "title": "روز هنرهای نمایشی" },
+
+    { "holiday": true, "month": 1, "day": 13, "title": "روز طبیعت" },
+
+    { "holiday": false, "month": 1, "day": 15, "title": "روز ذخایر ژنتیکی و زیستی" },
+
+    { "holiday": false, "month": 1, "day": 18, "title": "روز سلامتی" },
+
+    { "holiday": false, "month": 1, "day": 25, "title": "روز بزرگداشت عطّار نیشابوری" },
+
+    { "holiday": false, "month": 2, "day": 1, "title": "روز بزرگداشت سعدی" },
+
+    { "holiday": false, "month": 2, "day": 2, "title": "روز زمین پاک" },
+
+    { "holiday": false, "month": 2, "day": 3, "title": "روز معماری" },
+
+    { "holiday": false, "month": 2, "day": 7, "title": "روز ایمنی حمل و نقل" },
+
+    { "holiday": false, "month": 2, "day": 9, "title": "روز شوراها" },
+
+    { "holiday": false, "month": 2, "day": 10, "title": "روز ملی خلیج فارس" },
+
+    { "holiday": false, "month": 2, "day": 12, "title": "روز معلم" },
+
+    { "holiday": false, "month": 2, "day": 18, "title": "روز بیماری‌های خاص و صعب‌العلاج" },
+
+    { "holiday": false, "month": 2, "day": 19, "title": "روز اسناد ملی و میراث مکتوب" },
+
+    { "holiday": false, "month": 2, "day": 25, "title": "روز پاسداشت زبان فارسی و بزرگداشت حکیم ابوالقاسم فردوسی" },
+
+    { "holiday": false, "month": 2, "day": 27, "title": "روز ارتباطات و روابط عمومی" },
+
+    { "holiday": false, "month": 2, "day": 28, "title": "روز بزرگداشت حکیم عمر خیام" },
+
+    { "holiday": false, "month": 2, "day": 30, "title": "روز ملی جمعیت" },
+
+    { "holiday": false, "month": 2, "day": 31, "title": "روز اهدای عضو، اهدای زندگی" },
+
+    { "holiday": false, "month": 3, "day": 1, "title": "روز بهره‌وری و بهینه‌سازی مصرف" },
+
+    { "holiday": false, "month": 3, "day": 20, "title": "روز صنایع دستی" },
+
+    { "holiday": false, "month": 4, "day": 1, "title": "روز اصناف" },
+
+    { "holiday": false, "month": 4, "day": 10, "title": "روز صنعت و معدن" },
+
+    { "holiday": false, "month": 4, "day": 10, "title": "روز بزرگداشت صائب تبریزی" },
+
+    { "holiday": false, "month": 4, "day": 14, "title": "روز قلم" },
+
+    { "holiday": false, "month": 4, "day": 14, "title": "روز شهرداری و دهیاری" },
+
+    { "holiday": false, "month": 4, "day": 16, "title": "روز مالیات" },
+
+    { "holiday": false, "month": 4, "day": 18, "title": "روز ادبیات کودکان و نوجوانان" },
+
+    { "holiday": false, "month": 5, "day": 4, "title": "روز بزرگداشت شیخ صفی‌الدین اردبیلی" },
+
+    { "holiday": false, "month": 5, "day": 6, "title": "روز کارآفرینی و آموزش‌های فنّی‌و‌حرفه‌ای" },
+
+    { "holiday": false, "month": 5, "day": 9, "title": "روز اهدای خون" },
+
+    { "holiday": false, "month": 5, "day": 17, "title": "روز خبرنگار" },
+
+    { "holiday": false, "month": 5, "day": 21, "title": "روز حمایت از صنایع کوچک" },
+
+    { "holiday": false, "month": 5, "day": 22, "title": "روز تشکّل‌ها و مشارکت‌های اجتماعی" },
+
+    { "holiday": false, "month": 6, "day": 1, "title": "روز بزرگداشت ابوعلی سینا" },
+
+    { "holiday": false, "month": 6, "day": 1, "title": "روز پزشک" },
+
+    { "holiday": false, "month": 6, "day": 4, "title": "روز کارمند" },
+
+    { "holiday": false, "month": 6, "day": 5, "title": "روز بزرگداشت محمّدبن زکریای رازی" },
+
+    { "holiday": false, "month": 6, "day": 5, "title": "روز داروسازی" },
+
+    { "holiday": false, "month": 6, "day": 5, "title": "روز کشتی" },
+
+    { "holiday": false, "month": 6, "day": 11, "title": "روز صنعت چاپ" },
+
+    { "holiday": false, "month": 6, "day": 12, "title": "روز بهوَرز" },
+
+    { "holiday": false, "month": 6, "day": 13, "title": "روز تعاون" },
+
+    { "holiday": false, "month": 6, "day": 13, "title": "روز بزرگداشت ابوریحان بیرونی" },
+
+    { "holiday": false, "month": 6, "day": 13, "title": "روز مردم‌شناسی" },
+
+    { "holiday": false, "month": 6, "day": 21, "title": "روز سینما" },
+
+    { "holiday": false, "month": 6, "day": 27, "title": "روز شعر و ادب فارسی" },
+
+    { "holiday": false, "month": 6, "day": 27, "title": "روز بزرگداشت استاد سید‌ محمّد‌حسین شهریار" },
+
+    { "holiday": false, "month": 7, "day": 5, "title": "روز گردشگری" },
+
+    { "holiday": false, "month": 7, "day": 7, "title": "روز آتش‌نشانی و ایمنی" },
+
+    { "holiday": false, "month": 7, "day": 7, "title": "روز بزرگداشت شمس" },
+
+    { "holiday": false, "month": 7, "day": 8, "title": "روز بزرگداشت مولوی" },
+
+    { "holiday": false, "month": 7, "day": 14, "title": "روز دامپزشکی" },
+
+    { "holiday": false, "month": 7, "day": 15, "title": "روز روستا و عشایر" },
+
+    { "holiday": false, "month": 7, "day": 20, "title": "روز بزرگداشت حافظ" },
+
+    { "holiday": false, "month": 7, "day": 24, "title": "روز ملی پارالمپیک" },
+
+    { "holiday": false, "month": 7, "day": 24, "title": "روز پیوند اولیا و مربیان" },
+
+    { "holiday": false, "month": 7, "day": 26, "title": "روز تربیت‌بدنی و ورزش" },
+
+    { "holiday": false, "month": 7, "day": 29, "title": "روز صادرات" },
+
+    { "holiday": false, "month": 8, "day": 1, "title": "روز آمار و برنامه‌ریزی" },
+
+    { "holiday": false, "month": 8, "day": 8, "title": "روز پدافند غیرعامل" },
+
+    { "holiday": false, "month": 8, "day": 14, "title": "روز فرهنگ عمومی" },
+
+    { "holiday": false, "month": 8, "day": 18, "title": "روز کیفیت" },
+
+    { "holiday": false, "month": 8, "day": 24, "title": "روز کتاب، کتاب‌خوانی و کتابدار" },
+
+    { "holiday": false, "month": 9, "day": 13, "title": "روز بیمه" },
+
+    { "holiday": false, "month": 9, "day": 16, "title": "روز دانشجو" },
+
+    { "holiday": false, "month": 9, "day": 25, "title": "روز پژوهش" },
+
+    { "holiday": false, "month": 9, "day": 26, "title": "روز حمل‌و‌نقل و رانندگان" },
+
+    { "holiday": false, "month": 9, "day": 30, "title": "شب یلدا (چله)" },
+
+    { "holiday": false, "month": 10, "day": 3, "title": "روز ثبت‌احوال" },
+
+    { "holiday": false, "month": 10, "day": 5, "title": "روز ایمنی در برابر زلزله و کاهش اثرات بلایای طبیعی" },
+
+    { "holiday": false, "month": 10, "day": 8, "title": "روز صنعت پتروشیمی" },
+
+    { "holiday": false, "month": 11, "day": 14, "title": "روز فنّاوری فضایی" },
+
+    { "holiday": false, "month": 11, "day": 19, "title": "روز نیروی هوایی" },
+
+    { "holiday": false, "month": 11, "day": 29, "title": "روز اقتصاد مقاومتی و کارآفرینی" },
+
+    { "holiday": false, "month": 12, "day": 5, "title": "روز بزرگداشت خواجه‌نصیرالدّین طوسی" },
+
+    { "holiday": false, "month": 12, "day": 5, "title": "روز مهندسی" },
+
+    { "holiday": false, "month": 12, "day": 9, "title": "روز حمایت از حقوق مصرف‌کنندگان" },
+
+    { "holiday": false, "month": 12, "day": 14, "title": "روز احسان و نیکوکاری" },
+
+    { "holiday": false, "month": 12, "day": 15, "title": "روز درختکاری" },
+
+    { "holiday": false, "month": 12, "day": 21, "title": "روز بزرگداشت نظامی گنجوی" },
+
+    { "holiday": false, "month": 12, "day": 25, "title": "روز بزرگداشت پروین اعتصامی" },
+
+    { "holiday": true, "month": 12, "day": 29, "title": "روز ملّی‌شدن صنعت نفت" },
+
+
+    { "holiday": false, "month": 1, "day": 6, "title": "روز امید، روز شادباش‌نویسی" },
+
+    { "holiday": false, "month": 1, "day": 10, "title": "جشن آبانگاه" },
+
+    { "holiday": false, "month": 1, "day": 13, "title": "جشن سیزده‌بدر" },
+
+    { "holiday": false, "month": 1, "day": 17, "title": "سروش‌روز، جشن سروشگان" },
+
+    { "holiday": false, "month": 1, "day": 19, "title": "فرورین‌روز، جشن فروردینگان" },
+
+    { "holiday": false, "month": 2, "day": 2, "title": "جشن گیاه‌آوری" },
+
+    { "holiday": false, "month": 2, "day": 3, "title": "اردیبهشت‌روز، جشن اردیبهشتگان" },
+
+    { "holiday": false, "month": 2, "day": 10, "title": "جشن چهلم نوروز" },
+
+    { "holiday": false, "month": 2, "day": 15, "title": "گاهنبار میدیوزَرِم، جشن میانهٔ بهار، جشن بهاربُد / روز پیام‌آوری زرتشت" },
+
+    { "holiday": false, "month": 3, "day": 1, "title": "ارغاسوان، جشن گرما" },
+
+    { "holiday": false, "month": 3, "day": 6, "title": "خردادروز، جشن خردادگان" },
+
+    { "holiday": false, "month": 4, "day": 1, "title": "جشن آب‌پاشونک، جشن آغاز تابستان / سال نو در گاهشماری گاهنباری / دیدار طلوع خورشید در تقویم آفتابی چارتاقی نیاسر" },
+
+    { "holiday": false, "month": 4, "day": 6, "title": "جشن نیلوفر" },
+
+    { "holiday": false, "month": 4, "day": 13, "title": "تیرروز، جشن تیرگان" },
+
+    { "holiday": false, "month": 4, "day": 15, "title": "جشن خام‌خواری" },
+
+    { "holiday": false, "month": 5, "day": 7, "title": "مردادروز، جشن مردادگان" },
+
+    { "holiday": false, "month": 5, "day": 10, "title": "جشن چلهٔ تابستان" },
+
+    { "holiday": false, "month": 5, "day": 15, "title": "گاهنبار میدیوشِم، جشن میانهٔ تابستان" },
+
+    { "holiday": false, "month": 5, "day": 18, "title": "جشن مَی‌خواره" },
+
+    { "holiday": false, "month": 6, "day": 1, "title": "فغدیه، جشن خنکی هوا" },
+
+    { "holiday": false, "month": 6, "day": 3, "title": "جشن کشمین" },
+
+    { "holiday": false, "month": 6, "day": 4, "title": "شهریورروز، جشن شهریورگان / زادروز داراب (کوروش) / عروج مانی" },
+
+    { "holiday": false, "month": 6, "day": 8, "title": "خزان‌جشن" },
+
+    { "holiday": false, "month": 6, "day": 15, "title": "بازارجشن" },
+
+    { "holiday": false, "month": 6, "day": 31, "title": "گاهنبار پَتیَه‌شَهیم، جشن پایان تابستان" },
+
+    { "holiday": false, "month": 7, "day": 1, "title": "جشن میتراکانا / سال نو هخامنشی" },
+
+    { "holiday": false, "month": 7, "day": 12, "title": "آیین قالیشویان اردهال، بازماندی از تیرگان" },
+
+    { "holiday": false, "month": 7, "day": 13, "title": "تیرروز، جشن تیرروزی" },
+
+    { "holiday": false, "month": 7, "day": 16, "title": "مهرروز، جشن مهرگان" },
+
+    { "holiday": false, "month": 7, "day": 21, "title": "رام‌روز، جشن رام‌روزی / جشن پیروزی کاوه و فریدون" },
+
+    { "holiday": false, "month": 8, "day": 7, "title": "روز کوروش بزرگ" },
+
+    { "holiday": false, "month": 8, "day": 10, "title": "آبان‌روز، جشن آبانگان" },
+
+    { "holiday": false, "month": 8, "day": 15, "title": "گاهنبار اَیاثرَم، جشن میانهٔ پاییز" },
+
+    { "holiday": false, "month": 9, "day": 1, "title": "آذرجشن" },
+
+    { "holiday": false, "month": 9, "day": 9, "title": "آذرروز، جشن آذرگان" },
+
+    { "holiday": false, "month": 9, "day": 30, "title": "گاهنبار میدیارِم، جشن میانهٔ سال گاهنباری (از مبدأ آغاز تابستان)" },
+
+    { "holiday": false, "month": 10, "day": 1, "title": "روز میلاد خورشید، جشن خرم‌روز / نخستین جشن دیگان / دیدار طلوع خورشید در تقویم آفتابی چارتاقی نیاسر" },
+
+    { "holiday": false, "month": 10, "day": 5, "title": "بازارجشن" },
+
+    { "holiday": false, "month": 10, "day": 8, "title": "دی‌به‌آذرروز، دومین جشن دیگان" },
+
+    { "holiday": false, "month": 10, "day": 14, "title": "سیرسور، جشن گیاه‌خواری" },
+
+    { "holiday": false, "month": 10, "day": 15, "title": "جشن پیکرتراشی / دی‌به‌مهرروز، سومین جشن دیگان" },
+
+    { "holiday": false, "month": 10, "day": 16, "title": "جشن درامزینان، جشن درفش‌ها" },
+
+    { "holiday": false, "month": 10, "day": 23, "title": "دی‌به‌دین‌روز، چهارمین جشن دیگان" },
+
+    { "holiday": false, "month": 11, "day": 1, "title": "زادروز فردوسی" },
+
+    { "holiday": false, "month": 11, "day": 2, "title": "بهمن‌روز، جشن بهمنگان" },
+
+    { "holiday": false, "month": 11, "day": 4, "title": "شهریورروز، آغاز پادشاهی داراب (کوروش)" },
+
+    { "holiday": false, "month": 11, "day": 5, "title": "جشن نوسَره" },
+
+    { "holiday": false, "month": 11, "day": 10, "title": "آبان‌روز، جشن سَدَه، آتش‌افروزی بر بام‌ها / نمایش‌بازی همگانی" },
+
+    { "holiday": false, "month": 11, "day": 15, "title": "جشن میانهٔ زمستان" },
+
+    { "holiday": false, "month": 11, "day": 22, "title": "بادروز، جشن بادروزی" },
+
+    { "holiday": false, "month": 12, "day": 1, "title": "جشن اسفندی / جشن آبسالان، بهارجشن / نمایش‌بازی همگانی" },
+
+    { "holiday": false, "month": 12, "day": 5, "title": "اسفندروز، جشن اسفندگان، گرامیداشت زمین و بانوان / جشن برزگران" },
+
+    { "holiday": false, "month": 12, "day": 10, "title": "جشن وخشنکام" },
+
+    { "holiday": false, "month": 12, "day": 19, "title": "جشن نوروز رودها" },
+
+    { "holiday": false, "month": 12, "day": 20, "title": "جشن گلدان" },
+
+    { "holiday": false, "month": 12, "day": 25, "title": "هزارهٔ شاهنامه، هزارمین سالگرد پایان سرایش شاهنامهٔ فردوسی" },
+
+    { "holiday": false, "month": 12, "day": 26, "title": "فروردگان" },
+
+    { "holiday": false, "month": 12, "day": 29, "title": "گاهنبار هَمَسپَتمَدَم، جشن پایان زمستان (در آخرین روز سال) / جشن اوشیدر (نجات‌بخش ایرانی) در دریاچهٔ هامون و کوه خواجه / آتش‌افروزی بر بام‌ها در استقبال از نوروز" },
+
+    { "holiday": false, "month": 1, "day": 6, "title": "روز تولد زرتشت" },
+
+    { "holiday": false, "month": 10, "day": 5, "title": "روز درگذشت زرتشت" }
+  ],
+
+  "gregorianCalendar": [
+
+    { "month": 1, "day": 1, "title": "آغاز سال میلادی" },
+    { "month": 1, "day": 26, "title": "روز جهانی گمرک" },
+    { "month": 3, "day": 22, "title": "روز جهانی آب" },
+    { "month": 3, "day": 23, "title": "روز جهانی هواشناسی" },
+    { "month": 5, "day": 1, "title": "روز جهانی کار و کارگر" },
+    { "month": 5, "day": 5, "title": "روز جهانی ماما" },
+    { "month": 5, "day": 8, "title": "روز جهانی صلیب سرخ و هلال احمر" },
+    { "month": 5, "day": 18, "title": "روز جهانی موزه و میراث فرهنگی" },
+    { "month": 5, "day": 31, "title": "روز جهانی بدون دخانیات" },
+    { "month": 6, "day": 5, "title": "روز جهانی محیط زیست" },
+    { "month": 6, "day": 17, "title": "روز جهانی بیابان‌زدایی" },
+    { "month": 6, "day": 26, "title": "روز جهانی مبارزه با مواد مخدر" },
+    { "month": 8, "day": 1, "title": "روز جهانی شیر مادر" },
+    { "month": 8, "day": 6, "title": "انفجار بمب اتمی آمریکا در هیروشیما با بیش از ۱۶۰ هزار کشته و مجروح (۱۹۴۵ میلادی)" },
+    { "month": 8, "day": 21, "title": "روز جهانی مسجد" },
+    { "month": 9, "day": 27, "title": "روز جهانی جهانگردی" },
+    { "month": 9, "day": 30, "title": "روز جهانی دریانوردی" },
+    { "month": 9, "day": 30, "title": "روز جهانی ناشنوایان" },
+    { "month": 10, "day": 1, "title": "روز جهانی سالمندان" },
+    { "month": 10, "day": 8, "title": "روز جهانی کودک" },
+    { "month": 10, "day": 9, "title": "روز جهانی پست" },
+    { "month": 10, "day": 14, "title": "روز جهانی استاندارد" },
+    { "month": 10, "day": 15, "title": "روز جهانی نابینایان (عصای سفید)" },
+    { "month": 10, "day": 16, "title": "روز جهانی غذا" },
+    { "month": 11, "day": 10, "title": "روز جهانی علم در خدمت صلح و توسعه" },
+    { "month": 12, "day": 1, "title": "روز جهانی مبارزه با ایدز" },
+    { "month": 12, "day": 3, "title": "روز جهانی معلولان" },
+    { "month": 12, "day": 7, "title": "روز جهانی هواپیمایی" },
+    { "month": 12, "day": 18, "title": "روز جهانی عاری از خشونت و افراطی‌گری" },
+    { "month": 12, "day": 25, "title": "ولادت حضرت عیسی مسیح (ع)" },
+
+    { "month": 1, "day": 4, "title": "روز جهانی بریل" },
+    { "month": 1, "day": 24, "title": "روز جهانی آموزش" },
+    { "month": 2, "day": 4, "title": "روز جهانی سرطان" },
+    { "month": 2, "day": 6, "title": "روز جهانی مبارزه با ناقص‌سازی زنان" },
+    { "month": 2, "day": 10, "title": "روز جهانی حبوبات" },
+    { "month": 2, "day": 11, "title": "روز جهانی زن و دختر در علم" },
+    { "month": 2, "day": 13, "title": "روز جهانی رادیو" },
+    { "month": 2, "day": 20, "title": "روز جهانی عدالت اجتماعی" },
+    { "month": 2, "day": 21, "title": "روز جهانی زبان مادری" },
+    { "month": 3, "day": 1, "title": "روز جهانی بدون تبعیض" },
+    { "month": 3, "day": 3, "title": "روز جهانی حیات وحش" },
+    { "month": 3, "day": 8, "title": "روز جهانی زنان" },
+    { "month": 3, "day": 20, "title": "روز جهانی شادی" },
+    { "month": 3, "day": 21, "title": "روز جهانی شعر" },
+    { "month": 3, "day": 21, "title": "روز جهانی سندروم داون" },
+    { "month": 3, "day": 21, "title": "روز بین‌المللی جنگل‌ها" },
+    { "month": 3, "day": 24, "title": "روز جهانی سل" },
+    { "month": 3, "day": 24, "title": "روز بین‌المللی حق بر صحت و درستی دربارهٔ نقض فاحش حقوق بشر و منزلت قربانیان" },
+    { "month": 3, "day": 25, "title": "روز بین‌المللی یادبود قربانیان بردگی و تجارت برده از آن سوی اقیانوس اطلس" },
+    { "month": 4, "day": 7, "title": "روز جهانی سلامت" },
+    { "month": 4, "day": 22, "title": "روز جهانی زمین پاک" },
+    { "month": 4, "day": 23, "title": "روز جهانی کتاب و حق مؤلف" },
+    { "month": 4, "day": 25, "title": "روز جهانی مالاریا" },
+    { "month": 4, "day": 27, "title": "روز جهانی گرافیک" },
+    { "month": 4, "day": 28, "title": "روز جهانی روان‌شناس و مشاور" },
+    { "month": 5, "day": 3, "title": "روز جهانی آزادی مطبوعات" },
+    { "month": 5, "day": 12, "title": "روز جهانی پرستار" },
+    { "month": 5, "day": 15, "title": "روز جهانی خانواده" },
+    { "month": 5, "day": 20, "title": "روز جهانی زنبور" },
+    { "month": 5, "day": 29, "title": "روز جهانی حافظان صلح ملل متحد" },
+    { "month": 6, "day": 1, "title": "روز جهانی والدین" },
+    { "month": 6, "day": 10, "title": "روز جهانی صنایع دستی" },
+    { "month": 6, "day": 12, "title": "روز جهانی منع کار کودکان" },
+    { "month": 6, "day": 14, "title": "روز جهانی اهدا خون" },
+    { "month": 6, "day": 14, "title": "روز جهانی مادر" },
+    { "month": 6, "day": 26, "title": "روز جهانی قربانیان خشونت" },
+    { "month": 6, "day": 26, "title": "روز جهانی جمعیت" },
+    { "month": 8, "day": 12, "title": "روز جهانی جوانان" },
+    { "month": 8, "day": 13, "title": "روز جهانی چپ دستان" },
+    { "month": 8, "day": 19, "title": "روز جهانی انسان دوستی" },
+    { "month": 8, "day": 19, "title": "روز جهانی عکاسی" },
+    { "month": 9, "day": 8, "title": "روز جهانی باسوادی" },
+    { "month": 9, "day": 10, "title": "روز جهانی جلوگیری از خودکشی" },
+    { "month": 9, "day": 12, "title": "روز جهانی برنامه‌نویس (روز ۲۵۶م سال میلادی)" },
+    { "month": 9, "day": 21, "title": "روز جهانی آلزایمر" },
+    { "month": 9, "day": 21, "title": "روز جهانی صلح" },
+    { "month": 9, "day": 30, "title": "روز جهانی ترجمه" },
+    { "month": 10, "day": 24, "title": "روز ملل متحد و روز جهانی توسعه اطلاعات" },
+    { "month": 10, "day": 27, "title": "روز جهانی میراث سمعی و بصری" },
+    { "month": 10, "day": 27, "title": "روز جهانی کادر درمانی" },
+    { "month": 10, "day": 31, "title": "روز جهانی شهرها" },
+    { "month": 10, "day": 31, "title": "جشن هالووین" },
+    { "month": 11, "day": 6, "title": "روز بین‌المللی پیشگیری از سوء استفاده از محیط زیست در جنگ و مناقشات مسلحانه" },
+    { "month": 11, "day": 14, "title": "روز جهانی دیابت" },
+    { "month": 11, "day": 21, "title": "روز جهانی تلویزیون" },
+    { "month": 11, "day": 25, "title": "روز جهانی مبارزه با خشونت علیه زنان" },
+    { "month": 12, "day": 2, "title": "روز جهانی لغو برده‌داری" },
+    { "month": 12, "day": 10, "title": "روز جهانی حقوق بشر" },
+    { "month": 12, "day": 11, "title": "روز جهانی کوهستان" }
+  ]
+}
