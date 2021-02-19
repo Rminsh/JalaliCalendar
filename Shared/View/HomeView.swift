@@ -11,6 +11,7 @@ struct HomeView: View {
     
     let currentDate = Date()
     @State var events = [EventDetails]()
+    @State var showEventTitle = false
     
     @Environment(\.calendar) var calendar
     
@@ -80,7 +81,7 @@ struct HomeView: View {
                 }
 
                 // MARK: - EventView
-                Text("مناسبت‌های امروز")
+                Text(showEventTitle ? "مناسبت‌های امروز" : "")
                     .font(.custom("Shabnam", size: 14))
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.trailing)
@@ -100,6 +101,7 @@ struct HomeView: View {
                                     .shadow(color: Color("BackgroundColorAlt").opacity(0.7), radius: 10, x: -5, y: -5)
                             )
                             .padding(.bottom, 12)
+                            .onAppear(perform: {showEventTitle = true})
                             
                     }
                 }
