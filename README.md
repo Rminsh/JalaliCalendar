@@ -7,6 +7,13 @@ A simple persian calendar with widgets. Written in [SwiftUI](https://developer.a
 
 This project implemented in [Persian language](https://en.wikipedia.org/wiki/Persian_language) and has some [Persian events](https://en.wikipedia.org/wiki/List_of_festivals_in_Iran).
 
+## Features
+- Beautiful widgets 📅
+- Year and month's progress 🎛
+- Today's event of Jalali's calendar 📜
+- Simple and easy ✅
+- Open source 📱
+
 
 ## Previews 📱
 
