@@ -43,5 +43,5 @@ This policy is effective as of 2021-02-19
 
 **Contact Us**
 
-If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at contact@aseman.io.
+If you have any questions or suggestions about my Privacy Policy, do not hesitate to create an issue here.
 
