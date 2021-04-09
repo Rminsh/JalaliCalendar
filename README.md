@@ -7,6 +7,8 @@ A simple persian calendar with widgets. Written in [SwiftUI](https://developer.a
 
 This project implemented in [Persian language](https://en.wikipedia.org/wiki/Persian_language) and has some [Persian events](https://en.wikipedia.org/wiki/List_of_festivals_in_Iran).
 
+<a href="https://apps.apple.com/us/app/shamsi-calendar/id1561578504"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US" alt="Download on the App Store" height="48"></a>
+
 ## Features
 - Beautiful widgets 📅
 - Year and month's progress 🎛
