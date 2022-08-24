@@ -5,9 +5,8 @@
 //  Created by armin on 1/28/21.
 //
 
-import WidgetKit
 import SwiftUI
-import Intents
+import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> WidgetEntry {
@@ -20,25 +19,6 @@ struct Provider: TimelineProvider {
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-        /*
-         var entries = [SimpleEntry]()
-         let currentDate = Date()
-         let midnight = Calendar.current.startOfDay(for: currentDate)
-         let nextMidnight = Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
-         
-         for offset in 0 ..< 60 * 24 {
-         let entryDate = Calendar.current.date(byAdding: .minute, value: offset, to: midnight)!
-         entries.append(SimpleEntry(date: entryDate))
-         }
-         
-         let timeline = Timeline(entries: entries, policy: .after(nextMidnight))
-         completion(timeline)
-         */
-        
-        /** ⚠️ It seems like this update method should work
-         If at any time it encountered a problem use the above method
-         The above method is refreshing the widget every minute (Against Apple's policy for 15 min updates)
-         */
         
         let currentDate = Date()
         let midnight = Calendar.current.startOfDay(for: currentDate)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -59,9 +59,7 @@
 		C6D06E1325C2D5E600E5B217 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D06E1225C2D5E600E5B217 /* SwiftUI.framework */; };
 		C6D06E1625C2D5E600E5B217 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */; };
 		C6D06E1925C2D5E800E5B217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06E1825C2D5E800E5B217 /* Assets.xcassets */; };
-		C6D06E1B25C2D5E800E5B217 /* CalendarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1725C2D5E600E5B217 /* CalendarWidget.intentdefinition */; };
-		C6D06E1C25C2D5E800E5B217 /* CalendarWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1725C2D5E600E5B217 /* CalendarWidget.intentdefinition */; };
-		C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C6D06E0E25C2D5E600E5B217 /* CalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6D06E0E25C2D5E600E5B217 /* CalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C6E6EA2125CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
@@ -80,15 +78,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C6D06E2325C2D5E800E5B217 /* Embed App Extensions */ = {
+		C6D06E2325C2D5E800E5B217 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension.appex in Embed App Extensions */,
+				C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -111,6 +109,7 @@
 		C69CA85A25C93D4000605B28 /* Shabnam-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Thin.ttf"; sourceTree = "<group>"; };
 		C69CA85B25C93D4000605B28 /* Shabnam.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shabnam.ttf; sourceTree = "<group>"; };
 		C6A58ED025D46BAE002574B7 /* events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
+		C6CC971A28B693F100A7BA9B /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C6D06DE525C2D56200E5B217 /* JalaliCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JalaliCalendarApp.swift; sourceTree = "<group>"; };
 		C6D06DE625C2D56200E5B217 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C6D06DE725C2D56300E5B217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		C6D06E1025C2D5E600E5B217 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C6D06E1225C2D5E600E5B217 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
-		C6D06E1725C2D5E600E5B217 /* CalendarWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CalendarWidget.intentdefinition; sourceTree = "<group>"; };
 		C6D06E1825C2D5E800E5B217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D06E1A25C2D5E800E5B217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6058FDF28B6A6C700A7C19E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */,
+				C69CA84025C9296B00605B28 /* SmallCalendarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C618670925CC70CF009420F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +202,7 @@
 		C69CA85525C93D1100605B28 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6D06DE725C2D56300E5B217 /* Assets.xcassets */,
 				C6A58ED025D46BAE002574B7 /* events.json */,
 				C69CA85625C93D1A00605B28 /* Fonts */,
 			);
@@ -216,6 +224,7 @@
 		C6D06DDF25C2D56100E5B217 = {
 			isa = PBXGroup;
 			children = (
+				C6CC971A28B693F100A7BA9B /* Config.xcconfig */,
 				C6D06DE425C2D56200E5B217 /* Shared */,
 				C6D06DEE25C2D56300E5B217 /* iOS */,
 				C6D06DF525C2D56300E5B217 /* macOS */,
@@ -234,7 +243,6 @@
 				C69CA85525C93D1100605B28 /* Resources */,
 				C6215CCE25D3D816000FC294 /* View */,
 				C6D06DE525C2D56200E5B217 /* JalaliCalendarApp.swift */,
-				C6D06DE725C2D56300E5B217 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -278,10 +286,8 @@
 		C6D06E1425C2D5E600E5B217 /* CalendarWidget */ = {
 			isa = PBXGroup;
 			children = (
+				C6058FDF28B6A6C700A7C19E /* Views */,
 				C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */,
-				C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */,
-				C69CA84025C9296B00605B28 /* SmallCalendarView.swift */,
-				C6D06E1725C2D5E600E5B217 /* CalendarWidget.intentdefinition */,
 				C6D06E1825C2D5E800E5B217 /* Assets.xcassets */,
 				C6D06E1A25C2D5E800E5B217 /* Info.plist */,
 			);
@@ -307,7 +313,7 @@
 				C6D06DE825C2D56300E5B217 /* Sources */,
 				C6D06DE925C2D56300E5B217 /* Frameworks */,
 				C6D06DEA25C2D56300E5B217 /* Resources */,
-				C6D06E2325C2D5E800E5B217 /* Embed App Extensions */,
+				C6D06E2325C2D5E800E5B217 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -360,7 +366,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					C6D06DEB25C2D56300E5B217 = {
 						CreatedOnToolsVersion = 12.3;
@@ -374,7 +380,7 @@
 				};
 			};
 			buildConfigurationList = C6D06DE325C2D56100E5B217 /* Build configuration list for PBXProject "JalaliCalendar" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -447,7 +453,6 @@
 				C6D06DFA25C2D56300E5B217 /* HomeView.swift in Sources */,
 				C6215CE225D3D8F1000FC294 /* CalendarView.swift in Sources */,
 				C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */,
-				C6D06E1C25C2D5E800E5B217 /* CalendarWidget.intentdefinition in Sources */,
 				C6E6EA2F25CB191C006D9117 /* ProgressBar.swift in Sources */,
 				C618670B25CC70E4009420F2 /* Events.swift in Sources */,
 				C6215CBA25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
@@ -481,7 +486,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69CA84125C9296B00605B28 /* SmallCalendarView.swift in Sources */,
-				C6D06E1B25C2D5E800E5B217 /* CalendarWidget.intentdefinition in Sources */,
 				C6215CBC25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
 				C631928A25C9DFB000A1BA23 /* ProgressBar.swift in Sources */,
 				C6215CAE25D3C87B000FC294 /* MediumCalendarView.swift in Sources */,
@@ -509,6 +513,7 @@
 /* Begin XCBuildConfiguration section */
 		C6D06DFE25C2D56300E5B217 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -541,6 +546,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -568,6 +574,7 @@
 		};
 		C6D06DFF25C2D56300E5B217 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -600,6 +607,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -620,6 +628,7 @@
 		};
 		C6D06E0125C2D56300E5B217 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -633,9 +642,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar.app;
-				PRODUCT_NAME = JalaliCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
+				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -643,6 +655,7 @@
 		};
 		C6D06E0225C2D56300E5B217 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -656,9 +669,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar.app;
-				PRODUCT_NAME = JalaliCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
+				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -667,6 +683,7 @@
 		};
 		C6D06E0425C2D56300E5B217 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -674,6 +691,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -682,8 +700,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar;
-				PRODUCT_NAME = JalaliCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
+				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -691,6 +709,7 @@
 		};
 		C6D06E0525C2D56300E5B217 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -698,6 +717,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -706,8 +726,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar;
-				PRODUCT_NAME = JalaliCalendar;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
+				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.0;
 			};
@@ -715,6 +735,7 @@
 		};
 		C6D06E2125C2D5E800E5B217 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -727,7 +748,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar.app.CalendarWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID).CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -738,6 +759,7 @@
 		};
 		C6D06E2225C2D5E800E5B217 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -750,7 +772,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shalchian.JalaliCalendar.app.CalendarWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID).CalendarWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
