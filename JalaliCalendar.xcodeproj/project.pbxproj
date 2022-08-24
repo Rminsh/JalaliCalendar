@@ -29,7 +29,10 @@
 		C6215CE225D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
-		C631928A25C9DFB000A1BA23 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* ProgressBar.swift */; };
+		C631928A25C9DFB000A1BA23 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* GaugeView.swift */; };
+		C686C59628B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
+		C686C59728B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
+		C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
 		C69CA84125C9296B00605B28 /* SmallCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CA84025C9296B00605B28 /* SmallCalendarView.swift */; };
 		C69CA85C25C93D4000605B28 /* Shabnam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85725C93D4000605B28 /* Shabnam-Light.ttf */; };
 		C69CA85D25C93D4000605B28 /* Shabnam-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85725C93D4000605B28 /* Shabnam-Light.ttf */; };
@@ -63,8 +66,8 @@
 		C6E6EA2125CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
-		C6E6EA2B25CB191B006D9117 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* ProgressBar.swift */; };
-		C6E6EA2F25CB191C006D9117 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* ProgressBar.swift */; };
+		C6E6EA2B25CB191B006D9117 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* GaugeView.swift */; };
+		C6E6EA2F25CB191C006D9117 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* GaugeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +103,9 @@
 		C6215CCF25D3D82C000FC294 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		C6215CDA25D3D8C3000FC294 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		C6215CE125D3D8F1000FC294 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		C631928925C9DFB000A1BA23 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		C631928925C9DFB000A1BA23 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
+		C686C59528B6ACDD00F70672 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		C69CA84025C9296B00605B28 /* SmallCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCalendarView.swift; sourceTree = "<group>"; };
 		C69CA85725C93D4000605B28 /* Shabnam-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light.ttf"; sourceTree = "<group>"; };
 		C69CA85825C93D4000605B28 /* Shabnam-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Medium.ttf"; sourceTree = "<group>"; };
@@ -298,7 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				C6215CD925D3D8B1000FC294 /* Calendar */,
-				C631928925C9DFB000A1BA23 /* ProgressBar.swift */,
+				C631928925C9DFB000A1BA23 /* GaugeView.swift */,
+				C686C59528B6ACDD00F70672 /* CustomFont.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -453,11 +458,12 @@
 				C6D06DFA25C2D56300E5B217 /* HomeView.swift in Sources */,
 				C6215CE225D3D8F1000FC294 /* CalendarView.swift in Sources */,
 				C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */,
-				C6E6EA2F25CB191C006D9117 /* ProgressBar.swift in Sources */,
+				C6E6EA2F25CB191C006D9117 /* GaugeView.swift in Sources */,
 				C618670B25CC70E4009420F2 /* Events.swift in Sources */,
 				C6215CBA25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
 				C6215CD025D3D82C000FC294 /* WeekView.swift in Sources */,
 				C6215CC125D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
+				C686C59628B6ACDD00F70672 /* CustomFont.swift in Sources */,
 				C6215CC825D3D7DF000FC294 /* Extensions+Calendar.swift in Sources */,
 				C6D06DF825C2D56300E5B217 /* JalaliCalendarApp.swift in Sources */,
 			);
@@ -474,8 +480,9 @@
 				C6215CC225D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
 				C6D06DFB25C2D56300E5B217 /* HomeView.swift in Sources */,
 				C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */,
-				C6E6EA2B25CB191B006D9117 /* ProgressBar.swift in Sources */,
+				C6E6EA2B25CB191B006D9117 /* GaugeView.swift in Sources */,
 				C6215CD125D3D82C000FC294 /* WeekView.swift in Sources */,
+				C686C59728B6ACDD00F70672 /* CustomFont.swift in Sources */,
 				C6D06DF925C2D56300E5B217 /* JalaliCalendarApp.swift in Sources */,
 				C618670C25CC70E4009420F2 /* Events.swift in Sources */,
 			);
@@ -487,7 +494,8 @@
 			files = (
 				C69CA84125C9296B00605B28 /* SmallCalendarView.swift in Sources */,
 				C6215CBC25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
-				C631928A25C9DFB000A1BA23 /* ProgressBar.swift in Sources */,
+				C631928A25C9DFB000A1BA23 /* GaugeView.swift in Sources */,
+				C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */,
 				C6215CAE25D3C87B000FC294 /* MediumCalendarView.swift in Sources */,
 				C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */,
 				C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */,
@@ -637,7 +645,7 @@
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -664,7 +672,7 @@
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -699,7 +707,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = macosx;
@@ -725,7 +733,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = macosx;
@@ -742,7 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -766,7 +774,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YB99NQ76R5;
 				INFOPLIST_FILE = CalendarWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

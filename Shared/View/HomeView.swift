@@ -40,15 +40,14 @@ struct HomeView: View {
                 .padding(.horizontal)
                 
                 // MARK: - Calendar progress
-                HStack(alignment: .center) {
-                    ProgressBar(
+                HStack(alignment: .center, spacing: 50) {
+                    GaugeView(
                         progress: currentDate.daysPassedInYear(),
                         title: "سال")
-                    ProgressBar(
+                    GaugeView(
                         progress: currentDate.daysPassedInMonth(),
                         title: "ماه")
                 }
-                .frame(maxHeight: 50)
                 .padding()
                 
                 // MARK: - Calendar Month View

@@ -47,9 +47,9 @@ struct MediumCalendarView: View {
                             .padding(.vertical, 2)
                             .overlay(
                                 Text(day)
-                                    .font(.custom("Shabnam", size: 10))
+                                    .customFont(name: "Shabnam", style: .caption2)
                             )
-                            .frame(minWidth: 0, maxHeight: 16)
+                            .frame(minWidth: 0, maxHeight: 20)
                     }
                 }
                 .environment(\.layoutDirection, .rightToLeft)
@@ -67,7 +67,7 @@ struct MediumCalendarView: View {
                                 .font(.custom("Shabnam", size: 12))
                                 .foregroundColor(date.checkIsToday(date: currentDate) ? Color.white: Color("TextColor"))
                         )
-                        .frame(minWidth: 0, maxHeight: 16)
+                        .frame(minWidth: 0, maxHeight: 20)
                 }
                 .environment(\.layoutDirection, .rightToLeft)
                 .environment(\.calendar, {

@@ -21,42 +21,48 @@ struct SmallCalendarView: View {
     var body: some View {
         
         VStack(alignment: .trailing, spacing: 3) {
-            
             VStack(alignment: .trailing) {
                 // MARK: - Day number
                 Text(day)
-                    .font(.custom("Shabnam-Bold", size: 38))
+                    .customFont(name: "Shabnam-Bold", style: .largeTitle, weight: .bold)
                     .foregroundColor(Color("TextColor"))
+                    .padding(.bottom, -24)
                 // MARK: - Month name
                 Text(month)
-                    .font(.custom("Shabnam-Bold", size: 17))
+                    .customFont(name: "Shabnam-Bold", style: .title3, weight: .bold)
                     .foregroundColor(Color("AccentColor"))
-                    .padding(.top, -20)
                 // MARK: - Today's event
                 Text(event)
+                    .customFont(name: "Shabnam-Light", style: .caption1, weight: .light)
                     .lineLimit(1)
-                    .font(.custom("Shabnam-Light", size: 10))
+                    .multilineTextAlignment(.trailing)
+                    .minimumScaleFactor(0.9)
                     .foregroundColor(Color("TextColor"))
             }
-            .padding(.horizontal)
+            .padding(.top, 16)
+            .padding(.horizontal, 16)
             
-            /// ⏰ Note: These ProgressBars will be used for due time
+            /// ⏰ Note: These Gauges will be used for due time
             /// in addition to the current mode in the future.
             HStack(alignment: .center) {
                 // MARK: - Year's Progress
-                ProgressBar(
+                GaugeView(
                     progress: firstProgress,
-                    title: firstTitle)
+                    title: firstTitle
+                )
+                .scaleEffect(0.8)
                 
                 Spacer()
                 
                 // MARK: - Month's Progress
-                ProgressBar(
+                GaugeView(
                     progress: secondProgress,
-                    title: secondTitle)
+                    title: secondTitle
+                )
+                .scaleEffect(0.8)
             }
-            .padding(.vertical, 5)
-            
+            .padding(.bottom, 16)
+            .padding(.horizontal, 8)
         }
     }
 }
