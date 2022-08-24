@@ -27,7 +27,7 @@ struct CustomFont: ViewModifier {
                 name,
                 size: UIFont.preferredFont(forTextStyle: style).pointSize
             )
-                .weight(weight)
+            .weight(weight)
         )
     }
     #elseif os(macOS)
@@ -37,7 +37,7 @@ struct CustomFont: ViewModifier {
                 name,
                 size: NSFont.preferredFont(forTextStyle: style).pointSize
             )
-                .weight(weight)
+            .weight(weight)
         )
     }
     #endif

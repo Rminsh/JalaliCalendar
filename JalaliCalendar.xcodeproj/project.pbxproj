@@ -30,6 +30,7 @@
 		C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C631928A25C9DFB000A1BA23 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* GaugeView.swift */; };
+		C631E98728B6CDD0006D7033 /* CircularCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */; };
 		C686C59628B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
 		C686C59728B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
 		C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
@@ -105,6 +106,7 @@
 		C6215CE125D3D8F1000FC294 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C631928925C9DFB000A1BA23 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
+		C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCalendarView.swift; sourceTree = "<group>"; };
 		C686C59528B6ACDD00F70672 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		C69CA84025C9296B00605B28 /* SmallCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCalendarView.swift; sourceTree = "<group>"; };
 		C69CA85725C93D4000605B28 /* Shabnam-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light.ttf"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */,
 				C69CA84025C9296B00605B28 /* SmallCalendarView.swift */,
+				C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				C6215CAE25D3C87B000FC294 /* MediumCalendarView.swift in Sources */,
 				C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */,
 				C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */,
+				C631E98728B6CDD0006D7033 /* CircularCalendarView.swift in Sources */,
 				C6215CC325D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
 				C6215CDD25D3D8C3000FC294 /* MonthView.swift in Sources */,
 				C6215CD225D3D82C000FC294 /* WeekView.swift in Sources */,

@@ -65,7 +65,13 @@ struct CalendarWidgetEntryView : View {
                 secondTitle: "ماه")
                 .padding(.all)
                 .background(Color("WidgetBackground"))
-            
+        case .accessoryCircular:
+            CircularCalendarView(
+                day: JalaliHelper.DayWeekFa.string(from: entry.date),
+                dayNumber: JalaliHelper.DayFa.string(from: entry.date)
+            )
+        case .accessoryInline:
+            Text("\(JalaliHelper.MonthFa.string(from: entry.date)) \(JalaliHelper.DayFa.string(from: entry.date))، \(JalaliHelper.DayWeekFa.string(from: entry.date))")
         default:
             Text(JalaliHelper.DayFa.string(from: entry.date))
         }
@@ -78,12 +84,26 @@ struct CalendarWidget: Widget {
     let kind: String = "CalendarWidget"
     
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            CalendarWidgetEntryView(entry: entry)
+        if #available(iOSApplicationExtension 16.0, *) {
+            return StaticConfiguration(kind: kind, provider: Provider()) { entry in
+                CalendarWidgetEntryView(entry: entry)
+            }
+            .configurationDisplayName("Jalali Calendar")
+            .description("Check today's jalali date")
+            .supportedFamilies([
+                .systemSmall,
+                .systemMedium,
+                .accessoryCircular,
+                .accessoryInline
+            ])
+        } else {
+            return StaticConfiguration(kind: kind, provider: Provider()) { entry in
+                CalendarWidgetEntryView(entry: entry)
+            }
+            .configurationDisplayName("Jalali Calendar")
+            .description("Check today's jalali date")
+            .supportedFamilies([.systemSmall, .systemMedium])
         }
-        .configurationDisplayName("Jalali Calendar")
-        .description("Check today's jalali date")
-        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
