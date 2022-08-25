@@ -65,6 +65,7 @@ struct CalendarWidgetEntryView : View {
                 secondTitle: "ماه")
                 .padding(.all)
                 .background(Color("WidgetBackground"))
+        #if os(iOS)
         case .accessoryCircular:
             CircularCalendarView(
                 day: JalaliHelper.DayWeekFa.string(from: entry.date),
@@ -72,6 +73,12 @@ struct CalendarWidgetEntryView : View {
             )
         case .accessoryInline:
             Text("\(JalaliHelper.MonthFa.string(from: entry.date)) \(JalaliHelper.DayFa.string(from: entry.date))، \(JalaliHelper.DayWeekFa.string(from: entry.date))")
+        case .accessoryRectangular:
+            RectangularCalendarView(
+                today: entry.date,
+                event: EventService.shared.getEvent()
+            )
+        #endif
         default:
             Text(JalaliHelper.DayFa.string(from: entry.date))
         }
@@ -94,7 +101,8 @@ struct CalendarWidget: Widget {
                 .systemSmall,
                 .systemMedium,
                 .accessoryCircular,
-                .accessoryInline
+                .accessoryInline,
+                .accessoryRectangular
             ])
         } else {
             return StaticConfiguration(kind: kind, provider: Provider()) { entry in
@@ -109,7 +117,12 @@ struct CalendarWidget: Widget {
 
 struct CalendarWidget_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        if #available(iOSApplicationExtension 16.0, *) {
+            CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
+                .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+        } else {
+            CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+        }
     }
 }

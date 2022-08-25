@@ -19,12 +19,21 @@ struct CircularCalendarView: View {
                 AccessoryWidgetBackground()
                 VStack(spacing: 0) {
                     Text(dayNumber)
-                        .customFont(name: "Shabnam-bold", style: .title1, weight: .bold)
+                        .customFont(
+                            name: "Shabnam",
+                            style: .title1,
+                            weight: .bold
+                        )
                     
                     Text(day)
-                        .customFont(name: "Shabnam-light", style: .footnote, weight: .light)
+                        .customFont(
+                            name: "Shabnam",
+                            style: .footnote,
+                            weight: .medium
+                        )
                         .scaleEffect(0.8)
                         .padding(.top, -8)
+                        .widgetAccentable()
                 }
                 .padding(.bottom, 4)
             }
@@ -37,8 +46,6 @@ struct CircularCalendarView_Previews: PreviewProvider {
         if #available(iOSApplicationExtension 16.0, *) {
             CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .accessoryCircular))
-        } else {
-            // Fallback on earlier versions
-        }
+        } else {}
     }
 }

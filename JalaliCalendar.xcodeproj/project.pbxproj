@@ -64,6 +64,7 @@
 		C6D06E1625C2D5E600E5B217 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */; };
 		C6D06E1925C2D5E800E5B217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06E1825C2D5E800E5B217 /* Assets.xcassets */; };
 		C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6D06E0E25C2D5E600E5B217 /* CalendarWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6D4DFC228B7CF24005D7B73 /* RectangularCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4DFC128B7CF24005D7B73 /* RectangularCalendarView.swift */; };
 		C6E6EA2125CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
@@ -130,6 +131,7 @@
 		C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
 		C6D06E1825C2D5E800E5B217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D06E1A25C2D5E800E5B217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6D4DFC128B7CF24005D7B73 /* RectangularCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +164,10 @@
 		C6058FDF28B6A6C700A7C19E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */,
-				C69CA84025C9296B00605B28 /* SmallCalendarView.swift */,
 				C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */,
+				C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */,
+				C6D4DFC128B7CF24005D7B73 /* RectangularCalendarView.swift */,
+				C69CA84025C9296B00605B28 /* SmallCalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69CA84125C9296B00605B28 /* SmallCalendarView.swift in Sources */,
+				C6D4DFC228B7CF24005D7B73 /* RectangularCalendarView.swift in Sources */,
 				C6215CBC25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
 				C631928A25C9DFB000A1BA23 /* GaugeView.swift in Sources */,
 				C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */,

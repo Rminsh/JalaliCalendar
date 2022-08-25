@@ -24,16 +24,16 @@ struct SmallCalendarView: View {
             VStack(alignment: .trailing) {
                 // MARK: - Day number
                 Text(day)
-                    .customFont(name: "Shabnam-Bold", style: .largeTitle, weight: .bold)
+                    .customFont(name: "Shabnam", style: .largeTitle, weight: .bold)
                     .foregroundColor(Color("TextColor"))
                     .padding(.bottom, -24)
                 // MARK: - Month name
                 Text(month)
-                    .customFont(name: "Shabnam-Bold", style: .title3, weight: .bold)
+                    .customFont(name: "Shabnam", style: .title3, weight: .bold)
                     .foregroundColor(Color("AccentColor"))
                 // MARK: - Today's event
                 Text(event)
-                    .customFont(name: "Shabnam-Light", style: .caption1, weight: .light)
+                    .customFont(name: "Shabnam", style: .caption1, weight: .light)
                     .lineLimit(1)
                     .multilineTextAlignment(.trailing)
                     .minimumScaleFactor(0.9)
