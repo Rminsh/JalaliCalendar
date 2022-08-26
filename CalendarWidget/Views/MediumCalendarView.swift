@@ -32,7 +32,8 @@ struct MediumCalendarView: View {
                 firstProgress: firstProgress,
                 firstTitle: firstTitle,
                 secondProgress: secondProgress,
-                secondTitle: secondTitle)
+                secondTitle: secondTitle
+            )
             
             // MARK: - Calendar Month View
             VStack(spacing: 4) {
@@ -83,17 +84,7 @@ struct MediumCalendarView: View {
 
 struct MediumCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        MediumCalendarView(
-            day: "۲۳",
-            month: "بهمن",
-            event: "بدون مناسبت",
-            firstProgress: 0.9,
-            firstTitle: "سال",
-            secondProgress: 0.75,
-            secondTitle: "ماه")
-            .padding(.all)
-            .background(Color("WidgetBackground"))
-            .colorScheme(.dark)
+        CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }

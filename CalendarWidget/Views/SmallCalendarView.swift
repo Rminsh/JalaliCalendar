@@ -69,17 +69,7 @@ struct SmallCalendarView: View {
 
 struct SmallCalendarView_Previews: PreviewProvider {
     static var previews: some View {
-        SmallCalendarView(
-            day: "۱۸",
-            month: "اردیبهشت",
-            event: "روز ملی شدن صنعت نفت ",
-            firstProgress: 0.13,
-            firstTitle: "سال",
-            secondProgress: 0.58,
-            secondTitle: "ماه")
-            .padding(.vertical)
-            .background(Color("WidgetBackground"))
-            .colorScheme(.dark)
+        CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
