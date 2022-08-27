@@ -9,14 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     
-    let currentDate = Date()
+    @State var currentDate = Date()
     @State var events = [EventDetails]()
     @State var showEventTitle = false
     
     @Environment(\.calendar) var calendar
+    @Environment(\.scenePhase) var scenePhase
     
     private var month: DateInterval {
-        calendar.dateInterval(of: .month, for: Date())!
+        calendar.dateInterval(of: .month, for: currentDate)!
     }
     
     var body: some View {
@@ -100,14 +101,19 @@ struct HomeView: View {
                                     .shadow(color: Color("BackgroundColorAlt").opacity(0.7), radius: 10, x: -5, y: -5)
                             )
                             .padding(.bottom, 12)
-                            .onAppear(perform: {showEventTitle = true})
+                            .task {
+                                showEventTitle = true
+                            }
                             
                     }
                 }
                 .padding(.all, 25)
             }
             .padding(.vertical)
-            .onAppear(perform: getEvents)
+        }
+        .onChange(of: scenePhase) { _ in
+            currentDate = Date()
+            getEvents()
         }
     }
     
