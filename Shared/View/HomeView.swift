@@ -21,39 +21,60 @@ struct HomeView: View {
     }
     
     var body: some View {
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            
+            content
+        }
+        .environment(\.layoutDirection, .rightToLeft)
+    }
+    
+    var content: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 3) {
-                
                 // MARK: - Today contents
-                VStack(alignment: .center, spacing: 3) {
-                    Text(JalaliHelper.DayFa.string(from: currentDate))
-                        .font(.custom("Shabnam-Bold", size: 84))
-                        .foregroundColor(Color("TextColor"))
+                VStack(alignment: .leading, spacing: 3) {
                     Text("\(JalaliHelper.DayWeekFa.string(from: currentDate))")
-                        .font(.custom("Shabnam-Bold", size: 28))
-                        .foregroundColor(Color("AccentColor"))
-                        .padding(.top, -30)
+                        .customFont(name: "Shabnam", style: .largeTitle, weight: .bold)
+                        .foregroundColor(Color("TextColor"))
                     
-                    Text("\(JalaliHelper.YearFa.string(from: currentDate)) \(JalaliHelper.MonthFa.string(from: currentDate))")
-                        .font(.custom("Shabnam-Bold", size: 28))
+                    Text("\(JalaliHelper.YearFa.string(from: currentDate)) \(JalaliHelper.MonthFa.string(from: currentDate)) \(JalaliHelper.DayFa.string(from: currentDate))")
+                        .customFont(name: "Shabnam", style: .title1, weight: .bold)
                         .foregroundColor(Color("AccentColor"))
                 }
-                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 25)
                 
                 // MARK: - Calendar progress
                 HStack(alignment: .center, spacing: 50) {
-                    GaugeView(
-                        progress: currentDate.daysPassedInYear(),
-                        title: "سال")
-                    GaugeView(
-                        progress: currentDate.daysPassedInMonth(),
-                        title: "ماه")
+                    if #available(iOS 16.0, *) {
+                        Gauge(value: currentDate.daysPassedInYear()) {
+                            Text("سال")
+                                .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
+                                .foregroundColor(Color("TextColor"))
+                        } currentValueLabel: {
+                            Text("\(String(format: "%.0f%%", currentDate.daysPassedInYear() * 100))")
+                        }
+                        .tint(Color("AccentColor"))
+                        .gaugeStyle(.accessoryLinearCapacity)
+                        
+                        Gauge(value: currentDate.daysPassedInMonth()) {
+                            Text("ماه")
+                                .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
+                                .foregroundColor(Color("TextColor"))
+                        } currentValueLabel: {
+                            Text("\(String(format: "%.0f%%", currentDate.daysPassedInMonth() * 100))")
+                        }
+                        .tint(Color("AccentColor"))
+                        .gaugeStyle(.accessoryLinearCapacity)
+                    }
                 }
-                .padding()
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.all, 25)
                 
                 // MARK: - Calendar Month View
                 VStack {
-                    
                     HStack {
                         ForEach(["ش","ی","د","س","چ","پ","ج"], id: \.self) { day in
                             Text(day)
@@ -76,7 +97,6 @@ struct HomeView: View {
                                     .foregroundColor(date.checkIsToday(date: currentDate) ? Color.white: Color("BackgroundColor"))
                             )
                     }
-                    .environment(\.layoutDirection, .rightToLeft)
                     .padding()
                 }
 
@@ -91,9 +111,9 @@ struct HomeView: View {
                         Text(item.title)
                             .font(.custom("Shabnam-Light", size: 14))
                             .foregroundColor(Color("TextColor"))
-                            .multilineTextAlignment(.trailing)
+                            .multilineTextAlignment(.leading)
                             .padding()
-                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .background(
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(Color("BackgroundColor"))
@@ -104,7 +124,6 @@ struct HomeView: View {
                             .task {
                                 showEventTitle = true
                             }
-                            
                     }
                 }
                 .padding(.all, 25)
@@ -142,11 +161,7 @@ struct HomeView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environment(\.calendar, {
-                var calendar = Calendar(identifier: .persian)
-                calendar.locale = Locale(identifier: "fa")
-                return calendar
-            }())
+            .environment(\.calendar, .persianCalendar)
             .background(Color("BackgroundColor"))
             .preferredColorScheme(.dark)
     }

@@ -32,3 +32,11 @@ extension Calendar {
         return dates
     }
 }
+
+extension Calendar {
+    static var persianCalendar: Calendar {
+        var calendar = Calendar(identifier: .persian)
+        calendar.locale = Locale(identifier: "fa")
+        return calendar
+    }
+}

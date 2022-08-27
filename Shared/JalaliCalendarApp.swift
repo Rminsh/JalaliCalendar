@@ -11,17 +11,8 @@ import SwiftUI
 struct JalaliCalendarApp: App {
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                Color("BackgroundColor")
-                    .edgesIgnoringSafeArea(.all)
-                
-                HomeView()
-                    .environment(\.calendar, {
-                        var calendar = Calendar(identifier: .persian)
-                        calendar.locale = Locale(identifier: "fa")
-                        return calendar
-                    }())
-            }
+            HomeView()
+                .environment(\.calendar, .persianCalendar)
         }
     }
 }

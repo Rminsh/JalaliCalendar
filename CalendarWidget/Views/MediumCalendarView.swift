@@ -71,11 +71,7 @@ struct MediumCalendarView: View {
                         .frame(minWidth: 0, maxHeight: 20)
                 }
                 .environment(\.layoutDirection, .rightToLeft)
-                .environment(\.calendar, {
-                    var calendar = Calendar(identifier: .persian)
-                    calendar.locale = Locale(identifier: "fa")
-                    return calendar
-                }())
+                .environment(\.calendar, .persianCalendar)
             }
             
         }
