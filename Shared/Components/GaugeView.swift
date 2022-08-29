@@ -12,9 +12,8 @@ struct GaugeView: View {
     var title: String
     
     var body: some View {
-        #if os(iOS)
         ZStack {
-            if #available(iOS 16.0, *) {
+            if #available(iOS 16.0, macOS 13.0, *) {
                 Gauge(value: progress) {
                     Text(title)
                         .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
@@ -27,9 +26,6 @@ struct GaugeView: View {
                     .frame(maxWidth: 50, maxHeight: 50)
             }
         }
-        #elseif os(macOS)
-        CustomGauge(progress: progress, title: title)
-        #endif
     }
 }
 struct CustomGauge: View {

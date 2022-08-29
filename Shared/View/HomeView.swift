@@ -48,7 +48,7 @@ struct HomeView: View {
                 
                 // MARK: - Calendar progress
                 HStack(alignment: .center, spacing: 50) {
-                    if #available(iOS 16.0, *) {
+                    if #available(iOS 16.0, macOS 13.0, *) {
                         Gauge(value: currentDate.daysPassedInYear()) {
                             Text("سال")
                                 .customFont(name: "Shabnam-Light", style: .callout, weight: .light)

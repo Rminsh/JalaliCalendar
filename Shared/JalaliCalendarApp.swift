@@ -14,5 +14,9 @@ struct JalaliCalendarApp: App {
             HomeView()
                 .environment(\.calendar, .persianCalendar)
         }
+        #if os(macOS)
+        .windowStyle(.hiddenTitleBar)
+        .windowToolbarStyle(.unified)
+        #endif
     }
 }
