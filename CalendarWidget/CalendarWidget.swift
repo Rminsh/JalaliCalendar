@@ -97,6 +97,7 @@ struct CalendarWidget: Widget {
             }
             .configurationDisplayName("Jalali Calendar")
             .description("Check today's jalali date")
+            #if os(iOS)
             .supportedFamilies([
                 .systemSmall,
                 .systemMedium,
@@ -104,6 +105,12 @@ struct CalendarWidget: Widget {
                 .accessoryInline,
                 .accessoryRectangular
             ])
+            #elseif os(macOS)
+            .supportedFamilies([
+                .systemSmall,
+                .systemMedium
+            ])
+            #endif
         } else {
             return StaticConfiguration(kind: kind, provider: Provider()) { entry in
                 CalendarWidgetEntryView(entry: entry)
@@ -119,7 +126,11 @@ struct CalendarWidget_Previews: PreviewProvider {
     static var previews: some View {
         if #available(iOSApplicationExtension 16.0, *) {
             CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
+                #if os(iOS)
                 .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+                #elseif os(macOS)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+                #endif
         } else {
             CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
                 .previewContext(WidgetPreviewContext(family: .systemSmall))

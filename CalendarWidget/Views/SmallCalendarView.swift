@@ -26,7 +26,9 @@ struct SmallCalendarView: View {
                 Text(day)
                     .customFont(name: "Shabnam", style: .largeTitle, weight: .bold)
                     .foregroundColor(Color("TextColor"))
+                    #if os(iOS)
                     .padding(.bottom, -24)
+                    #endif
                 // MARK: - Month name
                 Text(month)
                     .customFont(name: "Shabnam", style: .title3, weight: .bold)
