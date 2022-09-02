@@ -10,7 +10,7 @@ import WidgetKit
 
 struct CircularCalendarView: View {
     
-    var day: String
+    var month: String
     var dayNumber: String
     
     var body: some View {
@@ -25,7 +25,7 @@ struct CircularCalendarView: View {
                             weight: .bold
                         )
                     
-                    Text(day)
+                    Text(month)
                         .customFont(
                             name: "Shabnam",
                             style: .footnote,

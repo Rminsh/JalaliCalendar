@@ -68,7 +68,7 @@ struct CalendarWidgetEntryView : View {
         #if os(iOS)
         case .accessoryCircular:
             CircularCalendarView(
-                day: JalaliHelper.DayWeekFa.string(from: entry.date),
+                month: JalaliHelper.MonthFa.string(from: entry.date),
                 dayNumber: JalaliHelper.DayFa.string(from: entry.date)
             )
         case .accessoryInline:
