@@ -46,7 +46,7 @@ struct CustomFont: ViewModifier {
 extension View {
     #if os(iOS)
     func customFont(
-        name: String,
+        name: String = "Shabnam",
         style: UIFont.TextStyle,
         weight: Font.Weight = .regular
     ) -> some View {
@@ -54,7 +54,7 @@ extension View {
     }
     #elseif os(macOS)
     func customFont(
-        name: String,
+        name: String = "Shabnam",
         style: NSFont.TextStyle,
         weight: Font.Weight = .regular
     ) -> some View {

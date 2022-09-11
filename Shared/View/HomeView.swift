@@ -15,9 +15,24 @@ struct HomeView: View {
     
     @Environment(\.calendar) var calendar
     @Environment(\.scenePhase) var scenePhase
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    #endif
     
-    private var month: DateInterval {
-        calendar.dateInterval(of: .month, for: currentDate)!
+    private var dayWeekFa: String {
+        JalaliHelper.DayWeekFa.string(from: currentDate)
+    }
+    
+    private var yearFa: String {
+        JalaliHelper.YearFa.string(from: currentDate)
+    }
+    
+    private var monthFa: String {
+        JalaliHelper.MonthFa.string(from: currentDate)
+    }
+    
+    private var dayFa: String {
+        JalaliHelper.DayFa.string(from: currentDate)
     }
     
     var body: some View {
@@ -35,12 +50,12 @@ struct HomeView: View {
             VStack(alignment: .center, spacing: 3) {
                 // MARK: - Today contents
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("\(JalaliHelper.DayWeekFa.string(from: currentDate))")
-                        .customFont(name: "Shabnam", style: .largeTitle, weight: .bold)
+                    Text(dayWeekFa)
+                        .customFont(style: .largeTitle, weight: .bold)
                         .foregroundColor(Color("TextColor"))
                     
-                    Text("\(JalaliHelper.YearFa.string(from: currentDate)) \(JalaliHelper.MonthFa.string(from: currentDate)) \(JalaliHelper.DayFa.string(from: currentDate))")
-                        .customFont(name: "Shabnam", style: .title1, weight: .bold)
+                    Text("\(yearFa) \(monthFa) \(dayFa)")
+                        .customFont(style: .title1, weight: .bold)
                         .foregroundColor(Color("AccentColor"))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -51,7 +66,7 @@ struct HomeView: View {
                     if #available(iOS 16.0, macOS 13.0, *) {
                         Gauge(value: currentDate.daysPassedInYear()) {
                             Text("سال")
-                                .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
+                                .customFont(style: .callout, weight: .light)
                                 .foregroundColor(Color("TextColor"))
                         } currentValueLabel: {
                             Text("\(String(format: "%.0f%%", currentDate.daysPassedInYear() * 100))")
@@ -61,7 +76,7 @@ struct HomeView: View {
                         
                         Gauge(value: currentDate.daysPassedInMonth()) {
                             Text("ماه")
-                                .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
+                                .customFont(style: .callout, weight: .light)
                                 .foregroundColor(Color("TextColor"))
                         } currentValueLabel: {
                             Text("\(String(format: "%.0f%%", currentDate.daysPassedInMonth() * 100))")
@@ -70,7 +85,10 @@ struct HomeView: View {
                         .gaugeStyle(.accessoryLinearCapacity)
                     }
                 }
-                .frame(maxWidth: .infinity, alignment: .center)
+                .frame(
+                    maxWidth: horizontalSizeClass == .compact ? .infinity : 300,
+                    alignment: .center
+                )
                 .padding(.all, 25)
                 
                 // MARK: - Calendar Month View
@@ -78,11 +96,10 @@ struct HomeView: View {
                     HStack {
                         ForEach(["ش","ی","د","س","چ","پ","ج"], id: \.self) { day in
                             Text(day)
-                                .font(.custom("Shabnam", size: 14))
+                                .customFont(style: .callout)
                                 .frame(minWidth: 37)
                         }
                     }
-                    .environment(\.layoutDirection, .rightToLeft)
                     
                     MonthView(month: currentDate, showHeader: false) { date in
                         Text("30")
@@ -117,8 +134,18 @@ struct HomeView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(Color("BackgroundColor"))
-                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
-                                    .shadow(color: Color("BackgroundColorAlt").opacity(0.7), radius: 10, x: -5, y: -5)
+                                    .shadow(
+                                        color: Color.black.opacity(0.2),
+                                        radius: 10,
+                                        x: 10,
+                                        y: 10
+                                    )
+                                    .shadow(
+                                        color: Color("BackgroundColorAlt").opacity(0.7),
+                                        radius: 10,
+                                        x: -5,
+                                        y: -5
+                                    )
                             )
                             .padding(.bottom, 12)
                             .task {
