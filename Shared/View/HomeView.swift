@@ -9,9 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var currentDate = Date()
+    @State var selectedDate = Date()
     @State var events = [EventDetails]()
-    @State var showEventTitle = false
     
     @Environment(\.calendar) var calendar
     @Environment(\.scenePhase) var scenePhase
@@ -20,19 +19,19 @@ struct HomeView: View {
     #endif
     
     private var dayWeekFa: String {
-        JalaliHelper.DayWeekFa.string(from: currentDate)
+        JalaliHelper.DayWeekFa.string(from: selectedDate)
     }
     
     private var yearFa: String {
-        JalaliHelper.YearFa.string(from: currentDate)
+        JalaliHelper.YearFa.string(from: selectedDate)
     }
     
     private var monthFa: String {
-        JalaliHelper.MonthFa.string(from: currentDate)
+        JalaliHelper.MonthFa.string(from: selectedDate)
     }
     
     private var dayFa: String {
-        JalaliHelper.DayFa.string(from: currentDate)
+        JalaliHelper.DayFa.string(from: selectedDate)
     }
     
     var body: some View {
@@ -64,22 +63,22 @@ struct HomeView: View {
                 // MARK: - Calendar progress
                 HStack(alignment: .center, spacing: 50) {
                     if #available(iOS 16.0, macOS 13.0, *) {
-                        Gauge(value: currentDate.daysPassedInYear()) {
+                        Gauge(value: selectedDate.daysPassedInYear()) {
                             Text("سال")
                                 .customFont(style: .callout, weight: .light)
                                 .foregroundColor(Color("TextColor"))
                         } currentValueLabel: {
-                            Text("\(String(format: "%.0f%%", currentDate.daysPassedInYear() * 100))")
+                            Text("\(String(format: "%.0f%%", selectedDate.daysPassedInYear() * 100))")
                         }
                         .tint(Color("AccentColor"))
                         .gaugeStyle(.accessoryLinearCapacity)
                         
-                        Gauge(value: currentDate.daysPassedInMonth()) {
+                        Gauge(value: selectedDate.daysPassedInMonth()) {
                             Text("ماه")
                                 .customFont(style: .callout, weight: .light)
                                 .foregroundColor(Color("TextColor"))
                         } currentValueLabel: {
-                            Text("\(String(format: "%.0f%%", currentDate.daysPassedInMonth() * 100))")
+                            Text("\(String(format: "%.0f%%", selectedDate.daysPassedInMonth() * 100))")
                         }
                         .tint(Color("AccentColor"))
                         .gaugeStyle(.accessoryLinearCapacity)
@@ -101,24 +100,42 @@ struct HomeView: View {
                         }
                     }
                     
-                    MonthView(month: currentDate, showHeader: false) { date in
+                    MonthView(month: selectedDate, showHeader: false) { date in
                         Text("30")
                             .hidden()
                             .padding(8)
-                            .background(date.checkIsToday(date: currentDate) ? Color("AccentColor"): Color("DayTextBackground"))
+                            .background(
+                                date.checkIsToday(date: Date()) ?
+                                Color("AccentColor"):
+                                Color("DayTextBackground")
+                            )
                             .clipShape(Circle())
                             .padding(.vertical, 4)
                             .overlay(
                                 Text(JalaliHelper.DayFa.string(from: date))
-                                    .font(.custom("Shabnam", size: 14))
-                                    .foregroundColor(date.checkIsToday(date: currentDate) ? Color.white: Color("BackgroundColor"))
+                                    .customFont(style: .callout)
+                                    .foregroundColor(
+                                        date.checkIsToday(date: Date()) ?
+                                        Color.white:
+                                        Color("BackgroundColor")
+                                    )
                             )
+                            .overlay(
+                                Circle().stroke(
+                                    Color.accentColor,
+                                    lineWidth: date.checkIsToday(date: selectedDate) ? 4 : 0
+                                )
+                            )
+                            .onTapGesture {
+                                selectedDate = date
+                                getEvents()
+                            }
                     }
                     .padding()
                 }
 
                 // MARK: - EventView
-                Text(showEventTitle ? "مناسبت‌های امروز" : "")
+                Text(!events.isEmpty ? "مناسبت‌های این روز" : "")
                     .font(.custom("Shabnam", size: 14))
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.trailing)
@@ -148,9 +165,6 @@ struct HomeView: View {
                                     )
                             )
                             .padding(.bottom, 12)
-                            .task {
-                                showEventTitle = true
-                            }
                     }
                 }
                 .padding(.all, 25)
@@ -158,7 +172,7 @@ struct HomeView: View {
             .padding(.vertical)
         }
         .onChange(of: scenePhase) { _ in
-            currentDate = Date()
+            selectedDate = Date()
             getEvents()
         }
     }
@@ -171,7 +185,7 @@ struct HomeView: View {
                     events.removeAll()
                     let eventsData = try result.get()
                     for item in eventsData {
-                        if item.day == Int(JalaliHelper.DayEn.string(from: currentDate)) && item.month == Int(JalaliHelper.MonthEn.string(from: currentDate)) {
+                        if item.day == Int(JalaliHelper.DayEn.string(from: selectedDate)) && item.month == Int(JalaliHelper.MonthEn.string(from: selectedDate)) {
                             events.append(item)
                         }
                     }
@@ -190,6 +204,6 @@ struct ContentView_Previews: PreviewProvider {
         HomeView()
             .environment(\.calendar, .persianCalendar)
             .background(Color("BackgroundColor"))
-            .preferredColorScheme(.dark)
+//            .preferredColorScheme(.dark)
     }
 }
