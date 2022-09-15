@@ -126,9 +126,14 @@ struct HomeView: View {
                                     lineWidth: date.checkIsToday(date: selectedDate) ? 4 : 0
                                 )
                             )
+                            .animation(.easeIn, value: selectedDate)
                             .onTapGesture {
-                                selectedDate = date
-                                getEvents()
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.notificationOccurred(.success)
+                                withAnimation(.interactiveSpring()) {
+                                    selectedDate = date
+                                    getEvents()
+                                }
                             }
                     }
                     .padding()
@@ -139,6 +144,7 @@ struct HomeView: View {
                     .font(.custom("Shabnam", size: 14))
                     .foregroundColor(Color("TextColor"))
                     .multilineTextAlignment(.trailing)
+                    .animation(.interactiveSpring(), value: selectedDate)
                 
                 LazyVStack(alignment: .center) {
                     ForEach(events, id: \.self) { item in
@@ -168,6 +174,7 @@ struct HomeView: View {
                     }
                 }
                 .padding(.all, 25)
+                .animation(.interactiveSpring(), value: selectedDate)
             }
             .padding(.vertical)
         }
