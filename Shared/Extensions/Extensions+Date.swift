@@ -82,3 +82,10 @@ extension Date {
         return hasSame(.day, as: date) && hasSame(.month, as: date) && hasSame(.year, as: date)
     }
 }
+
+public extension Date {
+    func adding(_ component: Calendar.Component, value: Int) -> Date {
+        let calendar = Calendar(identifier: .persian)
+        return calendar.date(byAdding: component, value: value, to: self)!
+    }
+}

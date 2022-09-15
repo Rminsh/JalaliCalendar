@@ -47,18 +47,31 @@ struct HomeView: View {
     var content: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 3) {
-                // MARK: - Today contents
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(dayWeekFa)
-                        .customFont(style: .largeTitle, weight: .bold)
-                        .foregroundColor(Color("TextColor"))
-                    
-                    Text("\(yearFa) \(monthFa) \(dayFa)")
-                        .customFont(style: .title1, weight: .bold)
-                        .foregroundColor(Color("AccentColor"))
+                HStack {
+                    Button(action: {
+                        moveDate(to: selectedDate.adding(.month, value: -1))
+                    }) {
+                        Label("ماه قبل", systemImage: "chevron.compact.right")
+                            .labelStyle(.iconOnly)
+                    }
+                    // MARK: - Today contents
+                    VStack(alignment: .center, spacing: 3) {
+                        Text(dayWeekFa)
+                            .customFont(style: .largeTitle, weight: .bold)
+                            .foregroundColor(Color("TextColor"))
+                        
+                        Text("\(yearFa) \(monthFa) \(dayFa)")
+                            .customFont(style: .title1, weight: .bold)
+                            .foregroundColor(Color("AccentColor"))
+                    }
+                    .padding(.horizontal, 25)
+                    Button(action: {
+                        moveDate(to: selectedDate.adding(.month, value: 1))
+                    }) {
+                        Label("ماه بعد", systemImage: "chevron.compact.left")
+                            .labelStyle(.iconOnly)
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 25)
                 
                 // MARK: - Calendar progress
                 HStack(alignment: .center, spacing: 50) {
@@ -128,12 +141,7 @@ struct HomeView: View {
                             )
                             .animation(.easeIn, value: selectedDate)
                             .onTapGesture {
-                                let generator = UINotificationFeedbackGenerator()
-                                generator.notificationOccurred(.success)
-                                withAnimation(.interactiveSpring()) {
-                                    selectedDate = date
-                                    getEvents()
-                                }
+                                moveDate(to: date)
                             }
                     }
                     .padding()
@@ -202,6 +210,15 @@ struct HomeView: View {
             case .failure(let error):
                 print(error)
             }
+        }
+    }
+    
+    func moveDate(to date: Date) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        withAnimation(.interactiveSpring()) {
+            selectedDate = date
+            getEvents()
         }
     }
 }
