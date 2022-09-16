@@ -60,8 +60,11 @@ struct HomeView: View {
                         moveDate(to: selectedDate.adding(.month, value: -1))
                     }) {
                         Label("ماه قبل", systemImage: "chevron.compact.right")
+                            .font(.title)
                             .labelStyle(.iconOnly)
+                            .foregroundColor(.accentColor)
                     }
+                    .buttonStyle(.borderless)
                     // MARK: - Today contents
                     VStack(alignment: .center, spacing: 3) {
                         Text(dayWeekFa)
@@ -77,8 +80,11 @@ struct HomeView: View {
                         moveDate(to: selectedDate.adding(.month, value: 1))
                     }) {
                         Label("ماه بعد", systemImage: "chevron.compact.left")
+                            .font(.title)
                             .labelStyle(.iconOnly)
+                            .foregroundColor(.accentColor)
                     }
+                    .buttonStyle(.borderless)
                 }
                 
                 // MARK: - Calendar progress
