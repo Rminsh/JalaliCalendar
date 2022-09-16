@@ -97,10 +97,14 @@ struct HomeView: View {
                         .gaugeStyle(.accessoryLinearCapacity)
                     }
                 }
+                #if os(iOS)
                 .frame(
                     maxWidth: horizontalSizeClass == .compact ? .infinity : 300,
                     alignment: .center
                 )
+                #elseif os(macOS)
+                .frame(maxWidth: 450, alignment: .center)
+                #endif
                 .padding(.all, 25)
                 
                 // MARK: - Calendar Month View
@@ -214,8 +218,10 @@ struct HomeView: View {
     }
     
     func moveDate(to date: Date) {
+        #if os(iOS)
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
+        #endif
         withAnimation(.interactiveSpring()) {
             selectedDate = date
             getEvents()
