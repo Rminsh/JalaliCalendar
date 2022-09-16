@@ -22,6 +22,7 @@ This project implemented in [Persian language](https://en.wikipedia.org/wiki/Per
 <img src="Preview/preview_5.png" height="600"/>
 <img src="Preview/preview_6.png" height="600"/>
 <img src="Preview/lockscreen.png"/>
+<img src="Preview/mac_preview_1.png"/>
 
 
 ### Configure the project 🛠
