@@ -36,10 +36,18 @@ struct HomeView: View {
     
     var body: some View {
         ZStack {
+            #if os(iOS)
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
+            #elseif os(macOS)
+            VisualEffectBlur(material: .popover, blendingMode: .behindWindow)
+                .edgesIgnoringSafeArea(.all)
+            #endif
             
             content
+                #if os(macOS)
+                .shadow(color: .accentColor.opacity(0.15), radius: 2)
+                #endif
         }
         .environment(\.layoutDirection, .rightToLeft)
     }
@@ -166,6 +174,7 @@ struct HomeView: View {
                             .multilineTextAlignment(.leading)
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            #if os(iOS)
                             .background(
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(Color("BackgroundColor"))
@@ -182,6 +191,11 @@ struct HomeView: View {
                                         y: -5
                                     )
                             )
+                            #elseif os(macOS)
+                            .background(VisualEffectBlur(material: .fullScreenUI, blendingMode: .withinWindow))
+                            .cornerRadius(8)
+                            .shadow(radius: 10, x: -5, y: -5)
+                            #endif
                             .padding(.bottom, 12)
                     }
                 }

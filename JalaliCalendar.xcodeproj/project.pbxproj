@@ -50,6 +50,7 @@
 		C69CA86825C93D4000605B28 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85B25C93D4000605B28 /* Shabnam.ttf */; };
 		C69CA86925C93D4000605B28 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85B25C93D4000605B28 /* Shabnam.ttf */; };
 		C69CA86A25C93D4000605B28 /* Shabnam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85B25C93D4000605B28 /* Shabnam.ttf */; };
+		C6A00AE928D452A1005FF233 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A00AE828D452A1005FF233 /* VisualEffectBlur.swift */; };
 		C6A58ED125D46BAE002574B7 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6A58ED025D46BAE002574B7 /* events.json */; };
 		C6A58ED225D46BAE002574B7 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6A58ED025D46BAE002574B7 /* events.json */; };
 		C6A58ED325D46BAE002574B7 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6A58ED025D46BAE002574B7 /* events.json */; };
@@ -156,6 +157,7 @@
 		C69CA85925C93D4000605B28 /* Shabnam-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Bold.ttf"; sourceTree = "<group>"; };
 		C69CA85A25C93D4000605B28 /* Shabnam-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Thin.ttf"; sourceTree = "<group>"; };
 		C69CA85B25C93D4000605B28 /* Shabnam.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Shabnam.ttf; sourceTree = "<group>"; };
+		C6A00AE828D452A1005FF233 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		C6A58ED025D46BAE002574B7 /* events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
 		C6A7A95628BCADA9009879B6 /* CalendarWidgetExtension (macOS).appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CalendarWidgetExtension (macOS).appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7A95F28BCADAA009879B6 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		C6D06DF525C2D56300E5B217 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				C6A00AE828D452A1005FF233 /* VisualEffectBlur.swift */,
 				C6D06DF625C2D56300E5B217 /* Info.plist */,
 				C6D06DF725C2D56300E5B217 /* macOS.entitlements */,
 			);
@@ -597,6 +600,7 @@
 				C6215CC225D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
 				C6D06DFB25C2D56300E5B217 /* HomeView.swift in Sources */,
 				C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */,
+				C6A00AE928D452A1005FF233 /* VisualEffectBlur.swift in Sources */,
 				C6E6EA2B25CB191B006D9117 /* GaugeView.swift in Sources */,
 				C6215CD125D3D82C000FC294 /* WeekView.swift in Sources */,
 				C686C59728B6ACDD00F70672 /* CustomFont.swift in Sources */,
