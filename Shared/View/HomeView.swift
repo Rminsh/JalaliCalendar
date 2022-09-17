@@ -210,6 +210,15 @@ struct HomeView: View {
             }
             .padding(.vertical)
         }
+        #if os(iOS)
+        .safeAreaInset(edge: .top) {
+            HStack {
+                Spacer()
+            }
+            .background(Color("BackgroundColor"))
+            .blur(radius: 5)
+        }
+        #endif
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
             getEvents()
