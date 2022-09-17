@@ -51,9 +51,10 @@ struct CalendarWidgetEntryView : View {
                 firstProgress: entry.date.daysPassedInYear(),
                 firstTitle: "سال",
                 secondProgress: entry.date.daysPassedInMonth(),
-                secondTitle: "ماه")
-                .padding(.vertical)
-                .background(Color("WidgetBackground"))
+                secondTitle: "ماه"
+            )
+            .padding(.vertical)
+            .background(Color("WidgetBackground"))
         case .systemMedium:
             MediumCalendarView(
                 day: JalaliHelper.DayFa.string(from: entry.date),
@@ -62,9 +63,10 @@ struct CalendarWidgetEntryView : View {
                 firstProgress: entry.date.daysPassedInYear(),
                 firstTitle: "سال",
                 secondProgress: entry.date.daysPassedInMonth(),
-                secondTitle: "ماه")
-                .padding(.all)
-                .background(Color("WidgetBackground"))
+                secondTitle: "ماه"
+            )
+            .padding(.all)
+            .background(Color("WidgetBackground"))
         #if os(iOS)
         case .accessoryCircular:
             CircularCalendarView(
