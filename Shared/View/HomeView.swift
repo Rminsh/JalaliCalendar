@@ -239,8 +239,8 @@ struct HomeView: View {
     
     func moveDate(to date: Date) {
         #if os(iOS)
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
+        let hapticGenerator = UIImpactFeedbackGenerator(style: .soft)
+        hapticGenerator.impactOccurred()
         #endif
         withAnimation(.interactiveSpring()) {
             selectedDate = date
@@ -254,6 +254,5 @@ struct ContentView_Previews: PreviewProvider {
         HomeView()
             .environment(\.calendar, .persianCalendar)
             .background(Color("BackgroundColor"))
-//            .preferredColorScheme(.dark)
     }
 }
