@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C604ECE628D645E600861558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06DE725C2D56300E5B217 /* Assets.xcassets */; };
+		C604ECE728D645E700861558 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06DE725C2D56300E5B217 /* Assets.xcassets */; };
 		C618670B25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
 		C618670C25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
 		C618670D25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
@@ -60,7 +62,6 @@
 		C6A7A96928BCAE7A009879B6 /* SmallCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CA84025C9296B00605B28 /* SmallCalendarView.swift */; };
 		C6A7A96A28BCAE7A009879B6 /* MediumCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */; };
 		C6A7A96B28BCAE7A009879B6 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */; };
-		C6A7A96C28BCAE7A009879B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06E1825C2D5E800E5B217 /* Assets.xcassets */; };
 		C6A7A96D28BCAE9D009879B6 /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6A58ED025D46BAE002574B7 /* events.json */; };
 		C6A7A96E28BCAEA0009879B6 /* Shabnam-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85A25C93D4000605B28 /* Shabnam-Thin.ttf */; };
 		C6A7A96F28BCAEA0009879B6 /* Shabnam-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C69CA85825C93D4000605B28 /* Shabnam-Medium.ttf */; };
@@ -86,7 +87,6 @@
 		C6D06E1125C2D5E600E5B217 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D06E1025C2D5E600E5B217 /* WidgetKit.framework */; };
 		C6D06E1325C2D5E600E5B217 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D06E1225C2D5E600E5B217 /* SwiftUI.framework */; };
 		C6D06E1625C2D5E600E5B217 /* CalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */; };
-		C6D06E1925C2D5E800E5B217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D06E1825C2D5E800E5B217 /* Assets.xcassets */; };
 		C6D06E1F25C2D5E800E5B217 /* CalendarWidgetExtension (iOS).appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6D06E0E25C2D5E600E5B217 /* CalendarWidgetExtension (iOS).appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C6D4DFC228B7CF24005D7B73 /* RectangularCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D4DFC128B7CF24005D7B73 /* RectangularCalendarView.swift */; };
 		C6E6EA2125CB18D6006D9117 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
@@ -174,7 +174,6 @@
 		C6D06E1025C2D5E600E5B217 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C6D06E1225C2D5E600E5B217 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWidget.swift; sourceTree = "<group>"; };
-		C6D06E1825C2D5E800E5B217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D06E1A25C2D5E800E5B217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6D4DFC128B7CF24005D7B73 /* RectangularCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,7 +353,6 @@
 			children = (
 				C6058FDF28B6A6C700A7C19E /* Views */,
 				C6D06E1525C2D5E600E5B217 /* CalendarWidget.swift */,
-				C6D06E1825C2D5E800E5B217 /* Assets.xcassets */,
 				C6A7A95F28BCADAA009879B6 /* CalendarWidget.entitlements */,
 				C6D06E1A25C2D5E800E5B217 /* Info.plist */,
 			);
@@ -497,10 +495,10 @@
 			files = (
 				C6A7A96D28BCAE9D009879B6 /* events.json in Resources */,
 				C6A7A97228BCAEA0009879B6 /* Shabnam-Light.ttf in Resources */,
-				C6A7A96C28BCAE7A009879B6 /* Assets.xcassets in Resources */,
 				C6A7A96F28BCAEA0009879B6 /* Shabnam-Medium.ttf in Resources */,
 				C6A7A97128BCAEA0009879B6 /* Shabnam.ttf in Resources */,
 				C6A7A96E28BCAEA0009879B6 /* Shabnam-Thin.ttf in Resources */,
+				C604ECE728D645E700861558 /* Assets.xcassets in Resources */,
 				C6A7A97028BCAEA0009879B6 /* Shabnam-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,7 +541,7 @@
 				C6A58ED325D46BAE002574B7 /* events.json in Resources */,
 				C69CA86A25C93D4000605B28 /* Shabnam.ttf in Resources */,
 				C69CA85E25C93D4000605B28 /* Shabnam-Light.ttf in Resources */,
-				C6D06E1925C2D5E800E5B217 /* Assets.xcassets in Resources */,
+				C604ECE628D645E600861558 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
