@@ -44,29 +44,12 @@ struct CalendarWidgetEntryView : View {
         
         switch widgetFamily {
         case .systemSmall:
-            SmallCalendarView(
-                day: JalaliHelper.DayFa.string(from: entry.date),
-                month: JalaliHelper.MonthFa.string(from: entry.date),
-                event: EventService.shared.getEvent(),
-                firstProgress: entry.date.daysPassedInYear(),
-                firstTitle: "سال",
-                secondProgress: entry.date.daysPassedInMonth(),
-                secondTitle: "ماه"
-            )
-            .padding(.vertical)
-            .background(Color("WidgetBackground"))
+            SmallCalendarView(date: entry.date)
+                .padding(.horizontal, 8)
+                .background(Color("WidgetBackground"))
         case .systemMedium:
-            MediumCalendarView(
-                day: JalaliHelper.DayFa.string(from: entry.date),
-                month: JalaliHelper.MonthFa.string(from: entry.date),
-                event: EventService.shared.getEvent(),
-                firstProgress: entry.date.daysPassedInYear(),
-                firstTitle: "سال",
-                secondProgress: entry.date.daysPassedInMonth(),
-                secondTitle: "ماه"
-            )
-            .padding(.all)
-            .background(Color("WidgetBackground"))
+            MediumCalendarView(date: entry.date)
+                .background(Color("WidgetBackground"))
         #if os(iOS)
         case .accessoryCircular:
             CircularCalendarView(
@@ -125,17 +108,11 @@ struct CalendarWidget: Widget {
 }
 
 struct CalendarWidget_Previews: PreviewProvider {
+    
+    static let date = Date()
+    
     static var previews: some View {
-        if #available(iOSApplicationExtension 16.0, *) {
-            CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
-                #if os(iOS)
-                .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
-                #elseif os(macOS)
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-                #endif
-        } else {
-            CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-        }
+        CalendarWidgetEntryView(entry: WidgetEntry(date: date))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

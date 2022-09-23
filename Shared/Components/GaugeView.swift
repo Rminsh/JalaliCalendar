@@ -16,7 +16,7 @@ struct GaugeView: View {
             if #available(iOS 16.0, macOS 13.0, *) {
                 Gauge(value: progress) {
                     Text(title)
-                        .customFont(name: "Shabnam-Light", style: .callout, weight: .light)
+                        .customFont(name: "Shabnam", style: .callout, weight: .light)
                         .foregroundColor(Color("TextColor"))
                 }
                 .tint(Color("AccentColor"))

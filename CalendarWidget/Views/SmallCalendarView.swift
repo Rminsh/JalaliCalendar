@@ -10,24 +10,40 @@ import WidgetKit
 
 struct SmallCalendarView: View {
     
-    var day: String
-    var month: String
-    var event: String
-    var firstProgress: Float
-    var firstTitle: String
-    var secondProgress: Float
-    var secondTitle: String
+    var date: Date
+    
+    var day: String {
+        JalaliHelper.DayFa.string(from: date)
+    }
+    
+    var month: String {
+        JalaliHelper.MonthFa.string(from: date)
+    }
+    
+    var event: String {
+        EventService.shared.getEvent()
+    }
+    
+    var firstProgress: Float {
+        date.daysPassedInYear()
+    }
+    
+    var secondProgress: Float {
+        date.daysPassedInMonth()
+    }
+    
+    var firstTitle: String = "سال"
+    var secondTitle: String = "ماه"
     
     var body: some View {
-        
-        VStack(alignment: .trailing, spacing: 3) {
-            VStack(alignment: .trailing) {
+        VStack(alignment: .trailing) {
+            VStack(alignment: .trailing, spacing: 0) {
                 // MARK: - Day number
                 Text(day)
                     .customFont(name: "Shabnam", style: .largeTitle, weight: .bold)
                     .foregroundColor(Color("TextColor"))
                     #if os(iOS)
-                    .padding(.bottom, -24)
+                    .padding(.vertical, -10)
                     #endif
                 // MARK: - Month name
                 Text(month)
@@ -35,17 +51,16 @@ struct SmallCalendarView: View {
                     .foregroundColor(Color("AccentColor"))
                 // MARK: - Today's event
                 Text(event)
-                    .customFont(name: "Shabnam", style: .caption1, weight: .light)
-                    .lineLimit(1)
+                    .customFont(name: "Shabnam", style: .footnote, weight: .light)
+                    .lineLimit(2)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
                     .multilineTextAlignment(.trailing)
-                    .minimumScaleFactor(0.9)
+                    .minimumScaleFactor(0.7)
                     .foregroundColor(Color("TextColor"))
             }
-            .padding(.top, 16)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 8)
+            .frame(maxHeight: .infinity)
             
-            /// ⏰ Note: These Gauges will be used for due time
-            /// in addition to the current mode in the future.
             HStack(alignment: .center) {
                 // MARK: - Year's Progress
                 GaugeView(
@@ -53,9 +68,9 @@ struct SmallCalendarView: View {
                     title: firstTitle
                 )
                 .scaleEffect(0.8)
-                
+
                 Spacer()
-                
+
                 // MARK: - Month's Progress
                 GaugeView(
                     progress: secondProgress,
@@ -63,9 +78,9 @@ struct SmallCalendarView: View {
                 )
                 .scaleEffect(0.8)
             }
-            .padding(.bottom, 16)
-            .padding(.horizontal, 8)
+            .padding(.vertical, -6)
         }
+        .padding(.vertical, 16)
     }
 }
 

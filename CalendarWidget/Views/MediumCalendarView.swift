@@ -10,30 +10,14 @@ import WidgetKit
 
 struct MediumCalendarView: View {
     
-    var day: String
-    var month: String
-    var event: String
-    var firstProgress: Float
-    var firstTitle: String
-    var secondProgress: Float
-    var secondTitle: String
+    var date: Date
     
     @Environment(\.calendar) var calendar
     
-    let currentDate = Date()
-    
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: 10) {
             // MARK: - Today View
-            SmallCalendarView(
-                day: day,
-                month: month,
-                event: event,
-                firstProgress: firstProgress,
-                firstTitle: firstTitle,
-                secondProgress: secondProgress,
-                secondTitle: secondTitle
-            )
+            SmallCalendarView(date: date)
             
             // MARK: - Calendar Month View
             VStack(spacing: 4) {
@@ -50,31 +34,31 @@ struct MediumCalendarView: View {
                                 Text(day)
                                     .customFont(name: "Shabnam", style: .caption2)
                             )
-                            .frame(minWidth: 0, maxHeight: 20)
+                            .frame(minWidth: 0, maxHeight: 15)
                     }
                 }
                 .environment(\.layoutDirection, .rightToLeft)
                 
                 // MARK: - Calendar View
-                MonthView(month: currentDate, showHeader: false) { date in
+                MonthView(month: date, showHeader: false) { dateItem in
                     Text("30")
                         .hidden()
-                        .padding(10)
-                        .background(date.checkIsToday(date: currentDate) ? Color("AccentColor"): .clear)
+                        .padding(8)
+                        .background(dateItem.checkIsToday(date: date) ? Color("AccentColor"): .clear)
                         .clipShape(Circle())
                         .padding(.vertical, 2)
                         .overlay(
-                            Text(JalaliHelper.DayFa.string(from: date))
-                                .font(.custom("Shabnam", size: 12))
-                                .foregroundColor(date.checkIsToday(date: currentDate) ? Color.white: Color("TextColor"))
+                            Text(JalaliHelper.DayFa.string(from: dateItem))
+                                .customFont(name: "Shabnam", style: .caption2)
+                                .foregroundColor(dateItem.checkIsToday(date: date) ? Color.white: Color("TextColor"))
                         )
-                        .frame(minWidth: 0, maxHeight: 20)
+                        .frame(minWidth: 0, maxHeight: 15)
                 }
                 .environment(\.layoutDirection, .rightToLeft)
                 .environment(\.calendar, .persianCalendar)
             }
-            
         }
+        .padding(.all)
     }
 }
 
