@@ -112,12 +112,7 @@ struct CalendarWidget_Previews: PreviewProvider {
     static let date = Date().addingTimeInterval(-60 * 60 * 24 * 0)
     
     static var previews: some View {
-        if #available(iOSApplicationExtension 16.0, *) {
-            CalendarWidgetEntryView(entry: WidgetEntry(date: date))
-                .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
-        } else {
-            CalendarWidgetEntryView(entry: WidgetEntry(date: date))
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-        }
+        CalendarWidgetEntryView(entry: WidgetEntry(date: date))
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
