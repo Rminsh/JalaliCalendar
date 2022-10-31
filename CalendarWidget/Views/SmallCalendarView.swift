@@ -21,7 +21,7 @@ struct SmallCalendarView: View {
     }
     
     var event: String {
-        EventService.shared.getEvent()
+        EventService.shared.getEvent(currentDate: date)
     }
     
     var firstProgress: Float {
@@ -52,7 +52,6 @@ struct SmallCalendarView: View {
                 // MARK: - Today's event
                 Text(event)
                     .customFont(name: "Shabnam", style: .footnote, weight: .light)
-                    .lineLimit(2)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
                     .multilineTextAlignment(.trailing)
                     .minimumScaleFactor(0.7)
@@ -85,8 +84,11 @@ struct SmallCalendarView: View {
 }
 
 struct SmallCalendarView_Previews: PreviewProvider {
+    
+    static let date = Date().addingTimeInterval(60 * 60 * 24 * 0)
+    
     static var previews: some View {
-        CalendarWidgetEntryView(entry: WidgetEntry(date: Date()))
+        CalendarWidgetEntryView(entry: WidgetEntry(date: date))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

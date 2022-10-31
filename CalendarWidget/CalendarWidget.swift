@@ -61,7 +61,7 @@ struct CalendarWidgetEntryView : View {
         case .accessoryRectangular:
             RectangularCalendarView(
                 today: entry.date,
-                event: EventService.shared.getEvent()
+                event: EventService.shared.getEvent(currentDate: entry.date)
             )
         #endif
         default:
@@ -109,10 +109,15 @@ struct CalendarWidget: Widget {
 
 struct CalendarWidget_Previews: PreviewProvider {
     
-    static let date = Date()
+    static let date = Date().addingTimeInterval(-60 * 60 * 24 * 0)
     
     static var previews: some View {
-        CalendarWidgetEntryView(entry: WidgetEntry(date: date))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        if #available(iOSApplicationExtension 16.0, *) {
+            CalendarWidgetEntryView(entry: WidgetEntry(date: date))
+                .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+        } else {
+            CalendarWidgetEntryView(entry: WidgetEntry(date: date))
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+        }
     }
 }

@@ -25,12 +25,11 @@ class EventService {
         }
     }
     
-    func getEvent() -> String {
+    func getEvent(currentDate: Date = Date()) -> String {
         if let url = Bundle.main.url(forResource: "events", withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
                 let calendars = try JSONDecoder().decode(CalendarEvents.self, from: data)
-                let currentDate = Date()
                 for item in calendars.persianCalendar {
                     if item.day == Int(JalaliHelper.DayEn.string(from: currentDate)) && item.month == Int(JalaliHelper.MonthEn.string(from: currentDate)) {
                         return item.title
