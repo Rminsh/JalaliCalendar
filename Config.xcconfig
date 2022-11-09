@@ -14,6 +14,7 @@ CONFIG_APP_BUNDLE_VERSION = 2
 
 // MARK: - App display name
 CONFIG_APP_NAME = Jalali Calendar
+CONFIG_WIDGET_NAME = JalaliCalendarWidget
 
 // MARK: - App Bundle Identifier
 CONFIG_BUNDLE_ID = com.shalchian.JalaliCalendar.app
