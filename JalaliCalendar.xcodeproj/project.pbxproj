@@ -647,6 +647,7 @@
 /* Begin XCBuildConfiguration section */
 		C6A7A96428BCADAA009879B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -678,6 +679,7 @@
 		};
 		C6A7A96528BCADAA009879B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CC971A28B693F100A7BA9B /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
