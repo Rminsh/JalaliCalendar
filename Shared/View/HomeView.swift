@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State var selectedDate = Date()
     @State var events = [EventDetails]()
+    @State private var showReset: Bool = false
     
     @Environment(\.calendar) var calendar
     @Environment(\.scenePhase) var scenePhase
@@ -35,27 +36,34 @@ struct HomeView: View {
     }
     
     var body: some View {
+        #if os(iOS)
+        NavigationView {
+            ZStack {
+                Color("BackgroundColor")
+                    .edgesIgnoringSafeArea(.all)
+                
+                content
+            }
+        }
+        .navigationViewStyle(.stack)
+        .environment(\.layoutDirection, .rightToLeft)
+        #else
         ZStack {
-            #if os(iOS)
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
-            #elseif os(macOS)
             VisualEffectBlur(material: .popover, blendingMode: .behindWindow)
                 .edgesIgnoringSafeArea(.all)
-            #endif
             
             content
-                #if os(macOS)
                 .shadow(color: .accentColor.opacity(0.15), radius: 2)
-                #endif
         }
         .environment(\.layoutDirection, .rightToLeft)
+        #endif
     }
     
     var content: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 3) {
                 HStack {
+                    // MARK: - Previous month
                     Button(action: {
                         moveDate(to: selectedDate.adding(.month, value: -1))
                     }) {
@@ -65,6 +73,7 @@ struct HomeView: View {
                             .foregroundColor(.accentColor)
                     }
                     .buttonStyle(.borderless)
+                    
                     // MARK: - Today contents
                     VStack(alignment: .center, spacing: 3) {
                         Text(dayWeekFa)
@@ -77,6 +86,8 @@ struct HomeView: View {
                     }
                     .frame(minWidth: 168)
                     .padding(.horizontal, 25)
+                    
+                    // MARK: - Next month
                     Button(action: {
                         moveDate(to: selectedDate.adding(.month, value: 1))
                     }) {
@@ -88,9 +99,10 @@ struct HomeView: View {
                     .buttonStyle(.borderless)
                 }
                 
-                // MARK: - Calendar progress
+                // MARK: - Progresses
                 HStack(alignment: .center, spacing: 50) {
                     if #available(iOS 16.0, macOS 13.0, *) {
+                        // MARK: - Year Progress
                         Gauge(value: selectedDate.daysPassedInYear()) {
                             Text("سال")
                                 .customFont(style: .callout, weight: .light)
@@ -101,6 +113,7 @@ struct HomeView: View {
                         .tint(Color("AccentColor"))
                         .gaugeStyle(.accessoryLinearCapacity)
                         
+                        // MARK: - Month Progress
                         Gauge(value: selectedDate.daysPassedInMonth()) {
                             Text("ماه")
                                 .customFont(style: .callout, weight: .light)
@@ -211,6 +224,15 @@ struct HomeView: View {
             }
             .padding(.vertical)
         }
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button(action: {moveDate(to: Date(), showReset: false)}) {
+                    Label("برو به امروز", systemImage: "arrow.uturn.left")
+                }
+                .disabled(!showReset)
+                .opacity(showReset ? 1 : 0)
+            }
+        }
         #if os(iOS)
         .safeAreaInset(edge: .top) {
             HStack {
@@ -247,7 +269,7 @@ struct HomeView: View {
         }
     }
     
-    func moveDate(to date: Date) {
+    func moveDate(to date: Date, showReset: Bool = true) {
         #if os(iOS)
         let hapticGenerator = UIImpactFeedbackGenerator(style: .soft)
         hapticGenerator.impactOccurred()
@@ -255,6 +277,7 @@ struct HomeView: View {
         withAnimation(.interactiveSpring()) {
             selectedDate = date
             getEvents()
+            self.showReset = showReset
         }
     }
 }
