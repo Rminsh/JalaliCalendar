@@ -75,6 +75,7 @@ struct HomeView: View {
                             .customFont(style: .title1, weight: .bold)
                             .foregroundColor(Color("AccentColor"))
                     }
+                    .frame(minWidth: 168)
                     .padding(.horizontal, 25)
                     Button(action: {
                         moveDate(to: selectedDate.adding(.month, value: 1))
