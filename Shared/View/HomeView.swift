@@ -140,18 +140,22 @@ struct HomeView: View {
                     month: selectedDate,
                     showHeader: false
                 ) { weekday in
-                    Text("30")
-                        .hidden()
-                        .padding(8)
-                        .clipShape(Circle())
-                        .padding(.vertical, 4)
-                        .overlay(
-                            Text(weekday)
-                                .customFont(style: .callout)
-                        )
+                    Text(weekday)
+                        .customFont(style: .callout)
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 12)
                 } content: { date in
-                    Text("30")
-                        .hidden()
+                    Text(JalaliHelper.DayFa.string(from: date))
+                        .customFont(style: .callout)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.2)
+                        .dynamicTypeSize(.xSmall ... .medium)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(
+                            date.checkIsToday(date: Date()) ?
+                            Color.white:
+                            Color("BackgroundColor")
+                        )
                         .padding(8)
                         .background(
                             date.checkIsToday(date: Date()) ?
@@ -160,15 +164,6 @@ struct HomeView: View {
                         )
                         .clipShape(Circle())
                         .padding(.vertical, 4)
-                        .overlay(
-                            Text(JalaliHelper.DayFa.string(from: date))
-                                .customFont(style: .callout)
-                                .foregroundColor(
-                                    date.checkIsToday(date: Date()) ?
-                                    Color.white:
-                                    Color("BackgroundColor")
-                                )
-                        )
                         .overlay(
                             Circle().stroke(
                                 Color.accentColor,
@@ -180,6 +175,7 @@ struct HomeView: View {
                             moveDate(to: date)
                         }
                 }
+                .frame(maxWidth: 300)
 
                 // MARK: - EventView
                 Text(!events.isEmpty ? "مناسبت‌های این روز" : "")
