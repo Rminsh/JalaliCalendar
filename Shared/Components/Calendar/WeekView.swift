@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WeekView<DateView>: View where DateView: View {
+    
     @Environment(\.calendar) var calendar
 
     let week: Date
@@ -19,9 +20,7 @@ struct WeekView<DateView>: View where DateView: View {
     }
 
     private var days: [Date] {
-        guard
-            let weekInterval = calendar.dateInterval(of: .weekOfYear, for: week)
-            else { return [] }
+        guard let weekInterval = calendar.dateInterval(of: .weekOfYear, for: week) else { return [] }
         return calendar.generateDates(
             inside: weekInterval,
             matching: DateComponents(hour: 0, minute: 0, second: 0)

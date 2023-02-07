@@ -7,31 +7,39 @@
 
 import SwiftUI
 
-struct MonthView<DateView>: View where DateView: View {
+struct MonthView<WeekDaysView: View, DateView: View>: View {
+    
     @Environment(\.calendar) var calendar
 
     let month: Date
     let showHeader: Bool
+    let weekdays: (String) -> WeekDaysView
     let content: (Date) -> DateView
 
     init(
         month: Date,
         showHeader: Bool = true,
+        @ViewBuilder weekdays: @escaping (String) -> WeekDaysView,
         @ViewBuilder content: @escaping (Date) -> DateView
     ) {
         self.month = month
+        self.weekdays = weekdays
         self.content = content
         self.showHeader = showHeader
     }
 
     private var weeks: [Date] {
-        guard
-            let monthInterval = calendar.dateInterval(of: .month, for: month)
-            else { return [] }
+        guard let monthInterval = calendar.dateInterval(of: .month, for: month) else { return [] }
         return calendar.generateDates(
             inside: monthInterval,
             matching: DateComponents(hour: 0, minute: 0, second: 0, weekday: calendar.firstWeekday)
         )
+    }
+    
+    private var weekdaysSymbols: [String] {
+        var calendar = Calendar(identifier: .persian)
+        calendar.locale = Locale(identifier: "fa")
+        return calendar.veryShortStandaloneWeekdaySymbols.shifted(by: 1)
     }
 
     private var header: some View {
@@ -51,6 +59,12 @@ struct MonthView<DateView>: View where DateView: View {
         VStack(spacing: 3) {
             if showHeader {
                 header
+            }
+            
+            HStack {
+                ForEach(weekdaysSymbols, id: \.self) { day in
+                    self.weekdays(day)
+                }
             }
 
             ForEach(weeks, id: \.self) { week in

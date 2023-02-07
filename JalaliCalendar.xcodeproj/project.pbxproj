@@ -28,11 +28,12 @@
 		C6215CDB25D3D8C3000FC294 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CDA25D3D8C3000FC294 /* MonthView.swift */; };
 		C6215CDC25D3D8C3000FC294 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CDA25D3D8C3000FC294 /* MonthView.swift */; };
 		C6215CDD25D3D8C3000FC294 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CDA25D3D8C3000FC294 /* MonthView.swift */; };
-		C6215CE225D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
-		C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
-		C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C631928A25C9DFB000A1BA23 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928925C9DFB000A1BA23 /* GaugeView.swift */; };
 		C631E98728B6CDD0006D7033 /* CircularCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */; };
+		C648E87F2992EFBA000C499F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C648E87E2992EFBA000C499F /* Array+Extensions.swift */; };
+		C648E8802992EFBA000C499F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C648E87E2992EFBA000C499F /* Array+Extensions.swift */; };
+		C648E8812992EFBA000C499F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C648E87E2992EFBA000C499F /* Array+Extensions.swift */; };
+		C648E8822992EFBA000C499F /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C648E87E2992EFBA000C499F /* Array+Extensions.swift */; };
 		C686C59628B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
 		C686C59728B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
 		C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
@@ -72,7 +73,6 @@
 		C6A7A97428BCAEA5009879B6 /* Extensions+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */; };
 		C6A7A97528BCAEA5009879B6 /* Extensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CC725D3D7DF000FC294 /* Extensions+Calendar.swift */; };
 		C6A7A97628BCAEA5009879B6 /* JalaliHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CB925D3D79E000FC294 /* JalaliHelper.swift */; };
-		C6A7A97728BCAEA8009879B6 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CE125D3D8F1000FC294 /* CalendarView.swift */; };
 		C6A7A97828BCAEA8009879B6 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CCF25D3D82C000FC294 /* WeekView.swift */; };
 		C6A7A97928BCAEA8009879B6 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CDA25D3D8C3000FC294 /* MonthView.swift */; };
 		C6A7A97A28BCAEA8009879B6 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C686C59528B6ACDD00F70672 /* CustomFont.swift */; };
@@ -146,10 +146,10 @@
 		C6215CC725D3D7DF000FC294 /* Extensions+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Calendar.swift"; sourceTree = "<group>"; };
 		C6215CCF25D3D82C000FC294 /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		C6215CDA25D3D8C3000FC294 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
-		C6215CE125D3D8F1000FC294 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		C631928925C9DFB000A1BA23 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Date.swift"; sourceTree = "<group>"; };
 		C631E98628B6CDD0006D7033 /* CircularCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCalendarView.swift; sourceTree = "<group>"; };
+		C648E87E2992EFBA000C499F /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		C686C59528B6ACDD00F70672 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		C69CA84025C9296B00605B28 /* SmallCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCalendarView.swift; sourceTree = "<group>"; };
 		C69CA85725C93D4000605B28 /* Shabnam-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Shabnam-Light.ttf"; sourceTree = "<group>"; };
@@ -236,6 +236,7 @@
 		C6215CB525D3D602000FC294 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C648E87E2992EFBA000C499F /* Array+Extensions.swift */,
 				C6215CC725D3D7DF000FC294 /* Extensions+Calendar.swift */,
 				C631928E25C9EAEF00A1BA23 /* Extensions+Date.swift */,
 				C6215CC025D3D7BC000FC294 /* Extensions+DateFormatter.swift */,
@@ -257,7 +258,6 @@
 			children = (
 				C6215CCF25D3D82C000FC294 /* WeekView.swift */,
 				C6215CDA25D3D8C3000FC294 /* MonthView.swift */,
-				C6215CE125D3D8F1000FC294 /* CalendarView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -552,9 +552,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6A7A97728BCAEA8009879B6 /* CalendarView.swift in Sources */,
 				C6A7A97628BCAEA5009879B6 /* JalaliHelper.swift in Sources */,
 				C6A7A97328BCAEA5009879B6 /* Extensions+DateFormatter.swift in Sources */,
+				C648E8822992EFBA000C499F /* Array+Extensions.swift in Sources */,
 				C6A7A97A28BCAEA8009879B6 /* CustomFont.swift in Sources */,
 				C6A7A97528BCAEA5009879B6 /* Extensions+Calendar.swift in Sources */,
 				C6A7A96928BCAE7A009879B6 /* SmallCalendarView.swift in Sources */,
@@ -574,13 +574,13 @@
 			files = (
 				C6215CDB25D3D8C3000FC294 /* MonthView.swift in Sources */,
 				C6D06DFA25C2D56300E5B217 /* HomeView.swift in Sources */,
-				C6215CE225D3D8F1000FC294 /* CalendarView.swift in Sources */,
 				C6E6EA2225CB18D6006D9117 /* Extensions+Date.swift in Sources */,
 				C6E6EA2F25CB191C006D9117 /* GaugeView.swift in Sources */,
 				C618670B25CC70E4009420F2 /* Events.swift in Sources */,
 				C6215CBA25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
 				C6215CD025D3D82C000FC294 /* WeekView.swift in Sources */,
 				C6215CC125D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
+				C648E87F2992EFBA000C499F /* Array+Extensions.swift in Sources */,
 				C686C59628B6ACDD00F70672 /* CustomFont.swift in Sources */,
 				C6215CC825D3D7DF000FC294 /* Extensions+Calendar.swift in Sources */,
 				C6D06DF825C2D56300E5B217 /* JalaliCalendarApp.swift in Sources */,
@@ -594,10 +594,10 @@
 				C6215CBB25D3D79E000FC294 /* JalaliHelper.swift in Sources */,
 				C6215CDC25D3D8C3000FC294 /* MonthView.swift in Sources */,
 				C6215CC925D3D7DF000FC294 /* Extensions+Calendar.swift in Sources */,
+				C648E8802992EFBA000C499F /* Array+Extensions.swift in Sources */,
 				C6E6EA2125CB18D6006D9117 /* Extensions+Date.swift in Sources */,
 				C6215CC225D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
 				C6D06DFB25C2D56300E5B217 /* HomeView.swift in Sources */,
-				C6215CE325D3D8F1000FC294 /* CalendarView.swift in Sources */,
 				C6A00AE928D452A1005FF233 /* VisualEffectBlur.swift in Sources */,
 				C6E6EA2B25CB191B006D9117 /* GaugeView.swift in Sources */,
 				C6215CD125D3D82C000FC294 /* WeekView.swift in Sources */,
@@ -618,10 +618,10 @@
 				C686C59828B6ACDD00F70672 /* CustomFont.swift in Sources */,
 				C6215CAE25D3C87B000FC294 /* MediumCalendarView.swift in Sources */,
 				C6E6EA2625CB18E0006D9117 /* Extensions+Date.swift in Sources */,
-				C6215CE425D3D8F1000FC294 /* CalendarView.swift in Sources */,
 				C631E98728B6CDD0006D7033 /* CircularCalendarView.swift in Sources */,
 				C6215CC325D3D7BC000FC294 /* Extensions+DateFormatter.swift in Sources */,
 				C6215CDD25D3D8C3000FC294 /* MonthView.swift in Sources */,
+				C648E8812992EFBA000C499F /* Array+Extensions.swift in Sources */,
 				C6215CD225D3D82C000FC294 /* WeekView.swift in Sources */,
 				C6215CCA25D3D7DF000FC294 /* Extensions+Calendar.swift in Sources */,
 				C618670D25CC70E4009420F2 /* Events.swift in Sources */,

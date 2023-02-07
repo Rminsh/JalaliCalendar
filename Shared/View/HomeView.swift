@@ -136,47 +136,49 @@ struct HomeView: View {
                 .padding(.all, 25)
                 
                 // MARK: - Calendar Month View
-                VStack {
-                    HStack {
-                        ForEach(["ش","ی","د","س","چ","پ","ج"], id: \.self) { day in
-                            Text(day)
+                MonthView(
+                    month: selectedDate,
+                    showHeader: false
+                ) { weekday in
+                    Text("30")
+                        .hidden()
+                        .padding(8)
+                        .clipShape(Circle())
+                        .padding(.vertical, 4)
+                        .overlay(
+                            Text(weekday)
                                 .customFont(style: .callout)
-                                .frame(minWidth: 37)
-                        }
-                    }
-                    
-                    MonthView(month: selectedDate, showHeader: false) { date in
-                        Text("30")
-                            .hidden()
-                            .padding(8)
-                            .background(
-                                date.checkIsToday(date: Date()) ?
-                                Color("AccentColor"):
-                                Color("DayTextBackground")
-                            )
-                            .clipShape(Circle())
-                            .padding(.vertical, 4)
-                            .overlay(
-                                Text(JalaliHelper.DayFa.string(from: date))
-                                    .customFont(style: .callout)
-                                    .foregroundColor(
-                                        date.checkIsToday(date: Date()) ?
-                                        Color.white:
-                                        Color("BackgroundColor")
-                                    )
-                            )
-                            .overlay(
-                                Circle().stroke(
-                                    Color.accentColor,
-                                    lineWidth: date.checkIsToday(date: selectedDate) ? 4 : 0
+                        )
+                } content: { date in
+                    Text("30")
+                        .hidden()
+                        .padding(8)
+                        .background(
+                            date.checkIsToday(date: Date()) ?
+                            Color("AccentColor"):
+                            Color("DayTextBackground")
+                        )
+                        .clipShape(Circle())
+                        .padding(.vertical, 4)
+                        .overlay(
+                            Text(JalaliHelper.DayFa.string(from: date))
+                                .customFont(style: .callout)
+                                .foregroundColor(
+                                    date.checkIsToday(date: Date()) ?
+                                    Color.white:
+                                    Color("BackgroundColor")
                                 )
+                        )
+                        .overlay(
+                            Circle().stroke(
+                                Color.accentColor,
+                                lineWidth: date.checkIsToday(date: selectedDate) ? 4 : 0
                             )
-                            .animation(.easeIn, value: selectedDate)
-                            .onTapGesture {
-                                moveDate(to: date)
-                            }
-                    }
-                    .padding()
+                        )
+                        .animation(.easeIn, value: selectedDate)
+                        .onTapGesture {
+                            moveDate(to: date)
+                        }
                 }
 
                 // MARK: - EventView
