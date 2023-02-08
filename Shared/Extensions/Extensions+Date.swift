@@ -81,6 +81,10 @@ extension Date {
     func checkIsToday(date: Date) -> Bool {
         return hasSame(.day, as: date) && hasSame(.month, as: date) && hasSame(.year, as: date)
     }
+    
+    func isSaturday() -> Bool {
+        Calendar.current.dateComponents([.weekday], from: self).weekday == 6
+    }
 }
 
 public extension Date {

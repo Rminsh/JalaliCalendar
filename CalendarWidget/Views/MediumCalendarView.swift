@@ -26,6 +26,7 @@ struct MediumCalendarView: View {
             ) { weekday in
                 Text(weekday)
                     .customFont(style: .caption2)
+                    .foregroundStyle(.secondary)
                     .minimumScaleFactor(0.8)
                     .lineLimit(1)
                     .dynamicTypeSize(.xSmall)
@@ -33,29 +34,31 @@ struct MediumCalendarView: View {
                     .padding(.bottom, 2)
             } content: { dateItem in
                 Text(JalaliHelper.DayFa.string(from: dateItem))
-                    .customFont(style: .body)
+                    .customFont(style: .caption1)
                     .lineLimit(1)
                     .minimumScaleFactor(0.56)
-                    .dynamicTypeSize(.xSmall ... .small)
+                    .dynamicTypeSize(.xSmall)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(
                         dateItem.checkIsToday(date: date) ?
                         Color.white:
-                        Color("TextColor")
+                        Color("TextColor").opacity(dateItem.isSaturday() ? 0.65 : 1)
                     )
                     .background(
-                        Circle().fill(
-                            dateItem.checkIsToday(date: date) ?
-                            Color("AccentColor"):
-                                Color.clear
+                        Circle()
+                            .fill(
+                                dateItem.checkIsToday(date: date) ?
+                                Color("AccentColor"):
+                                    Color.clear
                             )
-                        .padding(-2)
+                            .padding(-2)
                     )
             }
+            .padding(.vertical)
             .environment(\.layoutDirection, .rightToLeft)
             .environment(\.calendar, .persianCalendar)
         }
-        .padding(.all)
+        .padding(.horizontal)
     }
 }
 
