@@ -8,40 +8,12 @@
 import SwiftUI
 import WidgetKit
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> WidgetEntry {
-        WidgetEntry(date: Date())
-    }
+struct CalendarWidgetEntryView: View {
     
-    func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let entry = WidgetEntry(date: Date())
-        completion(entry)
-    }
-    
-    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
-        
-        let currentDate = Date()
-        let midnight = Calendar.current.startOfDay(for: currentDate)
-        let nextMidnight = Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
-        let entries = [
-            WidgetEntry(date: Date())
-        ]
-        
-        let timeline = Timeline(entries: entries, policy: .after(nextMidnight))
-        completion(timeline)
-    }
-}
-
-struct WidgetEntry: TimelineEntry {
-    let date: Date
-}
-
-struct CalendarWidgetEntryView : View {
-    @Environment(\.widgetFamily) var widgetFamily
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var widgetFamily
     
     var body: some View {
-        
         switch widgetFamily {
         case .systemSmall:
             SmallCalendarView(date: entry.date)
@@ -67,11 +39,9 @@ struct CalendarWidgetEntryView : View {
         default:
             Text(JalaliHelper.DayFa.string(from: entry.date))
         }
-        
     }
 }
 
-@main
 struct CalendarWidget: Widget {
     let kind: String = "CalendarWidget"
     
