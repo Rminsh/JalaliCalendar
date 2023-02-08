@@ -142,6 +142,7 @@ struct HomeView: View {
                 ) { weekday in
                     Text(weekday)
                         .customFont(style: .callout)
+                        .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 12)
                 } content: { date in
@@ -160,7 +161,7 @@ struct HomeView: View {
                         .background(
                             date.checkIsToday(date: Date()) ?
                             Color("AccentColor"):
-                            Color("DayTextBackground")
+                            Color("DayTextBackground").opacity(date.isSaturday() ? 0.75 : 1)
                         )
                         .clipShape(Circle())
                         .padding(.vertical, 4)
