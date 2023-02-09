@@ -15,6 +15,7 @@
 		C60F7BCC2995890B00333C39 /* SmallMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F7BCA2995890B00333C39 /* SmallMonthView.swift */; };
 		C60F7BCF299596EB00333C39 /* SmallCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CA84025C9296B00605B28 /* SmallCalendarView.swift */; };
 		C60F7BD1299596F000333C39 /* MediumCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */; };
+		C60F7BD429959C5000333C39 /* RectangularMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60F7BD329959C5000333C39 /* RectangularMonthView.swift */; };
 		C618670B25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
 		C618670C25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
 		C618670D25CC70E4009420F2 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = C618670A25CC70E4009420F2 /* Events.swift */; };
@@ -151,6 +152,7 @@
 /* Begin PBXFileReference section */
 		C60F7BC72995889A00333C39 /* MediumMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumMonthView.swift; sourceTree = "<group>"; };
 		C60F7BCA2995890B00333C39 /* SmallMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallMonthView.swift; sourceTree = "<group>"; };
+		C60F7BD329959C5000333C39 /* RectangularMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularMonthView.swift; sourceTree = "<group>"; };
 		C618670A25CC70E4009420F2 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		C6215CA525D3C7B0000FC294 /* MediumCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumCalendarView.swift; sourceTree = "<group>"; };
 		C6215CB925D3D79E000FC294 /* JalaliHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JalaliHelper.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			children = (
 				C60F7BC72995889A00333C39 /* MediumMonthView.swift */,
 				C60F7BCA2995890B00333C39 /* SmallMonthView.swift */,
+				C60F7BD329959C5000333C39 /* RectangularMonthView.swift */,
 			);
 			path = MonthCalendar;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C60F7BD429959C5000333C39 /* RectangularMonthView.swift in Sources */,
 				C6B8596629943A2800430181 /* WidgetBundle.swift in Sources */,
 				C60F7BCB2995890B00333C39 /* SmallMonthView.swift in Sources */,
 				C69CA84125C9296B00605B28 /* SmallCalendarView.swift in Sources */,

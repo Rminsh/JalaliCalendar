@@ -21,6 +21,10 @@ struct MonthWidgetEntryView: View {
         case .systemMedium:
             MediumMonthView(date: entry.date)
                 .background(Color("WidgetBackground"))
+        #if os(iOS)
+        case .accessoryRectangular:
+            RectangularMonthView(today: entry.date)
+        #endif
         default:
             Text(JalaliHelper.DayFa.string(from: entry.date))
         }
@@ -40,7 +44,8 @@ struct MonthWidget: Widget {
             #if os(iOS)
             .supportedFamilies([
                 .systemSmall,
-                .systemMedium
+                .systemMedium,
+                .accessoryRectangular
             ])
             #elseif os(macOS)
             .supportedFamilies([

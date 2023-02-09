@@ -13,12 +13,14 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
 
     let month: Date
     let showHeader: Bool
+    let onlySummary: Bool
     let weekdays: (String) -> WeekDaysView
     let content: (Date) -> DateView
 
     init(
         month: Date,
         showHeader: Bool = true,
+        onlySummary: Bool = false,
         @ViewBuilder weekdays: @escaping (String) -> WeekDaysView,
         @ViewBuilder content: @escaping (Date) -> DateView
     ) {
@@ -26,6 +28,7 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
         self.weekdays = weekdays
         self.content = content
         self.showHeader = showHeader
+        self.onlySummary = onlySummary
     }
 
     private var weeks: [Date] {
@@ -34,6 +37,36 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
             inside: monthInterval,
             matching: DateComponents(hour: 0, minute: 0, second: 0, weekday: calendar.firstWeekday)
         )
+    }
+    
+    private var summaryWeeks: [Date] {
+        if weeks.count < 4 {
+            return weeks /// Should never ever happen!
+        }
+        
+        switch currentWeekIndex {
+        case 0:
+            return Array(weeks.prefix(3))
+        case _ where currentWeekIndex == weeks.count - 1:
+            return Array(weeks.suffix(3))
+        default:
+            return [weeks[currentWeekIndex - 1], weeks[currentWeekIndex], weeks[currentWeekIndex + 1]]
+        }
+        
+    }
+    
+    private var currentWeekIndex: Int {
+        for (index, week) in weeks.enumerated() {
+            if index == weeks.count - 1 { /// Last index
+                return index
+            }
+            
+            if (week ... weeks[weeks.count - 1 < index + 1 ? index : index + 1]).contains(month) {
+                return index
+            }
+        }
+        
+        return 0
     }
     
     private var weekdaysSymbols: [String] {
@@ -68,7 +101,7 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
                 }
             }
 
-            ForEach(weeks, id: \.self) { week in
+            ForEach(onlySummary ? summaryWeeks : weeks , id: \.self) { week in
                 WeekView(week: week, content: self.content)
             }
         }
