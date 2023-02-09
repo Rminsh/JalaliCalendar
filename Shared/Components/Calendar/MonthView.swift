@@ -51,14 +51,15 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
         formatter.locale = Locale(identifier: "fa")
         
         return Text(formatter.string(from: month))
-            .font(.custom("Shabnam-Bold", size: 28))
-            .padding()
+            .customFont(style: .callout, weight: .bold)
+            .foregroundColor(Color("AccentColor"))
     }
 
     var body: some View {
-        VStack(spacing: 3) {
+        VStack(alignment: .leading, spacing: 3) {
             if showHeader {
                 header
+                    .padding(.bottom, 2)
             }
             
             HStack {

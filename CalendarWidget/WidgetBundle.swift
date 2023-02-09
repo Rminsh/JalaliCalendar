@@ -10,7 +10,10 @@ import WidgetKit
 
 @main
 struct WidgetsBudle: WidgetBundle {
+    
+    @WidgetBundleBuilder
     var body: some Widget {
         CalendarWidget()
+        MonthWidget()
     }
 }

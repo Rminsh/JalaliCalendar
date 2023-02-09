@@ -22,23 +22,19 @@ struct CustomFont: ViewModifier {
 
     #if os(iOS)
     func body(content: Content) -> some View {
-        return content.font(
-            Font.custom(
-                name,
-                size: UIFont.preferredFont(forTextStyle: style).pointSize
+        return content
+            .font(
+                .custom(name, size: UIFont.preferredFont(forTextStyle: style).pointSize)
+                .weight(weight)
             )
-            .weight(weight)
-        )
     }
     #elseif os(macOS)
     func body(content: Content) -> some View {
-        return content.font(
-            Font.custom(
-                name,
-                size: NSFont.preferredFont(forTextStyle: style).pointSize
+        return content
+            .font(
+                .custom(name, size: NSFont.preferredFont(forTextStyle: style).pointSize)
+                .weight(weight)
             )
-            .weight(weight)
-        )
     }
     #endif
 }
