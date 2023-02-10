@@ -19,16 +19,14 @@ struct RectangularMonthView: View {
             onlySummary: true
         ) { weekday in
             Text(weekday)
-                .font(.custom("Shabnam", fixedSize: 8))
-                .fontWeight(.bold)
+                .customFont(style: .caption2, weight: .bold)
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
                 .dynamicTypeSize(.xSmall)
                 .frame(maxWidth: .infinity)
         } content: { dateItem in
             Text(JalaliHelper.DayFa.string(from: dateItem))
-                .font(.custom("Shabnam", fixedSize: 10))
-                .fontWeight(.bold)
+                .customFont(style: .footnote, weight: .bold)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
                 .dynamicTypeSize(.xSmall)
@@ -51,7 +49,6 @@ struct RectangularMonthView: View {
                         
                 }
         }
-        .fixedSize()
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
     }

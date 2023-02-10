@@ -89,7 +89,7 @@ struct MonthView<WeekDaysView: View, DateView: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 3) {
+        VStack(alignment: .leading, spacing: onlySummary ? 0 : 3) {
             if showHeader {
                 header
                     .padding(.bottom, 2)
