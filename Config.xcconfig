@@ -9,8 +9,8 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // MARK: - App versions
-CONFIG_APP_VERSION = 2.0.0
-CONFIG_APP_BUNDLE_VERSION = 2
+CONFIG_APP_VERSION = 2.1.0
+CONFIG_APP_BUNDLE_VERSION = 3
 
 // MARK: - App display name
 CONFIG_APP_NAME = Jalali Calendar
