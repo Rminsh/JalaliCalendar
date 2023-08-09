@@ -41,7 +41,7 @@ struct HomeView: View {
         #if os(iOS)
         NavigationStack {
             ZStack {
-                Color("BackgroundColor")
+                Color.background
                     .edgesIgnoringSafeArea(.all)
                 
                 content
@@ -72,7 +72,7 @@ struct HomeView: View {
                         Label("ماه قبل", systemImage: "chevron.compact.right")
                             .customFont(style: .title1)
                             .labelStyle(.iconOnly)
-                            .foregroundColor(.accentColor)
+                            .foregroundStyle(.accent)
                     }
                     .buttonStyle(.borderless)
                     
@@ -80,11 +80,11 @@ struct HomeView: View {
                     VStack(alignment: .center, spacing: 3) {
                         Text(selectedDate, format: formatter.weekday(.wide))
                             .customFont(style: .largeTitle, weight: .bold)
-                            .foregroundColor(Color("TextColor"))
+                            .foregroundStyle(.text)
                         
                         Text(selectedDate, format: formatter.year().month().day())
                             .customFont(style: .title1, weight: .bold)
-                            .foregroundColor(Color("AccentColor"))
+                            .foregroundStyle(.accent)
                     }
                     .frame(minWidth: 168)
                     .padding(.horizontal, 25)
@@ -96,7 +96,7 @@ struct HomeView: View {
                         Label("ماه بعد", systemImage: "chevron.compact.left")
                             .customFont(style: .title1)
                             .labelStyle(.iconOnly)
-                            .foregroundColor(.accentColor)
+                            .foregroundStyle(.accent)
                     }
                     .buttonStyle(.borderless)
                 }
@@ -107,22 +107,22 @@ struct HomeView: View {
                     Gauge(value: selectedDate.daysPassedInYear()) {
                         Text("سال")
                             .customFont(style: .callout, weight: .light)
-                            .foregroundColor(Color("TextColor"))
+                            .foregroundStyle(.text)
                     } currentValueLabel: {
                         Text("\(String(format: "%.0f%%", selectedDate.daysPassedInYear() * 100))")
                     }
-                    .tint(Color("AccentColor"))
+                    .tint(Color.accent)
                     .gaugeStyle(.accessoryLinearCapacity)
                     
                     // MARK: - Month Progress
                     Gauge(value: selectedDate.daysPassedInMonth()) {
                         Text("ماه")
                             .customFont(style: .callout, weight: .light)
-                            .foregroundColor(Color("TextColor"))
+                            .foregroundStyle(.text)
                     } currentValueLabel: {
                         Text("\(String(format: "%.0f%%", selectedDate.daysPassedInMonth() * 100))")
                     }
-                    .tint(Color("AccentColor"))
+                    .tint(Color.accent)
                     .gaugeStyle(.accessoryLinearCapacity)
                 }
                 #if os(iOS)
@@ -149,19 +149,20 @@ struct HomeView: View {
                         .minimumScaleFactor(0.2)
                         .dynamicTypeSize(.xSmall ... .medium)
                         .frame(maxWidth: .infinity)
-                        .foregroundColor(
+                        .foregroundStyle(
                             date.checkIsToday(date: Date()) ?
-                            Color.white:
-                            Color("BackgroundColor")
+                            Color.white :
+                            Color.background
                         )
                         .padding(8)
                         .background(
                             date.checkIsToday(date: Date()) ?
-                            Color("AccentColor"):
-                            Color("DayTextBackground").opacity(date.isSaturday() ? 0.75 : 1)
+                            Color.accent :
+                            Color.dayTextBackground.opacity(date.isSaturday() ? 0.75 : 1)
                         )
                         .clipShape(Circle())
                         .padding(.vertical, 4)
+                        .padding(.horizontal, 4)
                         .overlay(
                             Circle().stroke(
                                 Color.accentColor,
@@ -178,7 +179,7 @@ struct HomeView: View {
                 // MARK: - EventView
                 Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
                     .customFont(style: .body)
-                    .foregroundColor(Color("TextColor"))
+                    .foregroundStyle(.text)
                     .multilineTextAlignment(.trailing)
                     .animation(.interactiveSpring(), value: selectedDate)
                 
@@ -186,22 +187,22 @@ struct HomeView: View {
                     ForEach(currentDateEvents, id: \.self) { item in
                         Text(item.title)
                             .customFont(style: .body, weight: .light)
-                            .foregroundColor(Color("TextColor"))
+                            .foregroundStyle(.text)
                             .multilineTextAlignment(.leading)
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
                             #if os(iOS)
                             .background(
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color("BackgroundColor"))
+                                    .fill(Color.background)
                                     .shadow(
-                                        color: Color.black.opacity(0.2),
+                                        color: .black.opacity(0.2),
                                         radius: 10,
                                         x: 10,
                                         y: 10
                                     )
                                     .shadow(
-                                        color: Color("BackgroundColorAlt").opacity(0.7),
+                                        color: .backgroundColorAlt.opacity(0.7),
                                         radius: 10,
                                         x: -5,
                                         y: -5
@@ -230,15 +231,6 @@ struct HomeView: View {
                 .opacity(showReset ? 1 : 0)
             }
         }
-        #if os(iOS)
-        .safeAreaInset(edge: .top) {
-            HStack {
-                Spacer()
-            }
-            .background(Color("BackgroundColor"))
-            .blur(radius: 5)
-        }
-        #endif
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
         }
