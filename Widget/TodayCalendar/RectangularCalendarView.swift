@@ -75,7 +75,7 @@ struct RectangularCalendarView: View {
     }
 }
 
-#Preview(as: .accessoryRectangular) {
+#Preview(as: .systemSmall) {
     TodayWidget()
 } timeline: {
     SimpleEntry(date: .now)

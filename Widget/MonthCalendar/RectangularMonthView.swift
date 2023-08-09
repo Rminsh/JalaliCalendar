@@ -73,7 +73,7 @@ struct RectangularMonthView: View {
     }
 }
 
-#Preview(as: .accessoryRectangular) {
+#Preview(as: .systemSmall) {
     MonthWidget()
 } timeline: {
     SimpleEntry(date: .now)
