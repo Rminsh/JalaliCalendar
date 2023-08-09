@@ -60,6 +60,7 @@ struct TodayWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             TodayWidgetEntryView(entry: entry)
+                .privacySensitive(false)
                 .environment(\.calendar, .persianCalendar)
                 .environment(\.locale, .init(identifier: "fa"))
         }
