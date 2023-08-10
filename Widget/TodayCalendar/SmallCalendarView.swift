@@ -12,6 +12,8 @@ struct SmallCalendarView: View {
     
     var date: Date
     
+    @State var events = CalendarEvents.persianCalendarEvents
+    
     @Environment(\.calendar) var calendar
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.showsWidgetContainerBackground) var showsWidgetBackground
@@ -28,40 +30,45 @@ struct SmallCalendarView: View {
         date.daysPassedInMonth()
     }
     
+    var calendarComponents: DateComponents {
+        return Calendar.persianCalendar.dateComponents(
+            [.day, .year, .month],
+            from: date
+        )
+    }
+    
+    var currentDateEvents: [EventDetails] {
+        return events.filter { item in
+            item.day == calendarComponents.day &&
+               item.month == calendarComponents.month
+        }
+    }
+    
     var firstTitle: String = "سال"
     var secondTitle: String = "ماه"
     
     var body: some View {
-        VStack(alignment: .center) {
-            if showsWidgetBackground && widgetFamily != .systemMedium {
-                HStack {
-                    weekday
-                    month
-                }
-                .frame(maxWidth: .infinity)
-                
-                dayNumber
-                    .padding(.top, -24)
-                    .padding(.bottom, -36)
-            } else {
-                dayNumber
-                    .padding(.top, -24)
-                    .padding(.bottom, -36)
-                
-                HStack {
-                    weekday
-                    month
-                }
+        VStack(alignment: .leading) {
+            dayNumber
+                .padding(.top, 25)
+            VStack(alignment: .leading, spacing: 5) {
+                month
+                event
             }
+            .padding(.top, -32)
+            .padding(.bottom, -8)
             
             HStack(alignment: .center) {
                 monthProgress
-                    .gaugeStyle(.accessoryLinearCapacity)
+                    .gaugeStyle(.accessoryCircularCapacity)
+                    .scaleEffect(0.8)
                 Spacer()
+                    .frame(maxWidth: 12)
                 yearProgress
-                    .gaugeStyle(.accessoryLinearCapacity)
+                    .gaugeStyle(.accessoryCircularCapacity)
+                    .scaleEffect(0.8)
             }
-            .padding(.bottom, 5)
+            .padding(.bottom, 24)
         }
         .environment(\.layoutDirection, .rightToLeft)
         .containerBackground(.widgetBackground, for: .widget)
@@ -70,22 +77,23 @@ struct SmallCalendarView: View {
     var month: some View {
         Text(date, format: formatter.month())
             .customFont(
-                style: showsWidgetBackground ? .title3 : .title2,
+                style: .title1,
                 weight: .bold
             )
-            .foregroundStyle(.secondary)
+            .foregroundStyle(.accent)
+            
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)
     }
     
-    var weekday: some View {
-        Text(date, format: formatter.weekday())
+    var event: some View {
+        Text(currentDateEvents.first?.title ?? "بدون مناسبت")
             .customFont(
-                style: showsWidgetBackground ? .title3 : .title2,
-                weight: .bold
+                style: .footnote,
+                weight: .light
             )
-            .foregroundStyle(.accent)
+            .foregroundStyle(.text)
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)
@@ -93,8 +101,8 @@ struct SmallCalendarView: View {
     
     var dayNumber: some View {
         Text(date, format: formatter.day())
-            .font(.custom("Shabnam", size: showsWidgetBackground ? 54 : 64).weight(.bold))
-            .dynamicTypeSize(.accessibility5)
+            .customFont(style: .largeTitle, weight: .bold)
+            .dynamicTypeSize(.large)
             .foregroundStyle(.text)
     }
     
