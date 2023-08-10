@@ -28,6 +28,7 @@
 		C6167BEF2A32494400AC66B4 /* TodayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6167BEE2A32494400AC66B4 /* TodayWidget.swift */; };
 		C6167BF12A32494500AC66B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6167BF02A32494500AC66B4 /* Assets.xcassets */; };
 		C6167BF62A32494500AC66B4 /* JalaliCalendarWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6167BE52A32494400AC66B4 /* JalaliCalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C61877D32A852B4E00F60035 /* CircularProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61877D22A852B4E00F60035 /* CircularProgressCalendarView.swift */; };
 		C64C60CE2A334BFC00004EC7 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60CC2A334BFC00004EC7 /* MonthView.swift */; };
 		C64C60CF2A334BFC00004EC7 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60CD2A334BFC00004EC7 /* WeekView.swift */; };
 		C64C60D62A334C0900004EC7 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60D12A334C0900004EC7 /* Array+Extensions.swift */; };
@@ -108,6 +109,7 @@
 		C6167BF22A32494500AC66B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6167BF32A32494500AC66B4 /* CalendarWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarWidget.entitlements; sourceTree = "<group>"; };
 		C6167BFB2A3249AB00AC66B4 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		C61877D22A852B4E00F60035 /* CircularProgressCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressCalendarView.swift; sourceTree = "<group>"; };
 		C64C60CC2A334BFC00004EC7 /* MonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 		C64C60CD2A334BFC00004EC7 /* WeekView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
 		C64C60D12A334C0900004EC7 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -243,9 +245,9 @@
 			isa = PBXGroup;
 			children = (
 				C696A3A22A7D197100D8AB9C /* MediumMonthView.swift */,
+				C606E9D42A7D0E0200D404E9 /* MonthWidget.swift */,
 				C696A3A32A7D197100D8AB9C /* RectangularMonthView.swift */,
 				C696A3A12A7D197100D8AB9C /* SmallMonthView.swift */,
-				C606E9D42A7D0E0200D404E9 /* MonthWidget.swift */,
 			);
 			path = MonthCalendar;
 			sourceTree = "<group>";
@@ -265,10 +267,11 @@
 		C69F5EE92A851AE90027F704 /* ProgressCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				C69F5EEA2A851B9F0027F704 /* SmallProgressCalendarView.swift */,
+				C61877D22A852B4E00F60035 /* CircularProgressCalendarView.swift */,
 				C69F5EEC2A851BD20027F704 /* MediumProgressCalendarView.swift */,
-				C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */,
 				C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */,
+				C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */,
+				C69F5EEA2A851B9F0027F704 /* SmallProgressCalendarView.swift */,
 			);
 			path = ProgressCalendar;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				C6167BEF2A32494400AC66B4 /* TodayWidget.swift in Sources */,
 				C696A3A02A7D193500D8AB9C /* WeekView.swift in Sources */,
 				C6D6F4C32A339B6B0091802B /* Calendar+Extensions.swift in Sources */,
+				C61877D32A852B4E00F60035 /* CircularProgressCalendarView.swift in Sources */,
 				C696A3962A7D17FB00D8AB9C /* Provider.swift in Sources */,
 				C696A3A42A7D197100D8AB9C /* SmallMonthView.swift in Sources */,
 				C681DBC62A83D1850064BE51 /* View+Extensions.swift in Sources */,

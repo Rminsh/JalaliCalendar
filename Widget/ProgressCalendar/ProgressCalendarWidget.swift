@@ -15,10 +15,6 @@ struct ProgressCalendarWidgetEntryView: View {
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.calendar) var calendar
     
-    var formatter: Date.FormatStyle {
-        Date.FormatStyle(calendar: calendar)
-    }
-    
     var body: some View {
         switch widgetFamily {
         case .systemSmall:
@@ -26,13 +22,13 @@ struct ProgressCalendarWidgetEntryView: View {
         case .systemMedium:
             MediumProgressCalendarView(date: entry.date)
         #if os(iOS)
+        case .accessoryCircular:
+            CircularProgressCalendarView(date: entry.date)
         case .accessoryRectangular:
             RectangularProgressCalendarView(date: entry.date)
-        case .accessoryInline:
-            Text(entry.date, format: formatter.year().month().day())
         #endif
         default:
-            Text(entry.date, format: formatter.year().month().day())
+            Text(entry.date, format: .dateTime.year().month().day())
         }
     }
 }
@@ -45,7 +41,6 @@ struct ProgressCalendarWidget: Widget {
         .systemSmall,
         .systemMedium,
         .accessoryCircular,
-        .accessoryInline,
         .accessoryRectangular
     ]
     #elseif os(macOS)
