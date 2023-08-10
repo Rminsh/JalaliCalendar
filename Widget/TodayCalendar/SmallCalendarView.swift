@@ -63,7 +63,7 @@ struct SmallCalendarView: View {
                     .gaugeStyle(.accessoryCircularCapacity)
                     .scaleEffect(0.8)
                 Spacer()
-                    .frame(maxWidth: 12)
+                    .frame(maxWidth: showsWidgetBackground ? 12 : .infinity)
                 yearProgress
                     .gaugeStyle(.accessoryCircularCapacity)
                     .scaleEffect(0.8)
@@ -77,7 +77,7 @@ struct SmallCalendarView: View {
     var month: some View {
         Text(date, format: formatter.month())
             .customFont(
-                style: .title1,
+                style: showsWidgetBackground ? .title1 : .largeTitle,
                 weight: .bold
             )
             .foregroundStyle(.accent)
@@ -101,7 +101,7 @@ struct SmallCalendarView: View {
     
     var dayNumber: some View {
         Text(date, format: formatter.day())
-            .customFont(style: .largeTitle, weight: .bold)
+            .customFont(style: showsWidgetBackground ? .largeTitle : .extraLargeTitle, weight: .bold)
             .dynamicTypeSize(.large)
             .foregroundStyle(.text)
     }
