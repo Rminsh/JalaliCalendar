@@ -12,7 +12,7 @@ struct SmallCalendarView: View {
     
     var date: Date
     
-    @State var events = CalendarEvents.persianCalendarEvents
+    @State private var events = CalendarEvents.persianCalendarEvents
     
     @Environment(\.calendar) var calendar
     @Environment(\.widgetFamily) var widgetFamily

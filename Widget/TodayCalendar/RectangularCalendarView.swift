@@ -13,6 +13,8 @@ struct RectangularCalendarView: View {
     
     var date: Date
     
+    @State private var events = CalendarEvents.persianCalendarEvents
+    
     @Environment(\.calendar) var calendar
     
     var formatter: Date.FormatStyle {
@@ -27,27 +29,38 @@ struct RectangularCalendarView: View {
         date.daysPassedInMonth()
     }
     
+    var calendarComponents: DateComponents {
+        return Calendar.persianCalendar.dateComponents(
+            [.day, .year, .month],
+            from: date
+        )
+    }
+    
+    var currentDateEvents: [EventDetails] {
+        return events.filter { item in
+            item.day == calendarComponents.day &&
+               item.month == calendarComponents.month
+        }
+    }
+    
     var firstTitle: String = "سال"
     var secondTitle: String = "ماه"
     
     var body: some View {
-        VStack {
-            HStack(spacing: 4) {
-                Text(date, format: formatter.day())
-                    .customFont(style: .title3, weight: .bold)
-                Text(date, format: formatter.month())
-                    .customFont(style: .title3, weight: .bold)
-                Text(date, format: formatter.year())
-                    .customFont(style: .title3)
-                    .foregroundStyle(.secondary)
-            }
-                .minimumScaleFactor(0.7)
-                .lineLimit(1)
-                .frame(maxWidth: .infinity, alignment: .leading)
+        HStack {
+            Capsule()
+                .frame(width: 4)
+                .widgetAccentable()
             
-            HStack {
-                monthProgress
-                yearProgress
+            VStack(alignment: .leading) {
+                Text(date, format: formatter.month().day().weekday())
+                    .customFont(style: .body, weight: .bold)
+                    .minimumScaleFactor(0.7)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                
+                Text(currentDateEvents.first?.title ?? "بدون مناسبت")
+                    .customFont(style: .body, weight: .light)
             }
         }
         .environment(\.layoutDirection, .rightToLeft)
