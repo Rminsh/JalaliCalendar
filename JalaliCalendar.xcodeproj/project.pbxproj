@@ -46,6 +46,10 @@
 		C696A3A42A7D197100D8AB9C /* SmallMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696A3A12A7D197100D8AB9C /* SmallMonthView.swift */; };
 		C696A3A52A7D197100D8AB9C /* MediumMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696A3A22A7D197100D8AB9C /* MediumMonthView.swift */; };
 		C696A3A62A7D197100D8AB9C /* RectangularMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696A3A32A7D197100D8AB9C /* RectangularMonthView.swift */; };
+		C69F5EEB2A851B9F0027F704 /* SmallProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EEA2A851B9F0027F704 /* SmallProgressCalendarView.swift */; };
+		C69F5EED2A851BD20027F704 /* MediumProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EEC2A851BD20027F704 /* MediumProgressCalendarView.swift */; };
+		C69F5EEF2A851BFD0027F704 /* RectangularProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */; };
+		C69F5EF12A851C280027F704 /* ProgressCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */; };
 		C6A89BAF2A334533009F4C09 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A89BAE2A334533009F4C09 /* VisualEffectBlur.swift */; };
 		C6D6F4BC2A339AED0091802B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D6F4BB2A339AED0091802B /* Colors.xcassets */; };
 		C6D6F4BD2A339AED0091802B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D6F4BB2A339AED0091802B /* Colors.xcassets */; };
@@ -119,6 +123,10 @@
 		C696A3A12A7D197100D8AB9C /* SmallMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallMonthView.swift; sourceTree = "<group>"; };
 		C696A3A22A7D197100D8AB9C /* MediumMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumMonthView.swift; sourceTree = "<group>"; };
 		C696A3A32A7D197100D8AB9C /* RectangularMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangularMonthView.swift; sourceTree = "<group>"; };
+		C69F5EEA2A851B9F0027F704 /* SmallProgressCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallProgressCalendarView.swift; sourceTree = "<group>"; };
+		C69F5EEC2A851BD20027F704 /* MediumProgressCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumProgressCalendarView.swift; sourceTree = "<group>"; };
+		C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularProgressCalendarView.swift; sourceTree = "<group>"; };
+		C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCalendarWidget.swift; sourceTree = "<group>"; };
 		C6A89BAE2A334533009F4C09 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		C6D6F4BB2A339AED0091802B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C6D6F4BF2A339B4D0091802B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 		C6167BEB2A32494400AC66B4 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				C69F5EE92A851AE90027F704 /* ProgressCalendar */,
 				C6202B7D2A7CF3DE006FFACC /* TodayCalendar */,
 				C6202B7C2A7CF3D1006FFACC /* MonthCalendar */,
 				C6167BFD2A324B2900AC66B4 /* Resources */,
@@ -251,6 +260,17 @@
 				C6167BEE2A32494400AC66B4 /* TodayWidget.swift */,
 			);
 			path = TodayCalendar;
+			sourceTree = "<group>";
+		};
+		C69F5EE92A851AE90027F704 /* ProgressCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				C69F5EEA2A851B9F0027F704 /* SmallProgressCalendarView.swift */,
+				C69F5EEC2A851BD20027F704 /* MediumProgressCalendarView.swift */,
+				C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */,
+				C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */,
+			);
+			path = ProgressCalendar;
 			sourceTree = "<group>";
 		};
 		C6A89BAD2A33452B009F4C09 /* General */ = {
@@ -445,9 +465,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C696A39D2A7D187900D8AB9C /* SmallCalendarView.swift in Sources */,
+				C69F5EED2A851BD20027F704 /* MediumProgressCalendarView.swift in Sources */,
+				C69F5EEB2A851B9F0027F704 /* SmallProgressCalendarView.swift in Sources */,
 				C696A3A52A7D197100D8AB9C /* MediumMonthView.swift in Sources */,
 				C696A39C2A7D187900D8AB9C /* CircularCalendarView.swift in Sources */,
 				C6D6F4CA2A339D5A0091802B /* EventService.swift in Sources */,
+				C69F5EF12A851C280027F704 /* ProgressCalendarWidget.swift in Sources */,
 				C6167BED2A32494400AC66B4 /* WidgetBundle.swift in Sources */,
 				C696A39E2A7D187900D8AB9C /* RectangularCalendarView.swift in Sources */,
 				C6167BEF2A32494400AC66B4 /* TodayWidget.swift in Sources */,
@@ -460,6 +483,7 @@
 				C696A3A62A7D197100D8AB9C /* RectangularMonthView.swift in Sources */,
 				C606E9D82A7D0E2D00D404E9 /* CustomFont.swift in Sources */,
 				C696A39B2A7D187900D8AB9C /* MediumCalendarView.swift in Sources */,
+				C69F5EEF2A851BFD0027F704 /* RectangularProgressCalendarView.swift in Sources */,
 				C606E9D52A7D0E0200D404E9 /* MonthWidget.swift in Sources */,
 				C6D6F4C52A339BEF0091802B /* Array+Extensions.swift in Sources */,
 				C696A39F2A7D193100D8AB9C /* MonthView.swift in Sources */,

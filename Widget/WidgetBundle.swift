@@ -13,5 +13,6 @@ struct WidgetsBudle: WidgetBundle {
     var body: some Widget {
         TodayWidget()
         MonthWidget()
+        ProgressCalendarWidget()
     }
 }
