@@ -29,6 +29,9 @@ struct SmallMonthView: View {
                 )
                 .foregroundStyle(.accent)
                 .dynamicTypeSize(.xSmall ... .xLarge)
+                .id(date.formatted(.dateTime.month()))
+                .transition(.push(from: .top))
+                .animation(.smooth, value: date)
             
             // MARK: - Calendar Month days
             MonthView(month: date) { weekday in
