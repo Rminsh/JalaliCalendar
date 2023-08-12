@@ -50,10 +50,17 @@ struct SmallCalendarView: View {
     var body: some View {
         VStack(alignment: .leading) {
             dayNumber
+                .contentTransition(.numericText(value: date.timeIntervalSince1970))
                 .padding(.top, 25)
             VStack(alignment: .leading, spacing: 5) {
                 month
+                    .id(date.formatted(.dateTime.month()))
+                    .transition(.push(from: .bottom))
                 event
+                    .frame(height: 18)
+                    .id(currentDateEvents.first?.day)
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: currentDateEvents.first?.day)
             }
             .padding(.top, -32)
             .padding(.bottom, -8)
@@ -101,7 +108,11 @@ struct SmallCalendarView: View {
     
     var dayNumber: some View {
         Text(date, format: formatter.day())
+            #if os(iOS)
             .customFont(style: showsWidgetBackground ? .largeTitle : .extraLargeTitle, weight: .bold)
+            #else
+            .customFont(style: .largeTitle, weight: .bold)
+            #endif
             .dynamicTypeSize(.large)
             .foregroundStyle(.text)
     }
@@ -137,9 +148,9 @@ struct SmallCalendarView: View {
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 2))
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 1))
     SimpleEntry(date: .now)
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 1))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 2))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 3))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 4))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 1))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 5))
 }
