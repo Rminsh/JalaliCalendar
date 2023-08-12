@@ -35,11 +35,18 @@ struct RectangularProgressCalendarView: View {
             HStack(spacing: 4) {
                 Text(date, format: formatter.day())
                     .customFont(style: .title3, weight: .bold)
+                    .contentTransition(.numericText(value: date.timeIntervalSince1970))
                 Text(date, format: formatter.month())
                     .customFont(style: .title3, weight: .bold)
+                    .id(date.formatted(.dateTime.month()))
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: date)
                 Text(date, format: formatter.year())
                     .customFont(style: .title3)
                     .foregroundStyle(.secondary)
+                    .id(date.formatted(.dateTime.year()))
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: date)
             }
                 .minimumScaleFactor(0.7)
                 .lineLimit(1)
@@ -79,6 +86,17 @@ struct RectangularProgressCalendarView: View {
 #Preview(as: .accessoryRectangular) {
     ProgressCalendarWidget()
 } timeline: {
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 6))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 1))
     SimpleEntry(date: .now)
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 1))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 5))
 }
 #endif

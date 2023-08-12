@@ -65,5 +65,16 @@ struct MediumProgressCalendarView: View {
 #Preview(as: .systemMedium) {
     ProgressCalendarWidget()
 } timeline: {
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 6))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 1))
     SimpleEntry(date: .now)
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 1))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 5))
 }
