@@ -34,6 +34,7 @@ struct CircularProgressCalendarView: View {
             VStack(spacing: 2) {
                 Text(date, format: formatter.day())
                     .customFont(style: .title2, weight: .bold)
+                    .contentTransition(.numericText(value: date.timeIntervalSince1970))
                 
                 Text(date, format: formatter.month())
                     .customFont(style: .caption1, weight: .medium)
@@ -43,6 +44,9 @@ struct CircularProgressCalendarView: View {
                     .padding(.horizontal, 12)
                     .padding(.top, -8)
                     .widgetAccentable()
+                    .id(date.formatted(.dateTime.month()))
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: date)
             }
             .padding(.bottom, 4)
         }
@@ -61,10 +65,11 @@ struct CircularProgressCalendarView: View {
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 2))
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 1))
     SimpleEntry(date: .now)
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 1))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 2))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 3))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 4))
-    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 6))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 1))
 }
 #endif
