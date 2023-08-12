@@ -77,6 +77,9 @@ struct SmallProgressCalendarView: View {
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)
+            .id(date.formatted(.dateTime.month()))
+            .transition(.push(from: .top))
+            .animation(.smooth, value: date)
     }
     
     var weekday: some View {
@@ -89,6 +92,9 @@ struct SmallProgressCalendarView: View {
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)
+            .id(date.formatted(.dateTime.weekday()))
+            .transition(.push(from: .top))
+            .animation(.smooth, value: date)
     }
     
     var dayNumber: some View {
@@ -96,6 +102,7 @@ struct SmallProgressCalendarView: View {
             .font(.custom("Shabnam", size: showsWidgetBackground ? 54 : 64).weight(.bold))
             .dynamicTypeSize(.accessibility5)
             .foregroundStyle(.text)
+            .contentTransition(.numericText(value: date.timeIntervalSince1970))
     }
     
     // MARK: - Year's Progress
