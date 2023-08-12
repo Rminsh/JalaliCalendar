@@ -18,6 +18,7 @@ struct JalaliCalendarApp: App {
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified)
+        .defaultSize(width: 500, height: 700)
         #endif
     }
 }
