@@ -53,14 +53,37 @@ struct RectangularCalendarView: View {
                 .widgetAccentable()
             
             VStack(alignment: .leading) {
-                Text(date, format: formatter.month().day().weekday())
-                    .customFont(style: .body, weight: .bold)
-                    .minimumScaleFactor(0.7)
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack(spacing: 3) {
+                    Text(date, format: formatter.weekday())
+                        .customFont(style: .body, weight: .bold)
+                        .minimumScaleFactor(0.7)
+                        .lineLimit(1)
+                        .id(date.formatted(.dateTime.weekday()))
+                        .transition(.push(from: .bottom))
+                        .animation(.smooth, value: currentDateEvents.first?.day)
+                        
+                    
+                    Text(date, format: formatter.day())
+                        .customFont(style: .body, weight: .bold)
+                        .minimumScaleFactor(0.7)
+                        .lineLimit(1)
+                        .contentTransition(.numericText(value: date.timeIntervalSince1970))
+                    
+                    Text(date, format: formatter.month())
+                        .customFont(style: .body, weight: .bold)
+                        .minimumScaleFactor(0.7)
+                        .lineLimit(1)
+                        .id(date.formatted(.dateTime.month()))
+                        .transition(.push(from: .bottom))
+                        .animation(.smooth, value: currentDateEvents.first?.day)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(currentDateEvents.first?.title ?? "بدون مناسبت")
                     .customFont(style: .body, weight: .light)
+                    .id(currentDateEvents.first?.day)
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: currentDateEvents.first?.day)
             }
         }
         .environment(\.layoutDirection, .rightToLeft)
