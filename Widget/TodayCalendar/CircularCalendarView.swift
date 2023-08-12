@@ -25,6 +25,7 @@ struct CircularCalendarView: View {
             VStack(spacing: 0) {
                 Text(date, format: formatter.day())
                     .customFont(style: .title1, weight: .bold)
+                    .contentTransition(.numericText(value: date.timeIntervalSince1970))
                 
                 Text(date, format: formatter.month())
                     .customFont(style: .callout, weight: .medium)
@@ -34,6 +35,9 @@ struct CircularCalendarView: View {
                     .padding(.horizontal, 5)
                     .padding(.top, -8)
                     .widgetAccentable()
+                    .id(date.formatted(.dateTime.month()))
+                    .transition(.push(from: .bottom))
+                    .animation(.smooth, value: date)
             }
             .padding(.bottom, 4)
         }
