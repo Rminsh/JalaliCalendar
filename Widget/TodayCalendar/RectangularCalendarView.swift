@@ -88,8 +88,21 @@ struct RectangularCalendarView: View {
     }
 }
 
-#Preview(as: .systemSmall) {
+#if os(iOS)
+#Preview(as: .accessoryRectangular) {
     TodayWidget()
 } timeline: {
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 6))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 5))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 4))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 3))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 2))
+    SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 1))
     SimpleEntry(date: .now)
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 1 * 30))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 2 * 30))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 3 * 30))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 4 * 30))
+    SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 5 * 30))
 }
+#endif

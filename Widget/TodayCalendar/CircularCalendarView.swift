@@ -41,7 +41,8 @@ struct CircularCalendarView: View {
     }
 }
 
-#Preview(as: .systemSmall) {
+#if os(iOS)
+#Preview(as: .accessoryCircular) {
     TodayWidget()
 } timeline: {
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 6))
@@ -57,3 +58,4 @@ struct CircularCalendarView: View {
     SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 4))
     SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 5))
 }
+#endif

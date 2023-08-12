@@ -50,7 +50,8 @@ struct CircularProgressCalendarView: View {
     }
 }
 
-#Preview(as: .systemSmall) {
+#if os(iOS)
+#Preview(as: .accessoryCircular) {
     ProgressCalendarWidget()
 } timeline: {
     SimpleEntry(date: .now.addingTimeInterval(-24 * 60 * 60 * 30 * 6))
@@ -66,3 +67,4 @@ struct CircularProgressCalendarView: View {
     SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 4))
     SimpleEntry(date: .now.addingTimeInterval(24 * 60 * 60 * 30 * 5))
 }
+#endif

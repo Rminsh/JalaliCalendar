@@ -75,8 +75,10 @@ struct RectangularProgressCalendarView: View {
     }
 }
 
-#Preview(as: .systemSmall) {
+#if os(iOS)
+#Preview(as: .accessoryRectangular) {
     ProgressCalendarWidget()
 } timeline: {
     SimpleEntry(date: .now)
 }
+#endif
