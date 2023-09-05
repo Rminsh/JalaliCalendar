@@ -51,7 +51,7 @@ struct SmallCalendarView: View {
         VStack(alignment: .leading) {
             dayNumber
                 .contentTransition(.numericText(value: date.timeIntervalSince1970))
-                .padding(.top, 25)
+                .padding(.top, 21)
             VStack(alignment: .leading, spacing: 5) {
                 month
                     .id(date.formatted(.dateTime.month()))
@@ -61,6 +61,8 @@ struct SmallCalendarView: View {
                     .id(currentDateEvents.first?.day)
                     .transition(.push(from: .bottom))
                     .animation(.smooth, value: currentDateEvents.first?.day)
+                    .padding(.top, -2)
+                    .padding(.bottom, 8)
             }
             .padding(.top, -32)
             .padding(.bottom, -8)
@@ -69,11 +71,14 @@ struct SmallCalendarView: View {
                 monthProgress
                     .gaugeStyle(.accessoryCircularCapacity)
                     .scaleEffect(0.8)
+                    .padding(.all, -6)
+                
                 Spacer()
-                    .frame(maxWidth: showsWidgetBackground ? 12 : .infinity)
+                
                 yearProgress
                     .gaugeStyle(.accessoryCircularCapacity)
                     .scaleEffect(0.8)
+                    .padding(.all, -6)
             }
             .padding(.bottom, 24)
         }
