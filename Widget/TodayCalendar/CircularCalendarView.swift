@@ -32,7 +32,7 @@ struct CircularCalendarView: View {
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal, 12)
                     .padding(.top, -8)
                     .widgetAccentable()
                     .id(date.formatted(.dateTime.month()))
