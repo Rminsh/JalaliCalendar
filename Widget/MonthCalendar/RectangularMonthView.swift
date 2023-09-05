@@ -42,16 +42,13 @@ struct RectangularMonthView: View {
                     .secondary :
                     .primary
                 )
-            
                 .background {
                     if dateItem.checkIsToday(date: date) {
                         Circle()
-                            
                             .widgetAccentable()
                             .reverseMask {
                                 textDate(dateItem)
                             }
-                            .padding(.all, -1)
                     }
                 }
         }
