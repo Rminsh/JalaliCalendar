@@ -28,6 +28,7 @@ struct SmallCalendarView: View {
                     .background(.widgetBackground)
             }
         }
+        .environment(\.layoutDirection, .rightToLeft)
     }
 }
 
@@ -123,7 +124,6 @@ struct SmallCalendarContentView: View {
             .padding(.bottom, 24)
             #endif
         }
-        .environment(\.layoutDirection, .rightToLeft)
     }
     
     var month: some View {
@@ -166,6 +166,7 @@ struct SmallCalendarContentView: View {
                 .foregroundStyle(.text)
         }
         .tint(.accent)
+        .environment(\.layoutDirection, .leftToRight)
     }
     
     // MARK: - Month's Progress
@@ -176,6 +177,7 @@ struct SmallCalendarContentView: View {
                 .foregroundStyle(.text)
         }
         .tint(.accent)
+        .environment(\.layoutDirection, .leftToRight)
     }
 }
 
