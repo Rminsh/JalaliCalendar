@@ -9,6 +9,23 @@ import SwiftUI
 import WidgetKit
 
 struct SmallProgressCalendarView: View {
+    var date: Date
+    
+    var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                SmallProgressCalendarContentView(date: date)
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                SmallProgressCalendarContentView(date: date)
+                    .padding()
+                    .background(.widgetBackground)
+            }
+        }
+    }
+}
+
+struct SmallProgressCalendarContentView: View {
     
     var date: Date
     
@@ -64,7 +81,6 @@ struct SmallProgressCalendarView: View {
             .padding(.bottom, 5)
         }
         .environment(\.layoutDirection, .rightToLeft)
-        .containerBackground(.widgetBackground, for: .widget)
     }
     
     var month: some View {

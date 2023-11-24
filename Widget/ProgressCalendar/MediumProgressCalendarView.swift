@@ -19,9 +19,22 @@ struct MediumProgressCalendarView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                content
+                    .padding()
+                    .background(.widgetBackground)
+            }
+        }
+    }
+    
+    var content: some View {
         HStack(spacing: 10) {
             // MARK: - Today View
-            SmallProgressCalendarView(date: date)
+            SmallProgressCalendarContentView(date: date)
             
             // MARK: - Calendar Month View
             MonthView(month: date) { weekday in
@@ -58,7 +71,6 @@ struct MediumProgressCalendarView: View {
         }
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
-        .containerBackground(.widgetBackground, for: .widget)
     }
 }
 
