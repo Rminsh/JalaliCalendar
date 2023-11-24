@@ -20,6 +20,19 @@ struct SmallMonthView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                content
+                    .padding()
+                    .background(.widgetBackground)
+            }
+        }
+    }
+    
+    var content: some View {
         VStack(alignment: .leading, spacing: 5) {
             // MARK: - Calendar Month Title
             Text(date, format: formatter.month())
@@ -68,7 +81,6 @@ struct SmallMonthView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
-        .containerBackground(.widgetBackground, for: .widget)
     }
     
     @ViewBuilder

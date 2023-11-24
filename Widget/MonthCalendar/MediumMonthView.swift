@@ -23,6 +23,19 @@ struct MediumMonthView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                content
+                    .padding()
+                    .background(.widgetBackground)
+            }
+        }
+    }
+    
+    var content: some View {
         HStack(alignment: .top, spacing: 10) {
             createMonth(month: date)
             createMonth(month: nextMonth)
@@ -30,7 +43,6 @@ struct MediumMonthView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
-        .containerBackground(.widgetBackground, for: .widget)
     }
     
     @ViewBuilder
