@@ -34,7 +34,7 @@ struct CircularProgressCalendarView: View {
             VStack(spacing: 2) {
                 Text(date, format: formatter.day())
                     .customFont(style: .title2, weight: .bold)
-                    .contentTransition(.numericText(value: date.timeIntervalSince1970))
+                    .contentTransition(.numericText())
                 
                 Text(date, format: formatter.month())
                     .customFont(style: .caption1, weight: .medium)

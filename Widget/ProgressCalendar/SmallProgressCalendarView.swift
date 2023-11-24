@@ -102,7 +102,7 @@ struct SmallProgressCalendarView: View {
             .font(.custom("Shabnam", size: showsWidgetBackground ? 54 : 64).weight(.bold))
             .dynamicTypeSize(.accessibility5)
             .foregroundStyle(.text)
-            .contentTransition(.numericText(value: date.timeIntervalSince1970))
+            .contentTransition(.numericText())
     }
     
     // MARK: - Year's Progress

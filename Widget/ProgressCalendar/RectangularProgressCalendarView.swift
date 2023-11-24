@@ -35,7 +35,7 @@ struct RectangularProgressCalendarView: View {
             HStack(spacing: 4) {
                 Text(date, format: formatter.day())
                     .customFont(style: .title3, weight: .bold)
-                    .contentTransition(.numericText(value: date.timeIntervalSince1970))
+                    .contentTransition(.numericText())
                 Text(date, format: formatter.month())
                     .customFont(style: .title3, weight: .bold)
                     .id(date.formatted(.dateTime.month()))

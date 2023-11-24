@@ -50,7 +50,7 @@ struct SmallCalendarView: View {
     var body: some View {
         VStack(alignment: .leading) {
             dayNumber
-                .contentTransition(.numericText(value: date.timeIntervalSince1970))
+                .contentTransition(.numericText())
                 .padding(.top, 21)
             VStack(alignment: .leading, spacing: 5) {
                 month

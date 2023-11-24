@@ -67,7 +67,7 @@ struct RectangularCalendarView: View {
                         .customFont(style: .body, weight: .bold)
                         .minimumScaleFactor(0.7)
                         .lineLimit(1)
-                        .contentTransition(.numericText(value: date.timeIntervalSince1970))
+                        .contentTransition(.numericText())
                     
                     Text(date, format: formatter.month())
                         .customFont(style: .body, weight: .bold)
