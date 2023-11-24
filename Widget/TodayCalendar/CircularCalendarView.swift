@@ -20,6 +20,17 @@ struct CircularCalendarView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                content
+            }
+        }
+    }
+    
+    var content: some View {
         ZStack {
             AccessoryWidgetBackground()
             VStack(spacing: 0) {
@@ -41,7 +52,6 @@ struct CircularCalendarView: View {
             }
             .padding(.bottom, 4)
         }
-        .containerBackground(.widgetBackground, for: .widget)
     }
 }
 

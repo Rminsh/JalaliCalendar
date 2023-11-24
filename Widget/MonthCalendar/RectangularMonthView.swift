@@ -20,6 +20,19 @@ struct RectangularMonthView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(for: .widget) {
+                        AccessoryWidgetBackground()
+                    }
+            } else {
+                content
+            }
+        }
+    }
+    
+    var content: some View {
         MonthView(month: date, onlySummary: true) { weekday in
             Text(weekday)
                 .customFont(style: .caption2, weight: .bold)
@@ -54,9 +67,6 @@ struct RectangularMonthView: View {
         }
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
-        .containerBackground(for: .widget) {
-            AccessoryWidgetBackground()
-        }
     }
     
     @ViewBuilder

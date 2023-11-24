@@ -17,6 +17,9 @@ struct RectangularCalendarView: View {
     
     @Environment(\.calendar) var calendar
     
+    var firstTitle: String = "سال"
+    var secondTitle: String = "ماه"
+    
     var formatter: Date.FormatStyle {
         Date.FormatStyle(calendar: calendar)
     }
@@ -43,10 +46,20 @@ struct RectangularCalendarView: View {
         }
     }
     
-    var firstTitle: String = "سال"
-    var secondTitle: String = "ماه"
-    
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(for: .widget) {
+                        AccessoryWidgetBackground()
+                    }
+            } else {
+                content
+            }
+        }
+    }
+    
+    var content: some View {
         HStack {
             Capsule()
                 .frame(width: 4)
@@ -87,9 +100,6 @@ struct RectangularCalendarView: View {
             }
         }
         .environment(\.layoutDirection, .rightToLeft)
-        .containerBackground(for: .widget) {
-            AccessoryWidgetBackground()
-        }
     }
     
     // MARK: - Year's Progress

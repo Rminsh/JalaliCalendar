@@ -15,6 +15,9 @@ struct RectangularProgressCalendarView: View {
     
     @Environment(\.calendar) var calendar
     
+    var firstTitle: String = "سال"
+    var secondTitle: String = "ماه"
+    
     var formatter: Date.FormatStyle {
         Date.FormatStyle(calendar: calendar)
     }
@@ -27,10 +30,20 @@ struct RectangularProgressCalendarView: View {
         date.daysPassedInMonth()
     }
     
-    var firstTitle: String = "سال"
-    var secondTitle: String = "ماه"
-    
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(for: .widget) {
+                        AccessoryWidgetBackground()
+                    }
+            } else {
+                content
+            }
+        }
+    }
+    
+    var content: some View {
         VStack {
             HStack(spacing: 4) {
                 Text(date, format: formatter.day())
@@ -58,9 +71,6 @@ struct RectangularProgressCalendarView: View {
             }
         }
         .environment(\.layoutDirection, .rightToLeft)
-        .containerBackground(for: .widget) {
-            AccessoryWidgetBackground()
-        }
     }
     
     // MARK: - Year's Progress
