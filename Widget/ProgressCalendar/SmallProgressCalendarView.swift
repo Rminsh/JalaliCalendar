@@ -58,13 +58,16 @@ struct SmallProgressCalendarContentView: View {
                 .frame(maxWidth: .infinity)
                 
                 dayNumber
+                    #if os(iOS)
                     .padding(.top, -24)
                     .padding(.bottom, -36)
+                    #endif
             } else {
                 dayNumber
+                    #if os(iOS)
                     .padding(.top, -24)
                     .padding(.bottom, -36)
-                
+                    #endif
                 HStack {
                     weekday
                     month
