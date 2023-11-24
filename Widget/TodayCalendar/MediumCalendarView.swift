@@ -19,9 +19,27 @@ struct MediumCalendarView: View {
     }
     
     var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                content
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                content
+                    .padding(.horizontal, 12)
+                    .background(.widgetBackground)
+            }
+        }
+    }
+    
+    var content: some View {
         HStack(spacing: 10) {
             // MARK: - Today View
-            SmallCalendarView(date: date)
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                SmallCalendarContentView(date: date)
+            } else {
+                SmallCalendarContentView(date: date)
+                    .scaleEffect(0.9)
+            }
             
             // MARK: - Calendar Month View
             MonthView(month: date) { weekday in
@@ -58,7 +76,6 @@ struct MediumCalendarView: View {
         }
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
-        .containerBackground(.widgetBackground, for: .widget)
     }
 }
 

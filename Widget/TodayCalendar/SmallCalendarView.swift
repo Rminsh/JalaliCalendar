@@ -9,6 +9,29 @@ import SwiftUI
 import WidgetKit
 
 struct SmallCalendarView: View {
+    var date: Date
+    
+    @State private var events = CalendarEvents.persianCalendarEvents
+    @Environment(\.widgetFamily) var widgetFamily
+    @Environment(\.showsWidgetContainerBackground) var showsWidgetBackground
+    
+    var body: some View {
+        Group {
+            if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+                SmallCalendarContentView(date: date)
+                    .containerBackground(.widgetBackground, for: .widget)
+            } else {
+                SmallCalendarContentView(date: date)
+                    .padding(.vertical)
+                    .padding(.horizontal, 5)
+                    .scaleEffect(0.9)
+                    .background(.widgetBackground)
+            }
+        }
+    }
+}
+
+struct SmallCalendarContentView: View {
     
     var date: Date
     
@@ -17,6 +40,9 @@ struct SmallCalendarView: View {
     @Environment(\.calendar) var calendar
     @Environment(\.widgetFamily) var widgetFamily
     @Environment(\.showsWidgetContainerBackground) var showsWidgetBackground
+    
+    var firstTitle: String = "سال"
+    var secondTitle: String = "ماه"
     
     var formatter: Date.FormatStyle {
         Date.FormatStyle(calendar: calendar)
@@ -44,8 +70,17 @@ struct SmallCalendarView: View {
         }
     }
     
-    var firstTitle: String = "سال"
-    var secondTitle: String = "ماه"
+    var dayNumberFont: UXFont.TextStyle {
+        #if os(iOS)
+        if #available(macOS 14.0, iOS 17.0, watchOS 10.0, *) {
+            return showsWidgetBackground ? .largeTitle : .extraLargeTitle
+        } else {
+            return .largeTitle
+        }
+        #else
+        return .largeTitle
+        #endif
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -83,7 +118,6 @@ struct SmallCalendarView: View {
             .padding(.bottom, 24)
         }
         .environment(\.layoutDirection, .rightToLeft)
-        .containerBackground(.widgetBackground, for: .widget)
     }
     
     var month: some View {
@@ -113,11 +147,7 @@ struct SmallCalendarView: View {
     
     var dayNumber: some View {
         Text(date, format: formatter.day())
-            #if os(iOS)
-            .customFont(style: showsWidgetBackground ? .largeTitle : .extraLargeTitle, weight: .bold)
-            #else
-            .customFont(style: .largeTitle, weight: .bold)
-            #endif
+            .customFont(style: dayNumberFont, weight: .bold)
             .dynamicTypeSize(.large)
             .foregroundStyle(.text)
     }
