@@ -86,7 +86,9 @@ struct SmallCalendarContentView: View {
         VStack(alignment: .leading) {
             dayNumber
                 .contentTransition(.numericText())
+                #if os(iOS)
                 .padding(.top, 21)
+                #endif
             VStack(alignment: .leading, spacing: 5) {
                 month
                     .id(date.formatted(.dateTime.month()))
@@ -99,8 +101,10 @@ struct SmallCalendarContentView: View {
                     .padding(.top, -2)
                     .padding(.bottom, 8)
             }
+            #if os(iOS)
             .padding(.top, -32)
             .padding(.bottom, -8)
+            #endif
             
             HStack(alignment: .center) {
                 monthProgress
@@ -115,7 +119,9 @@ struct SmallCalendarContentView: View {
                     .scaleEffect(0.8)
                     .padding(.all, -6)
             }
+            #if os(iOS)
             .padding(.bottom, 24)
+            #endif
         }
         .environment(\.layoutDirection, .rightToLeft)
     }
