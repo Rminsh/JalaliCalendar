@@ -51,6 +51,10 @@
 		C69F5EEF2A851BFD0027F704 /* RectangularProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */; };
 		C69F5EF12A851C280027F704 /* ProgressCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */; };
 		C6A89BAF2A334533009F4C09 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A89BAE2A334533009F4C09 /* VisualEffectBlur.swift */; };
+		C6A8D7FC2B163AA5004BAE0B /* CurrentCalendarIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = C6A8D7FB2B163AA5004BAE0B /* CurrentCalendarIntents.intentdefinition */; };
+		C6A8D7FE2B163EBB004BAE0B /* CurrentCalendarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8D7FD2B163EBB004BAE0B /* CurrentCalendarEntry.swift */; };
+		C6A8D8002B163EEB004BAE0B /* CurrentCalendarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8D7FF2B163EEB004BAE0B /* CurrentCalendarProvider.swift */; };
+		C6BEB4462B1637A200101356 /* CurrentCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BEB4452B1637A200101356 /* CurrentCalendarWidget.swift */; };
 		C6C8162D2A85236400EAE5FB /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C8162C2A85236400EAE5FB /* events.json */; };
 		C6C8162E2A85236400EAE5FB /* events.json in Resources */ = {isa = PBXBuildFile; fileRef = C6C8162C2A85236400EAE5FB /* events.json */; };
 		C6D6F4BC2A339AED0091802B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6D6F4BB2A339AED0091802B /* Colors.xcassets */; };
@@ -130,6 +134,10 @@
 		C69F5EEE2A851BFD0027F704 /* RectangularProgressCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularProgressCalendarView.swift; sourceTree = "<group>"; };
 		C69F5EF02A851C280027F704 /* ProgressCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCalendarWidget.swift; sourceTree = "<group>"; };
 		C6A89BAE2A334533009F4C09 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		C6A8D7FB2B163AA5004BAE0B /* CurrentCalendarIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CurrentCalendarIntents.intentdefinition; sourceTree = "<group>"; };
+		C6A8D7FD2B163EBB004BAE0B /* CurrentCalendarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCalendarEntry.swift; sourceTree = "<group>"; };
+		C6A8D7FF2B163EEB004BAE0B /* CurrentCalendarProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCalendarProvider.swift; sourceTree = "<group>"; };
+		C6BEB4452B1637A200101356 /* CurrentCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCalendarWidget.swift; sourceTree = "<group>"; };
 		C6C8162C2A85236400EAE5FB /* events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = events.json; sourceTree = "<group>"; };
 		C6D6F4BB2A339AED0091802B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C6D6F4BF2A339B4D0091802B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,10 +221,11 @@
 		C6167BEB2A32494400AC66B4 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				C69F5EE92A851AE90027F704 /* ProgressCalendar */,
-				C6202B7D2A7CF3DE006FFACC /* TodayCalendar */,
+				C6BEB4442B16377300101356 /* CurrentCalendar */,
 				C6202B7C2A7CF3D1006FFACC /* MonthCalendar */,
+				C69F5EE92A851AE90027F704 /* ProgressCalendar */,
 				C6167BFD2A324B2900AC66B4 /* Resources */,
+				C6202B7D2A7CF3DE006FFACC /* TodayCalendar */,
 				C696A3952A7D17FB00D8AB9C /* Provider.swift */,
 				C6167BEC2A32494400AC66B4 /* WidgetBundle.swift */,
 			);
@@ -282,6 +291,17 @@
 				C6A89BAE2A334533009F4C09 /* VisualEffectBlur.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		C6BEB4442B16377300101356 /* CurrentCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				C6A8D7FD2B163EBB004BAE0B /* CurrentCalendarEntry.swift */,
+				C6A8D7FB2B163AA5004BAE0B /* CurrentCalendarIntents.intentdefinition */,
+				C6A8D7FF2B163EEB004BAE0B /* CurrentCalendarProvider.swift */,
+				C6BEB4452B1637A200101356 /* CurrentCalendarWidget.swift */,
+			);
+			path = CurrentCalendar;
 			sourceTree = "<group>";
 		};
 		C6D6F4B92A339AD50091802B /* Shared */ = {
@@ -469,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BEB4462B1637A200101356 /* CurrentCalendarWidget.swift in Sources */,
 				C696A39D2A7D187900D8AB9C /* SmallCalendarView.swift in Sources */,
 				C69F5EED2A851BD20027F704 /* MediumProgressCalendarView.swift in Sources */,
 				C69F5EEB2A851B9F0027F704 /* SmallProgressCalendarView.swift in Sources */,
@@ -478,12 +499,15 @@
 				C69F5EF12A851C280027F704 /* ProgressCalendarWidget.swift in Sources */,
 				C6167BED2A32494400AC66B4 /* WidgetBundle.swift in Sources */,
 				C696A39E2A7D187900D8AB9C /* RectangularCalendarView.swift in Sources */,
+				C6A8D7FC2B163AA5004BAE0B /* CurrentCalendarIntents.intentdefinition in Sources */,
 				C6167BEF2A32494400AC66B4 /* TodayWidget.swift in Sources */,
+				C6A8D8002B163EEB004BAE0B /* CurrentCalendarProvider.swift in Sources */,
 				C696A3A02A7D193500D8AB9C /* WeekView.swift in Sources */,
 				C6D6F4C32A339B6B0091802B /* Calendar+Extensions.swift in Sources */,
 				C61877D32A852B4E00F60035 /* CircularProgressCalendarView.swift in Sources */,
 				C696A3962A7D17FB00D8AB9C /* Provider.swift in Sources */,
 				C696A3A42A7D197100D8AB9C /* SmallMonthView.swift in Sources */,
+				C6A8D7FE2B163EBB004BAE0B /* CurrentCalendarEntry.swift in Sources */,
 				C681DBC62A83D1850064BE51 /* View+Extensions.swift in Sources */,
 				C6D6F4C62A339CA20091802B /* Date+Extensions.swift in Sources */,
 				C696A3A62A7D197100D8AB9C /* RectangularMonthView.swift in Sources */,

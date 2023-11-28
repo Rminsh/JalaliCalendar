@@ -14,5 +14,8 @@ struct WidgetsBudle: WidgetBundle {
         TodayWidget()
         MonthWidget()
         ProgressCalendarWidget()
+        #if os(iOS)
+        CurrentCalendarWidget()
+        #endif
     }
 }

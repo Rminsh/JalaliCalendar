@@ -47,7 +47,6 @@ struct TodayWidget: Widget {
         .systemSmall,
         .systemMedium,
         .accessoryCircular,
-        .accessoryInline,
         .accessoryRectangular
     ]
     #elseif os(macOS)
