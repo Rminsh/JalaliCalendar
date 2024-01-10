@@ -122,6 +122,7 @@ struct RectangularCalendarView: View {
 }
 
 #if os(iOS)
+@available(iOS 17.0, *)
 #Preview(as: .accessoryRectangular) {
     TodayWidget()
 } timeline: {

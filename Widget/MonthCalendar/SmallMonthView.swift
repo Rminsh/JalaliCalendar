@@ -94,6 +94,7 @@ struct SmallMonthView: View {
     }
 }
 
+@available(iOS 17.0, macOS 14.0, watchOS 10.0, *)
 #Preview(as: .systemSmall) {
     MonthWidget()
 } timeline: {

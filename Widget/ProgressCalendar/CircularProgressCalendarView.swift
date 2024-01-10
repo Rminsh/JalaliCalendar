@@ -65,6 +65,7 @@ struct CircularProgressCalendarView: View {
 }
 
 #if os(iOS)
+@available(iOS 17.0, *)
 #Preview(as: .accessoryCircular) {
     ProgressCalendarWidget()
 } timeline: {

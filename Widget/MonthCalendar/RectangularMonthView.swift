@@ -81,6 +81,7 @@ struct RectangularMonthView: View {
 }
 
 #if os(iOS)
+@available(iOS 17.0, *)
 #Preview(as: .accessoryRectangular) {
     MonthWidget()
 } timeline: {

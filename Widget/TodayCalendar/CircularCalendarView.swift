@@ -56,6 +56,7 @@ struct CircularCalendarView: View {
 }
 
 #if os(iOS)
+@available(iOS 17.0, *)
 #Preview(as: .accessoryCircular) {
     TodayWidget()
 } timeline: {
