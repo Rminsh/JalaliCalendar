@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView {
     
-    @State var selectedDate = Date()
-    @State var events = CalendarEvents.persianCalendarEvents
+    @State var selectedDate: Date = Date()
+    @State var events: [EventDetails] = CalendarEvents.persianCalendarEvents
     @State private var showReset: Bool = false
     
     @Environment(\.calendar) var calendar
@@ -33,9 +33,23 @@ struct HomeView: View {
     var currentDateEvents: [EventDetails] {
         return events.filter { item in
             item.day == calendarComponents.day &&
-               item.month == calendarComponents.month
+            item.month == calendarComponents.month
         }
     }
+    
+    func moveDate(to date: Date, showReset: Bool = true) {
+        #if os(iOS)
+        let hapticGenerator = UIImpactFeedbackGenerator(style: .soft)
+        hapticGenerator.impactOccurred()
+        #endif
+        withAnimation(.interactiveSpring()) {
+            selectedDate = date
+            self.showReset = showReset
+        }
+    }
+}
+    
+extension HomeView: View {
     
     var body: some View {
         #if os(iOS)
@@ -233,17 +247,6 @@ struct HomeView: View {
         }
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
-        }
-    }
-    
-    func moveDate(to date: Date, showReset: Bool = true) {
-        #if os(iOS)
-        let hapticGenerator = UIImpactFeedbackGenerator(style: .soft)
-        hapticGenerator.impactOccurred()
-        #endif
-        withAnimation(.interactiveSpring()) {
-            selectedDate = date
-            self.showReset = showReset
         }
     }
 }
