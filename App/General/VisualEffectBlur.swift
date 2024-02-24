@@ -8,14 +8,14 @@
 #if os(macOS)
 import SwiftUI
 
-public struct VisualEffectBlur: View {
+struct VisualEffectBlur: View {
     private var material: NSVisualEffectView.Material
     private var blendingMode: NSVisualEffectView.BlendingMode
     private var state: NSVisualEffectView.State
     
-    public init(
-        material: NSVisualEffectView.Material = .headerView,
-        blendingMode: NSVisualEffectView.BlendingMode = .withinWindow,
+    init(
+        material: NSVisualEffectView.Material = .popover,
+        blendingMode: NSVisualEffectView.BlendingMode = .behindWindow,
         state: NSVisualEffectView.State = .followsWindowActiveState
     ) {
         self.material = material
@@ -23,7 +23,7 @@ public struct VisualEffectBlur: View {
         self.state = state
     }
     
-    public var body: some View {
+    var body: some View {
         Representable(
             material: material,
             blendingMode: blendingMode,

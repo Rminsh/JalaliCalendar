@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView {
-    
     @State var selectedDate: Date = Date()
     @State var events: [EventDetails] = CalendarEvents.persianCalendarEvents
     @State private var showReset: Bool = false
@@ -55,8 +54,14 @@ extension HomeView: View {
         #if os(iOS)
         NavigationStack {
             ZStack {
-                Color.background
-                    .edgesIgnoringSafeArea(.all)
+                RadialGradient(
+                    colors: [.accent, .red, .indigo],
+                    center: .topLeading,
+                    startRadius: 0,
+                    endRadius: 519
+                )
+                .blur(radius: 400)
+                .edgesIgnoringSafeArea(.all)
                 
                 content
             }
@@ -65,8 +70,12 @@ extension HomeView: View {
         .environment(\.layoutDirection, .rightToLeft)
         #else
         ZStack {
-            VisualEffectBlur(material: .popover, blendingMode: .behindWindow)
-                .edgesIgnoringSafeArea(.all)
+            VisualEffectBlur(
+                material: .popover,
+                blendingMode: .behindWindow,
+                state: .active
+            )
+            .edgesIgnoringSafeArea(.all)
             
             content
                 .shadow(color: .accentColor.opacity(0.15), radius: 2)
@@ -80,21 +89,21 @@ extension HomeView: View {
             VStack(alignment: .center, spacing: 3) {
                 HStack {
                     // MARK: - Previous month
-                    Button(action: {
+                    Button {
                         moveDate(to: selectedDate.adding(.month, value: -1))
-                    }) {
+                    } label: {
                         Label("ماه قبل", systemImage: "chevron.compact.right")
                             .customFont(style: .title1)
                             .labelStyle(.iconOnly)
-                            .foregroundStyle(.accent)
                     }
                     .buttonStyle(.borderless)
+                    .foregroundStyle(.tertiary)
                     
                     // MARK: - Today contents
                     VStack(alignment: .center, spacing: 3) {
                         Text(selectedDate, format: formatter.weekday(.wide))
                             .customFont(style: .largeTitle, weight: .bold)
-                            .foregroundStyle(.text)
+                            .foregroundStyle(.primary)
                         
                         Text(selectedDate, format: formatter.year().month().day())
                             .customFont(style: .title1, weight: .bold)
@@ -104,15 +113,15 @@ extension HomeView: View {
                     .padding(.horizontal, 25)
                     
                     // MARK: - Next month
-                    Button(action: {
+                    Button {
                         moveDate(to: selectedDate.adding(.month, value: 1))
-                    }) {
+                    } label: {
                         Label("ماه بعد", systemImage: "chevron.compact.left")
                             .customFont(style: .title1)
                             .labelStyle(.iconOnly)
-                            .foregroundStyle(.accent)
                     }
                     .buttonStyle(.borderless)
+                    .foregroundStyle(.tertiary)
                 }
                 
                 // MARK: - Progresses
@@ -157,33 +166,25 @@ extension HomeView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.bottom, 12)
                 } content: { date in
+                    let isToday = date.checkIsToday(date: Date())
+                    
                     Text(date, format: formatter.day())
                         .customFont(style: .callout)
                         .lineLimit(1)
                         .minimumScaleFactor(0.2)
                         .dynamicTypeSize(.xSmall ... .medium)
                         .frame(maxWidth: .infinity)
-                        .foregroundStyle(
-                            date.checkIsToday(date: Date()) ?
-                            Color.white :
-                            Color.background
-                        )
+                        .foregroundStyle(isToday ? .white : date.checkIsToday(date: selectedDate) ? .focusedText : .primary)
                         .padding(8)
-                        .background(
-                            date.checkIsToday(date: Date()) ?
-                            Color.accent :
-                            Color.dayTextBackground.opacity(date.isSaturday() ? 0.75 : 1)
-                        )
-                        .clipShape(Circle())
+                        .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
+                        .background(.ultraThickMaterial)
+                        .clipShape(.circle)
+                        .overlay {
+                            Circle()
+                                .stroke(.white.opacity(0.3), lineWidth: 0.8)
+                        }
                         .padding(.vertical, 4)
                         .padding(.horizontal, 4)
-                        .overlay(
-                            Circle().stroke(
-                                Color.accentColor,
-                                lineWidth: date.checkIsToday(date: selectedDate) ? 4 : 0
-                            )
-                        )
-                        .animation(.easeIn, value: selectedDate)
                         .onTapGesture {
                             moveDate(to: date)
                         }
@@ -191,50 +192,50 @@ extension HomeView: View {
                 .frame(maxWidth: 300)
 
                 // MARK: - EventView
-                Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
-                    .customFont(style: .body)
-                    .foregroundStyle(.text)
-                    .multilineTextAlignment(.trailing)
-                    .animation(.interactiveSpring(), value: selectedDate)
-                
-                LazyVStack(alignment: .center) {
-                    ForEach(currentDateEvents, id: \.self) { item in
-                        Text(item.title)
-                            .customFont(style: .body, weight: .light)
-                            .foregroundStyle(.text)
-                            .multilineTextAlignment(.leading)
-                            .padding()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            #if os(iOS)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .fill(Color.background)
-                                    .shadow(
-                                        color: .black.opacity(0.2),
-                                        radius: 10,
-                                        x: 10,
-                                        y: 10
+                VStack {
+                    Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
+                        .customFont(style: .body)
+                        .foregroundStyle(.text)
+                        .multilineTextAlignment(.trailing)
+                        .animation(.interactiveSpring(), value: selectedDate)
+                    
+                    LazyVStack(alignment: .center) {
+                        ForEach(currentDateEvents, id: \.self) { item in
+                            Text(item.title)
+                                .customFont(style: .body, weight: .light)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                #if os(iOS)
+                                .background(.thinMaterial)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .stroke(.white.opacity(0.3), lineWidth: 0.8)
+                                }
+                                #elseif os(macOS)
+                                .background {
+                                    VisualEffectBlur(
+                                        material: .fullScreenUI,
+                                        blendingMode: .withinWindow,
+                                        state: .active
                                     )
-                                    .shadow(
-                                        color: .backgroundColorAlt.opacity(0.7),
-                                        radius: 10,
-                                        x: -5,
-                                        y: -5
-                                    )
-                            )
-                            #elseif os(macOS)
-                            .background(VisualEffectBlur(material: .fullScreenUI, blendingMode: .withinWindow))
-                            .cornerRadius(8)
-                            .shadow(radius: 10, x: -5, y: -5)
-                            #endif
-                            .padding(.bottom, 12)
+                                }
+                                #endif
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .shadow(radius: 2)
+                                .padding(.bottom, 12)
+                        }
                     }
+                    .padding(.horizontal, 25)
+                    .animation(.interactiveSpring(), value: selectedDate)
                 }
-                .padding(.all, 25)
-                .animation(.interactiveSpring(), value: selectedDate)
+                .padding(.top, 25)
             }
             .padding(.vertical)
         }
+        #if os(iOS)
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+        #endif
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 Button(action: {moveDate(to: Date(), showReset: false)}) {
