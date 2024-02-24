@@ -87,66 +87,25 @@ extension HomeView: View {
     var content: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 3) {
+                /// Top Section of the calendar
                 HStack {
-                    // MARK: - Previous month
-                    Button {
-                        moveDate(to: selectedDate.adding(.month, value: -1))
-                    } label: {
-                        Label("ماه قبل", systemImage: "chevron.compact.right")
-                            .customFont(style: .title1)
-                            .labelStyle(.iconOnly)
-                    }
-                    .buttonStyle(.borderless)
-                    .foregroundStyle(.tertiary)
+                    backMonthNavigation
                     
-                    // MARK: - Today contents
+                    /// Today contents
                     VStack(alignment: .center, spacing: 3) {
-                        Text(selectedDate, format: formatter.weekday(.wide))
-                            .customFont(style: .largeTitle, weight: .bold)
-                            .foregroundStyle(.primary)
-                        
-                        Text(selectedDate, format: formatter.year().month().day())
-                            .customFont(style: .title1, weight: .bold)
-                            .foregroundStyle(.accent)
+                        currentWeekdayText
+                        currentDateText
                     }
                     .frame(minWidth: 168)
                     .padding(.horizontal, 25)
                     
-                    // MARK: - Next month
-                    Button {
-                        moveDate(to: selectedDate.adding(.month, value: 1))
-                    } label: {
-                        Label("ماه بعد", systemImage: "chevron.compact.left")
-                            .customFont(style: .title1)
-                            .labelStyle(.iconOnly)
-                    }
-                    .buttonStyle(.borderless)
-                    .foregroundStyle(.tertiary)
+                    nextMonthNavigation
                 }
                 
-                // MARK: - Progresses
+                /// Progresses
                 HStack(alignment: .center, spacing: 50) {
-                    // MARK: - Year Progress
-                    Gauge(value: selectedDate.daysPassedInYear()) {
-                        Text("سال")
-                            .customFont(style: .callout, weight: .light)
-                            .foregroundStyle(.text)
-                    } currentValueLabel: {
-                        Text("\(String(format: "%.0f%%", selectedDate.daysPassedInYear() * 100))")
-                    }
-                    .tint(Color.accent)
-                    .gaugeStyle(.accessoryLinearCapacity)
-                    
-                    // MARK: - Month Progress
-                    Gauge(value: selectedDate.daysPassedInMonth()) {
-                        Text("ماه")
-                            .customFont(style: .callout, weight: .light)
-                            .foregroundStyle(.text)
-                    } currentValueLabel: {
-                        Text("\(String(format: "%.0f%%", selectedDate.daysPassedInMonth() * 100))")
-                    }
-                    .tint(Color.accent)
-                    .gaugeStyle(.accessoryLinearCapacity)
+                    yearProgress
+                    monthProgress
                 }
                 #if os(iOS)
                 .frame(
@@ -158,78 +117,13 @@ extension HomeView: View {
                 #endif
                 .padding(.all, 25)
                 
-                // MARK: - Calendar Month View
-                MonthView(month: selectedDate) { weekday in
-                    Text(weekday)
-                        .customFont(style: .callout)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 12)
-                } content: { date in
-                    let isToday = date.checkIsToday(date: Date())
-                    
-                    Text(date, format: formatter.day())
-                        .customFont(style: .callout)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.2)
-                        .dynamicTypeSize(.xSmall ... .medium)
-                        .frame(maxWidth: .infinity)
-                        .foregroundStyle(isToday ? .white : date.checkIsToday(date: selectedDate) ? .focusedText : .primary)
-                        .padding(8)
-                        .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
-                        .background(.ultraThickMaterial)
-                        .clipShape(.circle)
-                        .overlay {
-                            Circle()
-                                .stroke(.white.opacity(0.3), lineWidth: 0.8)
-                        }
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 4)
-                        .onTapGesture {
-                            moveDate(to: date)
-                        }
-                }
-                .frame(maxWidth: 300)
+                /// Month Calendar view
+                calendarView
+                    .frame(maxWidth: 300)
 
-                // MARK: - EventView
-                VStack {
-                    Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
-                        .customFont(style: .body)
-                        .foregroundStyle(.text)
-                        .multilineTextAlignment(.trailing)
-                        .animation(.interactiveSpring(), value: selectedDate)
-                    
-                    LazyVStack(alignment: .center) {
-                        ForEach(currentDateEvents, id: \.self) { item in
-                            Text(item.title)
-                                .customFont(style: .body, weight: .light)
-                                .multilineTextAlignment(.leading)
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                #if os(iOS)
-                                .background(.thinMaterial)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                        .stroke(.white.opacity(0.3), lineWidth: 0.8)
-                                }
-                                #elseif os(macOS)
-                                .background {
-                                    VisualEffectBlur(
-                                        material: .fullScreenUI,
-                                        blendingMode: .withinWindow,
-                                        state: .active
-                                    )
-                                }
-                                #endif
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                .shadow(radius: 2)
-                                .padding(.bottom, 12)
-                        }
-                    }
-                    .padding(.horizontal, 25)
-                    .animation(.interactiveSpring(), value: selectedDate)
-                }
-                .padding(.top, 25)
+                /// EventView
+                eventsList
+                    .padding(.top, 25)
             }
             .padding(.vertical)
         }
@@ -238,17 +132,163 @@ extension HomeView: View {
         #endif
         .toolbar {
             ToolbarItem(placement: .navigation) {
-                Button(action: {moveDate(to: Date(), showReset: false)}) {
-                    Label("برو به امروز", systemImage: "arrow.uturn.left")
-                        .customFont(style: .body)
-                }
-                .disabled(!showReset)
-                .opacity(showReset ? 1 : 0)
+                resetDate
             }
         }
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
         }
+    }
+    
+    // MARK: - Current date's Weekday
+    var currentWeekdayText: some View {
+        Text(selectedDate, format: formatter.weekday(.wide))
+            .customFont(style: .largeTitle, weight: .bold)
+            .foregroundStyle(.primary)
+    }
+    
+    // MARK: - Current date's Full date
+    var currentDateText: some View {
+        Text(selectedDate, format: formatter.year().month().day())
+            .customFont(style: .title1, weight: .bold)
+            .foregroundStyle(.accent)
+    }
+    
+    // MARK: - Previous month
+    var backMonthNavigation: some View {
+        Button {
+            moveDate(to: selectedDate.adding(.month, value: -1))
+        } label: {
+            Label("ماه قبل", systemImage: "chevron.compact.right")
+                .customFont(style: .title1)
+                .labelStyle(.iconOnly)
+        }
+        .buttonStyle(.borderless)
+        .foregroundStyle(.tertiary)
+    }
+    
+    // MARK: - Next month
+    var nextMonthNavigation: some View {
+        Button {
+            moveDate(to: selectedDate.adding(.month, value: 1))
+        } label: {
+            Label("ماه بعد", systemImage: "chevron.compact.left")
+                .customFont(style: .title1)
+                .labelStyle(.iconOnly)
+        }
+        .buttonStyle(.borderless)
+        .foregroundStyle(.tertiary)
+    }
+    
+    // MARK: - Year Progress
+    var yearProgress: some View {
+        Gauge(value: selectedDate.daysPassedInYear()) {
+            Text("سال")
+                .customFont(style: .callout, weight: .light)
+                .foregroundStyle(.text)
+        } currentValueLabel: {
+            Text("\(String(format: "%.0f%%", selectedDate.daysPassedInYear() * 100))")
+        }
+        .tint(Color.accent)
+        .gaugeStyle(.accessoryLinearCapacity)
+    }
+    
+    // MARK: - Month Progress
+    var monthProgress: some View {
+        Gauge(value: selectedDate.daysPassedInMonth()) {
+            Text("ماه")
+                .customFont(style: .callout, weight: .light)
+                .foregroundStyle(.text)
+        } currentValueLabel: {
+            Text("\(String(format: "%.0f%%", selectedDate.daysPassedInMonth() * 100))")
+        }
+        .tint(Color.accent)
+        .gaugeStyle(.accessoryLinearCapacity)
+    }
+    
+    // MARK: - Calendar Month View
+    var calendarView: some View {
+        MonthView(month: selectedDate) { weekday in
+            Text(weekday)
+                .customFont(style: .callout)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity)
+                .padding(.bottom, 12)
+        } content: { date in
+            let isToday = date.checkIsToday(date: Date())
+            
+            Text(date, format: formatter.day())
+                .customFont(style: .callout)
+                .lineLimit(1)
+                .minimumScaleFactor(0.2)
+                .dynamicTypeSize(.xSmall ... .medium)
+                .frame(maxWidth: .infinity)
+                .foregroundStyle(isToday ? .white : date.checkIsToday(date: selectedDate) ? .focusedText : .primary)
+                .padding(8)
+                .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
+                .background(.ultraThickMaterial)
+                .clipShape(.circle)
+                .overlay {
+                    Circle()
+                        .stroke(.white.opacity(0.3), lineWidth: 0.8)
+                }
+                .padding(.vertical, 4)
+                .padding(.horizontal, 4)
+                .onTapGesture {
+                    moveDate(to: date)
+                }
+        }
+    }
+    
+    // MARK: - Events items
+    var eventsList: some View {
+        VStack {
+            Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
+                .customFont(style: .body)
+                .foregroundStyle(.text)
+                .multilineTextAlignment(.trailing)
+                .animation(.interactiveSpring(), value: selectedDate)
+            
+            LazyVStack(alignment: .center) {
+                ForEach(currentDateEvents, id: \.self) { item in
+                    Text(item.title)
+                        .customFont(style: .body, weight: .light)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        #if os(iOS)
+                        .background(.thinMaterial)
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .stroke(.white.opacity(0.3), lineWidth: 0.8)
+                        }
+                        #elseif os(macOS)
+                        .background {
+                            VisualEffectBlur(
+                                material: .fullScreenUI,
+                                blendingMode: .withinWindow,
+                                state: .active
+                            )
+                        }
+                        #endif
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(radius: 2)
+                        .padding(.bottom, 12)
+                }
+            }
+            .padding(.horizontal, 25)
+            .animation(.interactiveSpring(), value: selectedDate)
+        }
+    }
+    
+    // MARK: - Reset date button
+    var resetDate: some View {
+        Button(action: {moveDate(to: Date(), showReset: false)}) {
+            Label("برو به امروز", systemImage: "arrow.uturn.left")
+                .customFont(style: .body)
+        }
+        .disabled(!showReset)
+        .opacity(showReset ? 1 : 0)
     }
 }
 
