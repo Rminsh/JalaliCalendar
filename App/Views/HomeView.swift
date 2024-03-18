@@ -12,14 +12,13 @@ struct HomeView {
     @State var events: [EventDetails] = CalendarEvents.persianCalendarEvents
     @State private var showReset: Bool = false
     
-    @Environment(\.calendar) var calendar
     @Environment(\.scenePhase) var scenePhase
     #if os(iOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     #endif
     
-    var formatter: Date.FormatStyle {
-        Date.FormatStyle(calendar: calendar)
+    var persianDate: Date.FormatStyle {
+        Date.FormatStyle(calendar: .persianCalendar)
     }
     
     var calendarComponents: DateComponents {
@@ -119,7 +118,7 @@ extension HomeView: View {
                 
                 /// Month Calendar view
                 calendarView
-                    .frame(maxWidth: 300)
+                    .frame(maxWidth: 325)
 
                 /// EventView
                 eventsList
@@ -142,16 +141,18 @@ extension HomeView: View {
     
     // MARK: - Current date's Weekday
     var currentWeekdayText: some View {
-        Text(selectedDate, format: formatter.weekday(.wide))
+        Text(selectedDate, format: persianDate.weekday(.wide))
             .customFont(style: .largeTitle, weight: .bold)
             .foregroundStyle(.primary)
+            .environment(\.locale, .init(identifier: "fa"))
     }
     
     // MARK: - Current date's Full date
     var currentDateText: some View {
-        Text(selectedDate, format: formatter.year().month().day())
+        Text(selectedDate, format: persianDate.year().month().day())
             .customFont(style: .title1, weight: .bold)
             .foregroundStyle(.accent)
+            .environment(\.locale, .init(identifier: "fa"))
     }
     
     // MARK: - Previous month
@@ -214,30 +215,40 @@ extension HomeView: View {
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 12)
+                .environment(\.locale, .init(identifier: "fa"))
         } content: { date in
             let isToday = date.checkIsToday(date: Date())
             
-            Text(date, format: formatter.day())
-                .customFont(style: .callout)
-                .lineLimit(1)
-                .minimumScaleFactor(0.2)
-                .dynamicTypeSize(.xSmall ... .medium)
-                .frame(maxWidth: .infinity)
-                .foregroundStyle(isToday ? .white : date.checkIsToday(date: selectedDate) ? .focusedText : .primary)
-                .padding(8)
-                .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
-                .background(.ultraThickMaterial)
-                .clipShape(.circle)
-                .overlay {
-                    Circle()
-                        .stroke(.white.opacity(0.3), lineWidth: 0.8)
-                }
-                .padding(.vertical, 4)
-                .padding(.horizontal, 4)
-                .onTapGesture {
-                    moveDate(to: date)
-                }
+            VStack {
+                Text(date, format: persianDate.day())
+                    .customFont(style: .headline)
+                    .dynamicTypeSize(.xSmall ... .medium)
+                    .environment(\.locale, .init(identifier: "fa"))
+                
+                Text(date, format: .dateTime.day())
+                    .customFont(style: .caption2)
+                    .dynamicTypeSize(.xSmall)
+                    .environment(\.locale, .init(identifier: "en_US"))
+            }
+            .foregroundStyle(isToday ? .white : date.checkIsToday(date: selectedDate) ? .focusedText : .primary)
+            .lineLimit(1)
+            .minimumScaleFactor(0.2)
+            .frame(maxWidth: .infinity)
+            .padding(5)
+            .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
+            .background(.ultraThickMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay {
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(.white.opacity(0.3), lineWidth: 0.8)
+            }
+            .padding(.vertical, 2)
+            .padding(.horizontal, 2)
+            .onTapGesture {
+                moveDate(to: date)
+            }
         }
+        .environment(\.calendar, .persianCalendar)
     }
     
     // MARK: - Events items
@@ -294,6 +305,4 @@ extension HomeView: View {
 
 #Preview {
     HomeView()
-        .environment(\.locale, .init(identifier: "fa"))
-        .environment(\.calendar, Calendar(identifier: .persian))
 }

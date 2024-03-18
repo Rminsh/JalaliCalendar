@@ -12,8 +12,6 @@ struct JalaliCalendarApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environment(\.calendar, .persianCalendar)
-                .environment(\.locale, .init(identifier: "fa"))
         }
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
