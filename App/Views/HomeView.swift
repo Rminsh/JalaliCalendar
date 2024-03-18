@@ -149,10 +149,16 @@ extension HomeView: View {
     
     // MARK: - Current date's Full date
     var currentDateText: some View {
-        Text(selectedDate, format: persianDate.year().month().day())
-            .customFont(style: .title1, weight: .bold)
-            .foregroundStyle(.accent)
-            .environment(\.locale, .init(identifier: "fa"))
+        VStack {
+            Text(selectedDate, format: persianDate.year().month().day())
+                .customFont(style: .title1, weight: .bold)
+                .foregroundStyle(.accent)
+            
+            Text(selectedDate, format: .dateTime.year().month().day())
+                .customFont(style: .title3, weight: .light)
+                .foregroundStyle(.accent.opacity(0.85))
+        }
+        .environment(\.locale, .init(identifier: "fa"))
     }
     
     // MARK: - Previous month
