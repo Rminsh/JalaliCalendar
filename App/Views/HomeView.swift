@@ -11,6 +11,7 @@ struct HomeView {
     @State var selectedDate: Date = Date()
     @State var events: [EventDetails] = CalendarEvents.persianCalendarEvents
     @State private var showReset: Bool = false
+    @State private var showDateConverter: Bool = false
     
     @Environment(\.scenePhase) var scenePhase
     #if os(iOS)
@@ -133,9 +134,16 @@ extension HomeView: View {
             ToolbarItem(placement: .navigation) {
                 resetDate
             }
+            
+            ToolbarItem(placement: .automatic) {
+                convertDateButton
+            }
         }
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
+        }
+        .sheet(isPresented: $showDateConverter) {
+            DateConverterView()
         }
     }
     
@@ -305,7 +313,14 @@ extension HomeView: View {
                 .customFont(style: .body)
         }
         .disabled(!showReset)
-        .opacity(showReset ? 1 : 0)
+    }
+    
+    // MARK: - Date converter button
+    var convertDateButton: some View {
+        Button(action: {showDateConverter.toggle()}) {
+            Label("تبدیل تاریخ", systemImage: "clock.arrow.2.circlepath")
+                .customFont(style: .body)
+        }
     }
 }
 

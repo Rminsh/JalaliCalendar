@@ -66,6 +66,7 @@
 		C6D6F4C62A339CA20091802B /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60D42A334C0900004EC7 /* Date+Extensions.swift */; };
 		C6D6F4C92A339D5A0091802B /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D6F4C82A339D5A0091802B /* EventService.swift */; };
 		C6D6F4CA2A339D5A0091802B /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D6F4C82A339D5A0091802B /* EventService.swift */; };
+		C6EA0D812BA8E0D100B3C044 /* DateConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EA0D802BA8E0D100B3C044 /* DateConverterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		C6D6F4BB2A339AED0091802B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		C6D6F4BF2A339B4D0091802B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6D6F4C82A339D5A0091802B /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		C6EA0D802BA8E0D100B3C044 /* DateConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				C6167BD42A32491400AC66B4 /* HomeView.swift */,
+				C6EA0D802BA8E0D100B3C044 /* DateConverterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				C6167BD52A32491400AC66B4 /* HomeView.swift in Sources */,
 				C64C60D92A334C0900004EC7 /* Date+Extensions.swift in Sources */,
 				C606E9D72A7D0E2D00D404E9 /* CustomFont.swift in Sources */,
+				C6EA0D812BA8E0D100B3C044 /* DateConverterView.swift in Sources */,
 				C64C60DA2A334C0900004EC7 /* Calendar+Extensions.swift in Sources */,
 				C6D6F4C92A339D5A0091802B /* EventService.swift in Sources */,
 				C6167BD32A32491400AC66B4 /* JalaliCalendarApp.swift in Sources */,
