@@ -2,11 +2,18 @@
     <img src="Shared/Resources/Assets.xcassets/AppIcon.appiconset/icon_512x512@2x.png" alt="Jalali Calendar logo" width="128" />
 </p>
 <h1 align="center">Jalali Calendar</h1>
-[![iOS 16.0+](https://img.shields.io/badge/iOS-16.0+-27ae60.svg)](https://developer.apple.com/ios/)
-[![macOS 13.0+](https://img.shields.io/badge/macOS-13.0+-2980b9.svg)](https://developer.apple.com/macos/)
+
+![SwiftUI](https://img.shields.io/badge/SwiftUI-black?logo=swift)
+![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2016.0+%20|%20macOS%2013.0-white?logo=apple)
+![Xcode version](https://img.shields.io/badge/Xcode%2015+-black?logo=xcode)
 ![License](https://img.shields.io/github/license/rminsh/JalaliCalendar)
-<a href="https://apps.apple.com/us/app/shamsi-calendar/id1561578504" align="middle" style="width: 100%; display: block;"><img  src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US" alt="Download on the App Store" height="48"></a>
-<h4 align="center">A simple persian calendar with widgets for iOS and macOS</h4>
+
+<a align="center" href="https://apps.apple.com/us/app/shamsi-calendar/id1561578504">
+    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US" alt="Download on the App Store" height="48">
+</a>
+
+A simple persian calendar with widgets for iOS and macOS.
+
 This project implemented in [Persian language](https://en.wikipedia.org/wiki/Persian_language) and has some [Persian events](https://en.wikipedia.org/wiki/List_of_festivals_in_Iran).
 
 
