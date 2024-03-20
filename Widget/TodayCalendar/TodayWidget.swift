@@ -63,7 +63,7 @@ struct TodayWidget: Widget {
                 .environment(\.calendar, .persianCalendar)
                 .environment(\.locale, .init(identifier: "fa"))
         }
-        .configurationDisplayName("Jalali Calendar")
+        .configurationDisplayName("Today")
         .description("Check today's jalali date")
         .supportedFamilies(families)
     }
