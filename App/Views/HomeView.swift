@@ -14,7 +14,7 @@ struct HomeView {
     @State private var showDateConverter: Bool = false
     
     @Environment(\.scenePhase) var scenePhase
-    #if os(iOS)
+    #if canImport(UIKit)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     #endif
     
@@ -51,9 +51,10 @@ struct HomeView {
 extension HomeView: View {
     
     var body: some View {
-        #if os(iOS)
+        #if canImport(UIKit)
         NavigationStack {
             ZStack {
+                #if os(iOS)
                 RadialGradient(
                     colors: [.accent, .red, .indigo],
                     center: .topLeading,
@@ -62,13 +63,14 @@ extension HomeView: View {
                 )
                 .blur(radius: 400)
                 .edgesIgnoringSafeArea(.all)
+                #endif
                 
                 content
             }
         }
         .navigationViewStyle(.stack)
         .environment(\.layoutDirection, .rightToLeft)
-        #else
+        #elseif canImport(AppKit)
         ZStack {
             VisualEffectBlur(
                 material: .popover,
@@ -112,7 +114,7 @@ extension HomeView: View {
                     maxWidth: horizontalSizeClass == .compact ? .infinity : 300,
                     alignment: .center
                 )
-                #elseif os(macOS)
+                #elseif os(macOS) || os(visionOS)
                 .frame(maxWidth: 450, alignment: .center)
                 #endif
                 .padding(.all, 25)
@@ -134,14 +136,21 @@ extension HomeView: View {
             ToolbarItem(placement: .navigation) {
                 resetDate
             }
-            
+            #if !os(visionOS)
             ToolbarItem(placement: .automatic) {
                 convertDateButton
             }
+            #endif
         }
+        #if os(visionOS)
+        .onChange(of: scenePhase) {
+            selectedDate = Date()
+        }
+        #else
         .onChange(of: scenePhase) { _ in
             selectedDate = Date()
         }
+        #endif
         .sheet(isPresented: $showDateConverter) {
             DateConverterView()
         }
@@ -250,12 +259,16 @@ extension HomeView: View {
             .frame(maxWidth: .infinity)
             .padding(5)
             .background(isToday ? .accent : date.checkIsToday(date: selectedDate) ? .primary : .clear)
+            #if os(visionOS)
+            .glassBackgroundEffect(in: RoundedRectangle(cornerRadius: 8))
+            #else
             .background(.ultraThickMaterial)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay {
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.white.opacity(0.3), lineWidth: 0.8)
             }
+            #endif
             .padding(.vertical, 2)
             .padding(.horizontal, 2)
             .onTapGesture {
@@ -287,6 +300,8 @@ extension HomeView: View {
                             RoundedRectangle(cornerRadius: 8, style: .continuous)
                                 .stroke(.white.opacity(0.3), lineWidth: 0.8)
                         }
+                        #elseif os(visionOS)
+                        .glassBackgroundEffect(in: RoundedRectangle(cornerRadius: 8, style: .continuous))
                         #elseif os(macOS)
                         .background {
                             VisualEffectBlur(
@@ -299,6 +314,14 @@ extension HomeView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .shadow(radius: 2)
                         .padding(.bottom, 12)
+                        #if os(iOS)
+                        .frame(
+                            maxWidth: horizontalSizeClass == .compact ? .infinity : 300,
+                            alignment: .center
+                        )
+                        #elseif os(macOS) || os(visionOS)
+                        .frame(maxWidth: 450, alignment: .center)
+                        #endif
                 }
             }
             .padding(.horizontal, 25)

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-#if os(macOS)
+#if canImport(AppKit)
 public typealias UXFont = NSFont
-#elseif os(iOS)
+#elseif canImport(UIKit)
 public typealias UXFont = UIFont
 #endif
 

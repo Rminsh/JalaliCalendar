@@ -44,11 +44,16 @@ extension DateConverterView: View {
                         #if os(iOS)
                         Label("بستن", systemImage: "xmark.circle.fill")
                             .symbolRenderingMode(.hierarchical)
+                        #elseif os(visionOS)
+                        Label("بستن", systemImage: "xmark")
+                            .symbolRenderingMode(.hierarchical)
                         #elseif os(macOS)
                         Text("بستن")
                         #endif
                     }
+                    #if os(iOS) || os(macOS)
                     .buttonStyle(.plain)
+                    #endif
                 }
             }
         }

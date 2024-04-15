@@ -27,7 +27,7 @@
 		C6167BED2A32494400AC66B4 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6167BEC2A32494400AC66B4 /* WidgetBundle.swift */; };
 		C6167BEF2A32494400AC66B4 /* TodayWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6167BEE2A32494400AC66B4 /* TodayWidget.swift */; };
 		C6167BF12A32494500AC66B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6167BF02A32494500AC66B4 /* Assets.xcassets */; };
-		C6167BF62A32494500AC66B4 /* JalaliCalendarWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6167BE52A32494400AC66B4 /* JalaliCalendarWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C6167BF62A32494500AC66B4 /* JalaliCalendarWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C6167BE52A32494400AC66B4 /* JalaliCalendarWidget.appex */; platformFilters = (ios, macos, ); settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C61877D32A852B4E00F60035 /* CircularProgressCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61877D22A852B4E00F60035 /* CircularProgressCalendarView.swift */; };
 		C64C60CE2A334BFC00004EC7 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60CC2A334BFC00004EC7 /* MonthView.swift */; };
 		C64C60CF2A334BFC00004EC7 /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64C60CD2A334BFC00004EC7 /* WeekView.swift */; };
@@ -529,6 +529,10 @@
 /* Begin PBXTargetDependency section */
 		C6167BF52A32494500AC66B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilters = (
+				ios,
+				macos,
+			);
 			target = C6167BE42A32494400AC66B4 /* CalendarWidgetExtension */;
 			targetProxy = C6167BF42A32494500AC66B4 /* PBXContainerItemProxy */;
 		};
@@ -688,10 +692,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -730,10 +735,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

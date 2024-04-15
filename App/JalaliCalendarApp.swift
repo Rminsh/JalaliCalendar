@@ -18,5 +18,8 @@ struct JalaliCalendarApp: App {
         .windowToolbarStyle(.unified)
         .defaultSize(width: 500, height: 700)
         #endif
+        #if os(visionOS)
+        .defaultSize(width: 600, height: 850)
+        #endif
     }
 }
