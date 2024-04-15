@@ -159,7 +159,7 @@ extension HomeView: View {
     // MARK: - Current date's Weekday
     var currentWeekdayText: some View {
         Text(selectedDate, format: persianDate.weekday(.wide))
-            .customFont(style: .largeTitle, weight: .bold)
+            .customFont(style: .largeTitle, weight: .black)
             .foregroundStyle(.primary)
             .environment(\.locale, .init(identifier: "fa"))
     }
@@ -168,12 +168,22 @@ extension HomeView: View {
     var currentDateText: some View {
         VStack {
             Text(selectedDate, format: persianDate.year().month().day())
+                #if os(visionOS)
+                .customFont(style: .largeTitle, weight: .bold)
+                .foregroundStyle(.primary)
+                #else
                 .customFont(style: .title1, weight: .bold)
                 .foregroundStyle(.accent)
+                #endif
             
             Text(selectedDate, format: .dateTime.year().month().day())
+                #if os(visionOS)
+                .customFont(style: .title3, weight: .light)
+                .foregroundStyle(.secondary)
+                #else
                 .customFont(style: .title3, weight: .light)
                 .foregroundStyle(.accent.opacity(0.85))
+                #endif
         }
         .environment(\.locale, .init(identifier: "fa"))
     }
