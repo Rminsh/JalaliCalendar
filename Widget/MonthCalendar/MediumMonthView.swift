@@ -19,7 +19,7 @@ struct MediumMonthView: View {
     }
     
     var nextMonth: Date {
-        Calendar.current.date(byAdding: .month, value: 1, to: date) ?? date
+        calendar.date(byAdding: .month, value: 1, to: date) ?? date
     }
     
     var body: some View {
