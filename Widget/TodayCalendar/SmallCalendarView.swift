@@ -133,7 +133,7 @@ struct SmallCalendarContentView: View {
                 weight: .bold
             ))
             .foregroundStyle(.accent)
-            
+            .widgetAccentable()
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)

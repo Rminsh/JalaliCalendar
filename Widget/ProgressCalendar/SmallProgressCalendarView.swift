@@ -108,6 +108,7 @@ struct SmallProgressCalendarContentView: View {
                 weight: .bold
             ))
             .foregroundStyle(.accent)
+            .widgetAccentable()
             .lineLimit(1)
             .minimumScaleFactor(0.65)
             .dynamicTypeSize(.xSmall)
@@ -132,6 +133,7 @@ struct SmallProgressCalendarContentView: View {
                 .foregroundStyle(.text)
         }
         .tint(.accent)
+        .widgetAccentable()
     }
     
     // MARK: - Month's Progress
@@ -142,6 +144,7 @@ struct SmallProgressCalendarContentView: View {
                 .foregroundStyle(.text)
         }
         .tint(.accent)
+        .widgetAccentable()
     }
 }
 

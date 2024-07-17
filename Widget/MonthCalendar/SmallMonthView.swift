@@ -48,6 +48,7 @@ struct SmallMonthView: View {
                 ))
                 #endif
                 .foregroundStyle(.accent)
+                .widgetAccentable()
                 .dynamicTypeSize(.xSmall ... .xLarge)
                 .id(date.formatted(.dateTime.month()))
                 .transition(.push(from: .top))
@@ -68,25 +69,18 @@ struct SmallMonthView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 2)
             } content: { dateItem in
+                let isToday: Bool = dateItem.checkIsToday(date: date)
                 textDate(dateItem)
-                    .foregroundStyle(
-                        showsWidgetBackground ?
-                        (dateItem.checkIsToday(date: date) ? .white : dateItem.isSaturday() ? .secondary : .primary) :
-                        (dateItem.checkIsToday(date: date) ? .clear : dateItem.isSaturday() ? .secondary : .primary)
-                    )
-                    .background(
+                    .foregroundStyle(isToday ? .clear : dateItem.isSaturday() ? .secondary : .primary)
+                    .background {
                         Circle()
-                            .fill(
-                                dateItem.checkIsToday(date: date) ?
-                                Color.accent:
-                                    Color.clear
-                            )
+                            .fill(isToday ? Color.accent: Color.clear)
+                            .widgetAccentable()
                             .reverseMask {
-                                if !showsWidgetBackground {
-                                    textDate(dateItem)
-                                }
+                                textDate(dateItem)
                             }
-                    )
+                            .padding(-2)
+                    }
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

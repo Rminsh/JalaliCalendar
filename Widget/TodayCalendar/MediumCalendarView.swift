@@ -52,30 +52,36 @@ struct MediumCalendarView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.bottom, 2)
             } content: { dateItem in
-                Text(dateItem, format: formatter.day())
-                    .font(.customFont(style: .caption2))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.9)
-                    .dynamicTypeSize(.xSmall)
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 2)
-                    .foregroundStyle(
-                        dateItem.checkIsToday(date: date) ?
-                        .white :
-                        dateItem.isSaturday() ? .secondary : .primary
-                    )
+                let isToday: Bool = dateItem.checkIsToday(date: date)
+                textDate(dateItem)
+                    .foregroundStyle(isToday ? .clear : dateItem.isSaturday() ? .secondary : .primary)
                     .background {
                         Circle()
-                            .fill(
-                                dateItem.checkIsToday(date: date) ?
-                                Color("AccentColor") :
-                                Color.clear
-                            )
+                            .fill(isToday ? Color.accent: Color.clear)
+                            .widgetAccentable()
+                            .reverseMask {
+                                textDate(dateItem)
+                            }
+                            .padding(-2)
                     }
             }
         }
         .environment(\.layoutDirection, .rightToLeft)
         .environment(\.calendar, .persianCalendar)
+    }
+    
+    @ViewBuilder
+    func textDate(_ date: Date) -> some View {
+        Text(date, format: formatter.day())
+            #if os(macOS)
+            .font(.customFont(style: .callout))
+            #else
+            .font(.customFont(style: .caption2))
+            #endif
+            .lineLimit(1)
+            .minimumScaleFactor(0.9)
+            .dynamicTypeSize(.xSmall)
+            .frame(maxWidth: .infinity)
     }
 }
 
