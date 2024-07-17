@@ -13,28 +13,26 @@ public typealias UXFont = NSFont
 public typealias UXFont = UIFont
 #endif
 
-struct CustomFont: ViewModifier {
-    @Environment(\.sizeCategory) var sizeCategory
-
-    var name: String
-    var style: UXFont.TextStyle
-    var weight: Font.Weight = .regular
-
-    func body(content: Content) -> some View {
-        return content
-            .font(
-                .custom(name, size: UXFont.preferredFont(forTextStyle: style).pointSize)
-                .weight(weight)
-            )
+extension UXFont {
+    static func custom(name: String = "Shabnam", style: UXFont.TextStyle) -> UXFont {
+        return UXFont(
+            name: name,
+            size: UXFont.preferredFont(forTextStyle: style).pointSize
+        )!
     }
 }
 
-extension View {
-    func customFont(
+extension Font {
+    static func customFont(
         name: String = "Shabnam",
         style: UXFont.TextStyle,
         weight: Font.Weight = .regular
-    ) -> some View {
-        return self.modifier(CustomFont(name: name, style: style, weight: weight))
+    ) -> Font {
+        return Font
+            .custom(
+                name,
+                size: UXFont.preferredFont(forTextStyle: style).pointSize
+            )
+            .weight(weight)
     }
 }

@@ -44,7 +44,7 @@ struct MediumCalendarView: View {
             // MARK: - Calendar Month View
             MonthView(month: date) { weekday in
                 Text(weekday)
-                    .customFont(style: .caption2)
+                    .font(.customFont(style: .caption2))
                     .foregroundStyle(weekday == "ج" ? .secondary : .primary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.9)
@@ -53,7 +53,7 @@ struct MediumCalendarView: View {
                     .padding(.bottom, 2)
             } content: { dateItem in
                 Text(dateItem, format: formatter.day())
-                    .customFont(style: .caption2)
+                    .font(.customFont(style: .caption2))
                     .lineLimit(1)
                     .minimumScaleFactor(0.9)
                     .dynamicTypeSize(.xSmall)

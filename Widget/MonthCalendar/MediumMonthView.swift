@@ -50,7 +50,11 @@ struct MediumMonthView: View {
         VStack(alignment: .leading, spacing: 5) {
             // MARK: - Calendar Month Title
             Text(month, format: formatter.month())
-                .customFont(style: .caption1, weight: .bold)
+                #if os(macOS)
+                .font(.customFont(style: .headline, weight: .bold))
+                #else
+                .font(.customFont(style: .caption1, weight: .bold))
+                #endif
                 .foregroundStyle(.accent)
                 .dynamicTypeSize(.xSmall ... .xLarge)
                 .id(date.formatted(.dateTime.month()))
@@ -60,7 +64,11 @@ struct MediumMonthView: View {
             // MARK: - Calendar Month days
             MonthView(month: month) { weekday in
                 Text(weekday)
-                    .customFont(style: .caption2)
+                    #if os(macOS)
+                    .font(.customFont(style: .callout))
+                    #else
+                    .font(.customFont(style: .caption2))
+                    #endif
                     .foregroundStyle(weekday == "ج" ? .secondary : .primary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.9)
@@ -69,7 +77,11 @@ struct MediumMonthView: View {
                     .padding(.bottom, 2)
             } content: { dateItem in
                 Text(dateItem, format: formatter.day())
-                    .customFont(style: .caption2)
+                    #if os(macOS)
+                    .font(.customFont(style: .callout))
+                    #else
+                    .font(.customFont(style: .caption2))
+                    #endif
                     .lineLimit(1)
                     .minimumScaleFactor(0.9)
                     .dynamicTypeSize(.xSmall)

@@ -159,7 +159,7 @@ extension HomeView: View {
     // MARK: - Current date's Weekday
     var currentWeekdayText: some View {
         Text(selectedDate, format: persianDate.weekday(.wide))
-            .customFont(style: .largeTitle, weight: .black)
+            .font(.customFont(style: .largeTitle, weight: .black))
             .foregroundStyle(.primary)
             .environment(\.locale, .init(identifier: "fa"))
     }
@@ -169,19 +169,19 @@ extension HomeView: View {
         VStack {
             Text(selectedDate, format: persianDate.year().month().day())
                 #if os(visionOS)
-                .customFont(style: .largeTitle, weight: .bold)
+                .font(.customFont(style: .largeTitle, weight: .bold))
                 .foregroundStyle(.primary)
                 #else
-                .customFont(style: .title1, weight: .bold)
+                .font(.customFont(style: .title1, weight: .bold))
                 .foregroundStyle(.accent)
                 #endif
             
             Text(selectedDate, format: .dateTime.year().month().day())
                 #if os(visionOS)
-                .customFont(style: .title3, weight: .light)
+                .font(.customFont(style: .title3, weight: .light))
                 .foregroundStyle(.secondary)
                 #else
-                .customFont(style: .title3, weight: .light)
+                .font(.customFont(style: .title3, weight: .light))
                 .foregroundStyle(.accent.opacity(0.85))
                 #endif
         }
@@ -194,7 +194,7 @@ extension HomeView: View {
             moveDate(to: selectedDate.adding(.month, value: -1))
         } label: {
             Label("ماه قبل", systemImage: "chevron.compact.right")
-                .customFont(style: .title1)
+                .font(.customFont(style: .title1))
                 .labelStyle(.iconOnly)
         }
         .buttonStyle(.borderless)
@@ -207,7 +207,7 @@ extension HomeView: View {
             moveDate(to: selectedDate.adding(.month, value: 1))
         } label: {
             Label("ماه بعد", systemImage: "chevron.compact.left")
-                .customFont(style: .title1)
+                .font(.customFont(style: .title1))
                 .labelStyle(.iconOnly)
         }
         .buttonStyle(.borderless)
@@ -218,7 +218,7 @@ extension HomeView: View {
     var yearProgress: some View {
         Gauge(value: selectedDate.daysPassedInYear()) {
             Text("سال")
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         } currentValueLabel: {
             Text("\(String(format: "%.0f%%", selectedDate.daysPassedInYear() * 100))")
@@ -231,7 +231,7 @@ extension HomeView: View {
     var monthProgress: some View {
         Gauge(value: selectedDate.daysPassedInMonth()) {
             Text("ماه")
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         } currentValueLabel: {
             Text("\(String(format: "%.0f%%", selectedDate.daysPassedInMonth() * 100))")
@@ -244,7 +244,7 @@ extension HomeView: View {
     var calendarView: some View {
         MonthView(month: selectedDate) { weekday in
             Text(weekday)
-                .customFont(style: .callout)
+                .font(.customFont(style: .callout))
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity)
                 .padding(.bottom, 12)
@@ -254,12 +254,12 @@ extension HomeView: View {
             
             VStack {
                 Text(date, format: persianDate.day())
-                    .customFont(style: .headline)
+                    .font(.customFont(style: .headline))
                     .dynamicTypeSize(.xSmall ... .medium)
                     .environment(\.locale, .init(identifier: "fa"))
                 
                 Text(date, format: .dateTime.day())
-                    .customFont(style: .caption2)
+                    .font(.customFont(style: .caption2))
                     .dynamicTypeSize(.xSmall)
                     .environment(\.locale, .init(identifier: "en_US"))
             }
@@ -292,7 +292,7 @@ extension HomeView: View {
     var eventsList: some View {
         VStack {
             Text(!currentDateEvents.isEmpty ? "مناسبت‌های این روز" : "")
-                .customFont(style: .body)
+                .font(.customFont(style: .body))
                 .foregroundStyle(.text)
                 .multilineTextAlignment(.trailing)
                 .animation(.interactiveSpring(), value: selectedDate)
@@ -300,7 +300,7 @@ extension HomeView: View {
             LazyVStack(alignment: .center) {
                 ForEach(currentDateEvents, id: \.self) { item in
                     Text(item.title)
-                        .customFont(style: .body, weight: .light)
+                        .font(.customFont(style: .body, weight: .light))
                         .multilineTextAlignment(.leading)
                         .padding()
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -343,7 +343,7 @@ extension HomeView: View {
     var resetDate: some View {
         Button(action: {moveDate(to: Date(), showReset: false)}) {
             Label("برو به امروز", systemImage: "arrow.uturn.left")
-                .customFont(style: .body)
+                .font(.customFont(style: .body))
         }
         .disabled(!showReset)
     }
@@ -352,7 +352,7 @@ extension HomeView: View {
     var convertDateButton: some View {
         Button(action: {showDateConverter.toggle()}) {
             Label("تبدیل تاریخ", systemImage: "clock.arrow.2.circlepath")
-                .customFont(style: .body)
+                .font(.customFont(style: .body))
         }
     }
 }

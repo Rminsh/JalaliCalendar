@@ -47,15 +47,15 @@ struct RectangularProgressCalendarView: View {
         VStack {
             HStack(spacing: 4) {
                 Text(date, format: formatter.day())
-                    .customFont(style: .title3, weight: .bold)
+                    .font(.customFont(style: .title3, weight: .bold))
                     .contentTransition(.numericText())
                 Text(date, format: formatter.month())
-                    .customFont(style: .title3, weight: .bold)
+                    .font(.customFont(style: .title3, weight: .bold))
                     .id(date.formatted(.dateTime.month()))
                     .transition(.push(from: .bottom))
                     .animation(.smooth, value: date)
                 Text(date, format: formatter.year())
-                    .customFont(style: .title3)
+                    .font(.customFont(style: .title3))
                     .foregroundStyle(.secondary)
                     .id(date.formatted(.dateTime.year()))
                     .transition(.push(from: .bottom))
@@ -77,7 +77,7 @@ struct RectangularProgressCalendarView: View {
     var yearProgress: some View {
         Gauge(value: firstProgress) {
             Text(firstTitle)
-                .customFont(style: .caption1, weight: .light)
+                .font(.customFont(style: .caption1, weight: .light))
         }
         .gaugeStyle(.accessoryLinearCapacity)
     }
@@ -86,7 +86,7 @@ struct RectangularProgressCalendarView: View {
     var monthProgress: some View {
         Gauge(value: secondProgress) {
             Text(secondTitle)
-                .customFont(style: .caption1, weight: .light)
+                .font(.customFont(style: .caption1, weight: .light))
         }
         .gaugeStyle(.accessoryLinearCapacity)
     }

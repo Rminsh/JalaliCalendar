@@ -128,10 +128,10 @@ struct SmallCalendarContentView: View {
     
     var month: some View {
         Text(date, format: formatter.month())
-            .customFont(
+            .font(.customFont(
                 style: showsWidgetBackground ? .title1 : .largeTitle,
                 weight: .bold
-            )
+            ))
             .foregroundStyle(.accent)
             
             .lineLimit(1)
@@ -141,10 +141,10 @@ struct SmallCalendarContentView: View {
     
     var event: some View {
         Text(currentDateEvents.first?.title ?? "بدون مناسبت")
-            .customFont(
+            .font(.customFont(
                 style: .footnote,
                 weight: .light
-            )
+            ))
             .foregroundStyle(.text)
             .lineLimit(1)
             .minimumScaleFactor(0.65)
@@ -153,7 +153,7 @@ struct SmallCalendarContentView: View {
     
     var dayNumber: some View {
         Text(date, format: formatter.day())
-            .customFont(style: dayNumberFont, weight: .bold)
+            .font(.customFont(style: dayNumberFont, weight: .bold))
             .dynamicTypeSize(.large)
             .foregroundStyle(.text)
     }
@@ -162,7 +162,7 @@ struct SmallCalendarContentView: View {
     var yearProgress: some View {
         Gauge(value: firstProgress) {
             Text(firstTitle)
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         }
         .tint(.accent)
@@ -173,7 +173,7 @@ struct SmallCalendarContentView: View {
     var monthProgress: some View {
         Gauge(value: secondProgress) {
             Text(secondTitle)
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         }
         .tint(.accent)

@@ -35,7 +35,7 @@ struct RectangularMonthView: View {
     var content: some View {
         MonthView(month: date, onlySummary: true) { weekday in
             Text(weekday)
-                .customFont(style: .caption2, weight: .bold)
+                .font(.customFont(style: .caption2, weight: .bold))
                 .foregroundStyle(weekday == "ج" ? .secondary : .primary)
                 .lineLimit(1)
                 .dynamicTypeSize(.xSmall)
@@ -72,7 +72,7 @@ struct RectangularMonthView: View {
     @ViewBuilder
     func textDate(_ date: Date) -> some View {
         Text(date, format: formatter.day())
-            .customFont(style: .footnote, weight: .bold)
+            .font(.customFont(style: .footnote, weight: .bold))
             .lineLimit(1)
             .minimumScaleFactor(0.8)
             .dynamicTypeSize(.xSmall)

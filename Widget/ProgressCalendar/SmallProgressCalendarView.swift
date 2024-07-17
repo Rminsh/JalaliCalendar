@@ -88,10 +88,10 @@ struct SmallProgressCalendarContentView: View {
     
     var month: some View {
         Text(date, format: formatter.month())
-            .customFont(
+            .font(.customFont(
                 style: showsWidgetBackground ? .title3 : .title2,
                 weight: .bold
-            )
+            ))
             .foregroundStyle(.secondary)
             .lineLimit(1)
             .minimumScaleFactor(0.65)
@@ -103,10 +103,10 @@ struct SmallProgressCalendarContentView: View {
     
     var weekday: some View {
         Text(date, format: formatter.weekday())
-            .customFont(
+            .font(.customFont(
                 style: showsWidgetBackground ? .title3 : .title2,
                 weight: .bold
-            )
+            ))
             .foregroundStyle(.accent)
             .lineLimit(1)
             .minimumScaleFactor(0.65)
@@ -128,7 +128,7 @@ struct SmallProgressCalendarContentView: View {
     var yearProgress: some View {
         Gauge(value: firstProgress) {
             Text(firstTitle)
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         }
         .tint(.accent)
@@ -138,7 +138,7 @@ struct SmallProgressCalendarContentView: View {
     var monthProgress: some View {
         Gauge(value: secondProgress) {
             Text(secondTitle)
-                .customFont(style: .callout, weight: .light)
+                .font(.customFont(style: .callout, weight: .light))
                 .foregroundStyle(.text)
         }
         .tint(.accent)

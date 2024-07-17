@@ -35,11 +35,11 @@ struct CircularCalendarView: View {
             AccessoryWidgetBackground()
             VStack(spacing: 0) {
                 Text(date, format: formatter.day())
-                    .customFont(style: .title1, weight: .bold)
+                    .font(.customFont(style: .title1, weight: .bold))
                     .contentTransition(.numericText())
                 
                 Text(date, format: formatter.month())
-                    .customFont(style: .callout, weight: .medium)
+                    .font(.customFont(style: .callout, weight: .medium))
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity)

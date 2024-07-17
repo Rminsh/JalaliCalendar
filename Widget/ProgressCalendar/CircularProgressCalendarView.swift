@@ -44,11 +44,11 @@ struct CircularProgressCalendarView: View {
             
             VStack(spacing: 2) {
                 Text(date, format: formatter.day())
-                    .customFont(style: .title2, weight: .bold)
+                    .font(.customFont(style: .title2, weight: .bold))
                     .contentTransition(.numericText())
                 
                 Text(date, format: formatter.month())
-                    .customFont(style: .caption1, weight: .medium)
+                    .font(.customFont(style: .caption1, weight: .medium))
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity)

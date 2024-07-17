@@ -36,10 +36,17 @@ struct SmallMonthView: View {
         VStack(alignment: .leading, spacing: 5) {
             // MARK: - Calendar Month Title
             Text(date, format: formatter.month())
-                .customFont(
+                #if os(macOS)
+                .font(.customFont(
+                    style: showsWidgetBackground ? .headline : .body,
+                    weight: .bold
+                ))
+                #else
+                .font(.customFont(
                     style: showsWidgetBackground ? .caption1 : .body,
                     weight: .bold
-                )
+                ))
+                #endif
                 .foregroundStyle(.accent)
                 .dynamicTypeSize(.xSmall ... .xLarge)
                 .id(date.formatted(.dateTime.month()))
@@ -49,7 +56,11 @@ struct SmallMonthView: View {
             // MARK: - Calendar Month days
             MonthView(month: date) { weekday in
                 Text(weekday)
-                    .customFont(style: .caption2)
+                    #if os(macOS)
+                    .font(.customFont(style: .callout))
+                    #else
+                    .font(.customFont(style: .caption2))
+                    #endif
                     .foregroundStyle(weekday == "ج" ? .secondary : .primary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.9)
@@ -86,7 +97,11 @@ struct SmallMonthView: View {
     @ViewBuilder
     func textDate(_ date: Date) -> some View {
         Text(date, format: formatter.day())
-            .customFont(style: .caption2)
+            #if os(macOS)
+            .font(.customFont(style: .callout))
+            #else
+            .font(.customFont(style: .caption2))
+            #endif
             .lineLimit(1)
             .minimumScaleFactor(0.9)
             .dynamicTypeSize(.xSmall)

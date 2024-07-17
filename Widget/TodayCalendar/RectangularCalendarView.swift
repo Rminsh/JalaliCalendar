@@ -68,7 +68,7 @@ struct RectangularCalendarView: View {
             VStack(alignment: .leading) {
                 HStack(spacing: 3) {
                     Text(date, format: formatter.weekday())
-                        .customFont(style: .body, weight: .bold)
+                        .font(.customFont(style: .body, weight: .bold))
                         .minimumScaleFactor(0.7)
                         .lineLimit(1)
                         .id(date.formatted(.dateTime.weekday()))
@@ -77,13 +77,13 @@ struct RectangularCalendarView: View {
                         
                     
                     Text(date, format: formatter.day())
-                        .customFont(style: .body, weight: .bold)
+                        .font(.customFont(style: .body, weight: .bold))
                         .minimumScaleFactor(0.7)
                         .lineLimit(1)
                         .contentTransition(.numericText())
                     
                     Text(date, format: formatter.month())
-                        .customFont(style: .body, weight: .bold)
+                        .font(.customFont(style: .body, weight: .bold))
                         .minimumScaleFactor(0.7)
                         .lineLimit(1)
                         .id(date.formatted(.dateTime.month()))
@@ -93,7 +93,7 @@ struct RectangularCalendarView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(currentDateEvents.first?.title ?? "بدون مناسبت")
-                    .customFont(style: .body, weight: .light)
+                    .font(.customFont(style: .body, weight: .light))
                     .id(currentDateEvents.first?.day)
                     .transition(.push(from: .bottom))
                     .animation(.smooth, value: currentDateEvents.first?.day)
@@ -106,7 +106,7 @@ struct RectangularCalendarView: View {
     var yearProgress: some View {
         Gauge(value: firstProgress) {
             Text(firstTitle)
-                .customFont(style: .caption1, weight: .light)
+                .font(.customFont(style: .caption1, weight: .light))
         }
         .gaugeStyle(.accessoryLinearCapacity)
     }
@@ -115,7 +115,7 @@ struct RectangularCalendarView: View {
     var monthProgress: some View {
         Gauge(value: secondProgress) {
             Text(secondTitle)
-                .customFont(style: .caption1, weight: .light)
+                .font(.customFont(style: .caption1, weight: .light))
         }
         .gaugeStyle(.accessoryLinearCapacity)
     }
