@@ -162,6 +162,7 @@ extension HomeView: View {
             .font(.customFont(style: .largeTitle, weight: .black))
             .foregroundStyle(.primary)
             .environment(\.locale, .init(identifier: "fa"))
+            .contentTransition(.opacity)
     }
     
     // MARK: - Current date's Full date
@@ -175,6 +176,7 @@ extension HomeView: View {
                 .font(.customFont(style: .title1, weight: .bold))
                 .foregroundStyle(.accent)
                 #endif
+                .contentTransition(.numericText())
             
             Text(selectedDate, format: .dateTime.year().month().day())
                 #if os(visionOS)
@@ -184,6 +186,7 @@ extension HomeView: View {
                 .font(.customFont(style: .title3, weight: .light))
                 .foregroundStyle(.accent.opacity(0.85))
                 #endif
+                .contentTransition(.numericText())
         }
         .environment(\.locale, .init(identifier: "fa"))
     }
