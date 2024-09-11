@@ -8,7 +8,6 @@
 import SwiftUI
 import WidgetKit
 
-@available(iOSApplicationExtension, introduced: 16.0)
 struct CircularCalendarView: View {
     
     var date: Date

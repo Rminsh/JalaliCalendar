@@ -8,7 +8,6 @@
 import SwiftUI
 import WidgetKit
 
-@available(iOS, introduced: 16.0)
 struct RectangularCalendarView: View {
     
     var date: Date
