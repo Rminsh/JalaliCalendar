@@ -14,9 +14,7 @@ struct HomeView {
     @State private var showDateConverter: Bool = false
     
     @Environment(\.scenePhase) var scenePhase
-    #if canImport(UIKit)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    #endif
     
     var persianDate: Date.FormatStyle {
         Date.FormatStyle(calendar: .persianCalendar)
@@ -129,9 +127,6 @@ extension HomeView: View {
             }
             .padding(.vertical)
         }
-        #if os(iOS)
-        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
-        #endif
         .toolbar {
             ToolbarItem(placement: .navigation) {
                 resetDate
@@ -142,15 +137,9 @@ extension HomeView: View {
             }
             #endif
         }
-        #if os(visionOS)
         .onChange(of: scenePhase) {
             selectedDate = Date()
         }
-        #else
-        .onChange(of: scenePhase) { _ in
-            selectedDate = Date()
-        }
-        #endif
         .sheet(isPresented: $showDateConverter) {
             DateConverterView()
         }
@@ -177,6 +166,7 @@ extension HomeView: View {
                 .foregroundStyle(.accent)
                 #endif
                 .contentTransition(.numericText())
+                .environment(\.calendar, .persianCalendar)
             
             Text(selectedDate, format: .dateTime.year().month().day())
                 #if os(visionOS)
