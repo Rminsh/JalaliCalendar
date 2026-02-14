@@ -4,7 +4,7 @@
 <h1 align="center">Jalali Calendar</h1>
 
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-black?logo=swift)
-![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2016.0+%20|%20macOS%2013.0|%20visionOS%201.0-white?logo=apple)
+![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2026.0+%20|%20macOS%2026.0|%20visionOS%2026.0-white?logo=apple)
 ![Xcode version](https://img.shields.io/badge/Xcode%2015+-black?logo=xcode)
 ![License](https://img.shields.io/github/license/rminsh/JalaliCalendar)
 
@@ -54,5 +54,5 @@ Feel free to Fork, edit, then pull!
 
 ### 📝 Copyright Notice
 
-Copyright (C) 2024 Aseman
+Copyright (C) 2026 Aseman
 Licensed under the [GNU Version 3](https://www.gnu.org/licenses/gpl-3.0.en.html) license (see the LICENSE file).
